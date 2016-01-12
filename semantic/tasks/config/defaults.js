@@ -105,7 +105,7 @@ module.exports = {
     'visibility'
   ],
 
-  // whether to load admin tasks
+  // whether to load AdminLTE tasks
   admin: false,
 
   // globs used for matching file patterns

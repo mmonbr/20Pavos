@@ -14,120 +14,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.7/css/swiper.min.css">
 </head>
 <body>
 
-<header class="ui borderless doubling top large stackable menu">
-    <div class="ui container">
-
-        <div class="ui dropdown item">
-            <i class="big sidebar icon"></i>
-            Categorías
-            <div class="menu">
-                <a class="item">Novedades</a>
-                <a class="item">Menos de 20€</a>
-                <a class="item">Para él</a>
-                <a class="item">Para ella</a>
-            </div>
-        </div>
-
-        <div class="right menu">
-            <div class="item">
-                <div class="ui category search">
-                    <div class="ui icon input">
-                        <input class="prompt" type="text" placeholder="¿Qué buscas?">
-                        <i class="search icon"></i>
-                    </div>
-                    <div class="results"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</header>
+@include('layouts.partials._header')
 
 <div class="ui container">
-    <div class="ui stackable three column grid">
-        <div class="column">
-            <div class="ui fluid card">
-                <div class="image">
-                    <img src="http://placehold.it/800x800">
-                </div>
-                <div class="content">
-                    <div class="header">Drone RC irrompible</div>
-                    <div class="meta">
-                        700 <i class="euro icon"></i>
-                    </div>
-                    <div class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cum, deleniti deserunt dolorem
-                        earum eum illum maxime minus molestiae neque nostrum praesentium provident quasi qui ratione
-                        repellat repudiandae sunt? Ducimus!
-                    </div>
-                </div>
-                <div class="ui bottom attached button">
-                    <i class="shop icon"></i>
-                    ¡Lo quiero!
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="ui fluid card">
-                <div class="image">
-                    <img src="http://placehold.it/800x800">
-                </div>
-                <div class="content">
-                    <div class="header">Drone RC irrompible</div>
-                    <div class="meta">
-                        700 <i class="euro icon"></i>
-                    </div>
-                    <div class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cum, deleniti deserunt dolorem
-                        earum eum illum maxime minus molestiae neque nostrum praesentium provident quasi qui ratione
-                        repellat repudiandae sunt? Ducimus!
-                    </div>
-                </div>
-                <div class="ui bottom attached button">
-                    <i class="shop icon"></i>
-                    ¡Lo quiero!
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="ui fluid card">
-                <div class="image">
-                    <img src="http://placehold.it/800x800">
-                </div>
-                <div class="content">
-                    <div class="header">Drone RC irrompible</div>
-                    <div class="meta">
-                        700 <i class="euro icon"></i>
-                    </div>
-                    <div class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cum, deleniti deserunt dolorem
-                        earum eum illum maxime minus molestiae neque nostrum praesentium provident quasi qui ratione
-                        repellat repudiandae sunt? Ducimus!
-                    </div>
-                </div>
-                <div class="ui bottom attached button">
-                    <i class="shop icon"></i>
-                    ¡Lo quiero!
-                </div>
-            </div>
-        </div>
-    </div>
+    @yield('content')
 </div>
 
 <!-- JavaScripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="{{ asset('js/all.min.js') }}"></script>
-<script>
-    $('.dropdown')
-            .dropdown({
-                on: 'hover'
-            })
-    ;
-</script>
 
 </body>
 </html>

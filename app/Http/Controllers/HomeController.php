@@ -3,27 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function popular()
     {
-        $this->middleware('auth');
-    }
+        $products = Product::popular();
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        return view('home');
+        return view('products.all', compact('products'));
     }
 }

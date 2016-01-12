@@ -1,37 +1,37 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Routes File
-|--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
-
-Route::group(['middleware' => ['web']], function () {
-    //
-});
-
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/', ['as' => 'home', 'uses' => 'ProductsController@index']);
+
+    Route::resource('productos', 'ProductsController');
+    Route::get('populares', ['as' => 'products.popular', 'uses' => 'HomeController@popular']);
+
+    Route::resource('categorias', 'CategoriesController');
+
+    //Buscador
+    Route::get('buscar', ['as' => 'search', 'uses' => 'SearchController@search']);
+
+    /*Route::get('amazon/{asin}', function ($asin) {
+        $conf = new GenericConfiguration();
+        $conf
+            ->setCountry('es')
+            ->setAccessKey('AKIAJTD5OUJLBJ6VF3AQ')
+            ->setSecretKey('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')
+            ->setRequest('\ApaiIO\Request\Soap\Request')
+            ->setAssociateTag('derrochand0cc-21');
+
+        $apaiIO = new ApaiIO($conf);
+        $lookup = new Lookup();
+        $lookup->setItemId('B00JKFGSE8');
+        $lookup->setCondition('New');
+        $lookup->setResponseGroup(array('Large'));
+
+        // Change the ResponseTransformer to DOMDocument.
+        $conf->setResponseTransformer('\ApaiIO\ResponseTransformer\ObjectToArray');
+        $formattedResponse = $apaiIO->runOperation($lookup);
+
+        return dd($formattedResponse);
+    });*/
 });

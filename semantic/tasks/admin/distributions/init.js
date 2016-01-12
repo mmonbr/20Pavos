@@ -24,15 +24,15 @@ var
   githubAPI = require('github'),
   mkdirp    = require('mkdirp'),
 
-  // admin files
-  github    = require('../../config/admin/github.js'),
-  release   = require('../../config/admin/release'),
+  // AdminLTE files
+  github    = require('../../config/AdminLTE/github.js'),
+  release   = require('../../config/AdminLTE/release'),
   project   = require('../../config/project/release'),
 
 
   // oAuth configuration for GitHub
-  oAuth     = fs.existsSync(__dirname + '/../../config/admin/oauth.js')
-    ? require('../../config/admin/oauth')
+  oAuth     = fs.existsSync(__dirname + '/../../config/AdminLTE/oauth.js')
+    ? require('../../config/AdminLTE/oauth')
     : false,
 
   // shorthand
@@ -50,7 +50,7 @@ module.exports = function(callback) {
   ;
 
   if(!oAuth) {
-    console.error('Must add oauth token for GitHub in tasks/config/admin/oauth.js');
+    console.error('Must add oauth token for GitHub in tasks/config/AdminLTE/oauth.js');
     return;
   }
 

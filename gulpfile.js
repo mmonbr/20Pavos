@@ -12,13 +12,18 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function (mix) {
+
+    /*
+    * FRONTEND
+     */
+
     //Semantic UI
     mix.copy('semantic/dist/semantic.css', 'public/css/semantic.css')
         .copy('semantic/dist/semantic.js', 'public/js/semantic.js')
         .copy('semantic/dist/themes', 'public/css/themes');
 
     //JS
-    //mix.browserify('app.js');
+    mix.browserify('app.js');
 
     //Styles
     mix.styles([
@@ -29,16 +34,12 @@ elixir(function (mix) {
 
     //Scripts
     mix.scripts([
-     //'lib/jquery-2.1.4.min.js',
-     //'lib/sweetalert.min.js',
+     'lib/jquery-2.2.0.min.js',
+     'lib/jquery-ias.min.js',
+     'lib/swiper.min.js',
      'semantic.js',
-     //'app.js'
+     'app.js'
      ], './public/js/all.min.js', './public/js');
-
-    //Sync
-    /*mix.browserSync({
-     proxy: '20Pavos.app:8000'
-     });*/
 });
 
 /*
