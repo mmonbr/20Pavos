@@ -27,8 +27,9 @@ elixir(function (mix) {
 
     //Styles
     mix.styles([
-     //'lib/sweetalert.css',
-     'semantic.css',
+     'lib/swiper.min.css',
+     'lib/nouislider.min.css',
+     'semantic.css'
      //'app.css'
      ], './public/css/all.min.css', './public/css');
 
@@ -37,6 +38,7 @@ elixir(function (mix) {
      'lib/jquery-2.2.0.min.js',
      'lib/jquery-ias.min.js',
      'lib/swiper.min.js',
+     'lib/nouislider.min.js',
      'semantic.js',
      'app.js'
      ], './public/js/all.min.js', './public/js');

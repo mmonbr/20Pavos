@@ -1,14 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="ui two column stackable grid">
+    <div class="ui two column doubling stackable grid">
         <div class="four wide column">
-            <div class="ui large vertical menu">
+            <div class="ui large fluid vertical menu">
+                <div class="item">
+                    @include('layouts.partials._search', ['fluid' => true, 'placeholder' => 'breaking bad, star wars...'])
+                </div>
                 @foreach(\App\Category::all()->toTree() as $treeItem)
                     {!! renderNode($treeItem, $category) !!}
                 @endforeach
                 <div class="item">
-                    @include('layouts.partials._search', ['fluid' => true, 'placeholder' => 'breaking bad, star wars...'])
+                    <i class="grid filter icon"></i> Filtrar por precio
+                    <div id="PriceSlider">
+                        <div class="PriceSlider__container"></div>
+                        <span class="PriceSlider__minimum">
+                            0€
+                        </span>
+                        <span class="PriceSlider__current"></span>
+                    </div>
                 </div>
             </div>
         </div>

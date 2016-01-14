@@ -47,6 +47,31 @@
 }
 
 /*
+* PRICE SLIDER
+*/
+
+#PriceSlider {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.PriceSlider__container {
+    margin-bottom: 15px;
+}
+
+.PriceSlider__current {
+    position: absolute;
+    right: 15px;
+    font-weight: bold;
+}
+
+.PriceSlider__minimum {
+    position: absolute;
+    left: 15px;
+    font-weight: bold;
+}
+
+/*
 * Utility Classes
 */
 

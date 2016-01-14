@@ -2,7 +2,7 @@
 'use strict';
 
 /*
-* DROPDOWNS
+ * DROPDOWNS
  */
 
 $('.dropdown').dropdown({
@@ -35,6 +35,28 @@ ias.extension(new IASSpinnerExtension({
     src: '/img/loading_spinner.gif',
     html: '<img class="ui centered image" src="{src}"/>'
 }));
+
+/*
+ * Slider
+ */
+
+var slider = document.querySelector('.PriceSlider__container');
+
+noUiSlider.create(slider, {
+    start: [10],
+    step: 5,
+    range: {
+        'min': [0],
+        '95%': [180],
+        'max': [2000]
+    }
+});
+
+var priceSliderValue = document.querySelector('.PriceSlider__current');
+
+slider.noUiSlider.on('update', function (values, handle) {
+    priceSliderValue.innerHTML = values[handle] + '€';
+});
 
 },{}]},{},[1]);
 
