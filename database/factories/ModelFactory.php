@@ -23,6 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
 
     $asin_array = ['B005WU8WQW', 'B00TX5O8WE', 'B01427MW3O'];
+
     $images_array = [
         'http://www.thisiswhyimbroke.com/images/ball-cannon-300x250.jpg',
         'http://www.thisiswhyimbroke.com/images/amazing-galaxy-lollipops-300x250.jpg',
@@ -48,5 +49,12 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'hits'              => $faker->randomNumber(),
         'image_url'         => $images_array[array_rand($images_array)],
         'ASIN'              => $asin_array[array_rand($asin_array)],
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name'        => $faker->words(3, true),
+        'description' => $faker->sentence,
     ];
 });

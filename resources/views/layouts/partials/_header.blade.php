@@ -1,6 +1,6 @@
 <header class="ui borderless doubling top large stackable menu">
     <div class="ui container">
-        <a  href="{{ route('home') }}" class="item">
+        <a href="{{ route('home') }}" class="item">
             <img src="http://semantic-ui.com/images/logo.png">
         </a>
 
@@ -8,40 +8,31 @@
             <i class="big sidebar icon"></i>
             Categorías
             <div class="menu">
-                <a class="item">Novedades</a>
-                <a class="item">Menos de 20€</a>
-                <a class="item">Para él</a>
-                <a class="item">Para ella</a>
+                @foreach($categories as $category)
+                    <a href="{{ route('categorias.show' , [$category['slug']]) }}"
+                       class="item">{{ $category['name'] }}</a>
+                @endforeach
             </div>
         </div>
 
-        <a href="{{ route('products.popular') }}" class="item">
+        <a href="{{ route('home') }}?filtro=nuevos" class="item">
+            <i class="big announcement icon"></i>
+            Recientes
+        </a>
+
+        <a href="{{ route('home') }}?filtro=populares" class="item">
             <i class="big heart icon"></i>
             Populares
         </a>
 
-
-        <a href="#" class="item">
-            <i class="big announcement icon"></i>
-            Novedades
-        </a>
-
-        <a href="#" class="item">
+        <a href="{{ route('home') }}?filtro=baratos" class="item">
             <i class="big euro icon"></i>
             Baratos
         </a>
 
         <div class="right menu">
             <div class="item">
-                <div class="ui category search">
-                    <div class="ui icon input">
-                        <form method="GET" action="{{ route('search') }}">
-                            <input class="prompt" type="text" name="query" placeholder="¿Qué buscas?">
-                            <i class="search icon"></i>
-                        </form>
-                    </div>
-                    <div class="results"></div>
-                </div>
+                @include('layouts.partials._search', ['prompt' => true, 'placeholder' => '¿Buscas algo?'])
             </div>
         </div>
     </div>

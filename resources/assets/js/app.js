@@ -1,4 +1,14 @@
 /*
+* DROPDOWNS
+ */
+
+$('.dropdown')
+    .dropdown({
+        on: 'hover'
+    })
+;
+
+/*
  * SWIPER - PRODUCT IMAGE SLIDER
  */
 var swiper = new Swiper('.swiper-container', {

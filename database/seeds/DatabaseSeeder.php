@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\User;
 use App\Product;
+use App\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,7 +24,16 @@ class DatabaseSeeder extends Seeder
         //Products
         $this->command->info('Products > Truncating');
         Product::truncate();
-        $this->command->info('Products > Creating sample products');
-        $products = factory(Product::class, 500)->create();
+
+        //Categories
+        $this->command->info('Categories > Truncating');
+        Category::truncate();
+        \DB::table('categories_relations')->truncate();
+        $this->command->info('Category > Creating sample categories');
+        $categories = factory(Category::class, 10)->create()->each(function($category)
+        {
+            $this->command->info('Category > Filling category {' . $category->name . '} with products');
+            $category->addItems(factory(Product::class, 50)->create());
+        });
     }
 }

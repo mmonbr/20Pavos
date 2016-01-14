@@ -45,3 +45,11 @@
 .share-buttons li {
     margin-bottom: 5px;
 }
+
+/*
+* Utility Classes
+*/
+
+.utility-active-category {
+    font-weight: bold;
+}

@@ -53,7 +53,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::findBySlugOrIdOrFail($id);
 
         event(new ProductWasHit($product));
 

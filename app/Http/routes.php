@@ -1,37 +1,31 @@
 <?php
 
 Route::group(['middleware' => 'web'], function () {
+    //Autenticación
     Route::auth();
 
+    //Inicio
     Route::get('/', ['as' => 'home', 'uses' => 'ProductsController@index']);
 
+    //Productos
     Route::resource('productos', 'ProductsController');
-    Route::get('populares', ['as' => 'products.popular', 'uses' => 'HomeController@popular']);
 
+    //Categorías
     Route::resource('categorias', 'CategoriesController');
 
     //Buscador
     Route::get('buscar', ['as' => 'search', 'uses' => 'SearchController@search']);
 
-    /*Route::get('amazon/{asin}', function ($asin) {
-        $conf = new GenericConfiguration();
-        $conf
-            ->setCountry('es')
-            ->setAccessKey('AKIAJTD5OUJLBJ6VF3AQ')
-            ->setSecretKey('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')
-            ->setRequest('\ApaiIO\Request\Soap\Request')
-            ->setAssociateTag('derrochand0cc-21');
+    //Subscriptions
+    Route::post('subscribe', ['as' => 'newsletter.subscribe', 'uses' => 'SubscriptionsController@subscribe']);
 
-        $apaiIO = new ApaiIO($conf);
-        $lookup = new Lookup();
-        $lookup->setItemId('B00JKFGSE8');
-        $lookup->setCondition('New');
-        $lookup->setResponseGroup(array('Large'));
+    //Categories TEST
+    Route::get('/test', function () {
+        //$c = \App\Category::find(3);
+        //$c->children()->create(['name' => 'Otro children 3']);
 
-        // Change the ResponseTransformer to DOMDocument.
-        $conf->setResponseTransformer('\ApaiIO\ResponseTransformer\ObjectToArray');
-        $formattedResponse = $apaiIO->runOperation($lookup);
+        $categories = \App\Category::all()->toTree();
 
-        return dd($formattedResponse);
-    });*/
+        dd($categories);
+    });
 });

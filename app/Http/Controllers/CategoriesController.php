@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -48,7 +50,10 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::findBySlugOrIdOrFail($id);
+        $products = $category->items(Product::class)->paginate(21);
+
+        return view('categories.show', compact('products', 'category'));
     }
 
     /**
