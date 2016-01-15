@@ -14,34 +14,56 @@ var elixir = require('laravel-elixir');
 elixir(function (mix) {
 
     /*
-    * FRONTEND
+     * FRONTEND
      */
 
     //Semantic UI
-    mix.copy('semantic/dist/semantic.css', 'public/css/semantic.css')
-        .copy('semantic/dist/semantic.js', 'public/js/semantic.js')
+    mix.copy('semantic/dist/semantic.min.css', 'public/css/lib/semantic.min.css')
+        .copy('semantic/dist/semantic.min.js', 'public/js/lib/semantic.min.js')
         .copy('semantic/dist/themes', 'public/css/themes');
+
+    //Styles
+    mix.styles([
+        'lib/swiper.min.css',
+        'lib/nouislider.min.css',
+        'lib/semantic.min.css',
+         'app.css'
+    ], './public/css/all.min.css', './public/css');
 
     //JS
     mix.browserify('app.js');
 
-    //Styles
-    mix.styles([
-     'lib/swiper.min.css',
-     'lib/nouislider.min.css',
-     'semantic.css'
-     //'app.css'
-     ], './public/css/all.min.css', './public/css');
-
     //Scripts
     mix.scripts([
-     'lib/jquery-2.2.0.min.js',
-     'lib/jquery-ias.min.js',
-     'lib/swiper.min.js',
-     'lib/nouislider.min.js',
-     'semantic.js',
-     'app.js'
-     ], './public/js/all.min.js', './public/js');
+        'lib/jquery-2.2.0.min.js',
+        'lib/jquery-ias.min.js',
+        'lib/swiper.min.js',
+        'lib/nouislider.min.js',
+        'lib/semantic.min.js',
+        'app.js'
+    ], './public/js/app.min.js', './public/js');
+
+    /*
+     * ADMIN
+     */
+
+    mix.less('AdminLTE.less', 'public/css/admin.css');
+
+    mix.styles([
+        'lib/bootstrap.min.css',
+        'admin.css'
+    ], './public/css/admin.min.css', './public/css');
+
+    mix.browserify('admin.js');
+
+    mix.scripts([
+        'lib/jquery-2.1.4.min.js',
+        'lib/bootstrap.min.js',
+        'lib/fastclick.min.js',
+        'lib/jquery.slimscroll.min.js',
+        'admin.js'
+    ], './public/js/admin.min.js', './public/js');
+
 });
 
 /*

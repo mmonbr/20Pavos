@@ -1,14 +1,14 @@
 <?php
 
 Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
-    //Autenticación
-    Route::auth();
+    #Autenticación
+   // Route::auth();
 
-    //Inicio
+    #nicio
     Route::get('/', 'ProductsController@index')
         ->name('home');
 
-    //Productos
+    #Productos
     Route::resource('productos', 'ProductsController', [
         'only'  => [
             'index',
@@ -20,7 +20,7 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
         ]
     ]);
 
-    //Categorías
+    #Categorías
     Route::resource('categorias', 'CategoriesController', [
         'only'  => [
             'index',
@@ -32,11 +32,17 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
         ]
     ]);
 
-    //Buscador
+    #Buscador
     Route::get('buscar', 'SearchController@search')
         ->name('search');
 
-    //Subscriptions
+    #Subscriptions
     Route::post('subscribe', 'SubscriptionsController@subscribe')
         ->name('newsletter.subscribe');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Backend'], function () {
+    #Dashboard
+    Route::get('/', 'BackendController@dashboard')
+        ->name('admin.index');
 });
