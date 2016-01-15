@@ -26,5 +26,5 @@ function renderCategoryLink($item, $current)
 {
     $active = ($item->id == $current->id) ? 'utility-active-category' : '';
 
-    return '<a class="' . $active . '" href="' . route('categorias.show', $item->slug) . '">' . $item->name . ' </a>';
+    return '<a class="' . $active . '" href="' . route('categories.show', $item->slug) . '">' . $item->name . ' </a>';
 }

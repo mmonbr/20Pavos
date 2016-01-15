@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\ViewComposers;
+namespace App\Http\ViewComposers\Frontend\Widgets;
 
-use App\Category;
 use App\Product;
 use Illuminate\View\View;
 
-class TopProductsWidgetComposer
+class TopProducts
 {
     protected $product;
 

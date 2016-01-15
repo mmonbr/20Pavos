@@ -1,7 +1,7 @@
 <div class="ui fluid card">
     <div class="image">
         @include('frontend.layouts.partials._share-buttons',[
-            'url'  => route('productos.show', $product->slug),
+            'url'  => route('products.show', $product->slug),
             'description'  => $product->name,
         ])
 
@@ -10,7 +10,7 @@
         <img src="{{ $product->image_url }}">
     </div>
     <div class="content">
-        <div class="header"><a href="{{ route('productos.show', $product->slug) }}">{{ $product->name }}</a></div>
+        <div class="header"><a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></div>
         <div class="meta">
             {{ $product->current_price }} <i class="euro icon"></i>
         </div>

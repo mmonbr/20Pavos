@@ -19,21 +19,21 @@ class ComposerServiceProvider extends ServiceProvider
          * Header Categories
          */
         view()->composer(
-            ['frontend.layouts.partials._header'], 'App\Http\ViewComposers\HeaderCategoriesComposer'
+            ['frontend.layouts.partials._header'], 'App\Http\ViewComposers\Frontend\HeaderCategories'
         );
 
         /*
          * Widgets - Top Products
          */
         view()->composer(
-            'frontend.layouts.widgets.top', 'App\Http\ViewComposers\TopProductsWidgetComposer'
+            'frontend.layouts.widgets.top', 'App\Http\ViewComposers\Frontend\Widgets\TopProducts'
         );
 
         /*
          * Widgets - Search
          */
         view()->composer(
-            'frontend.layouts.partials._search', 'App\Http\ViewComposers\SearchFormComposer'
+            'frontend.layouts.partials._search', 'App\Http\ViewComposers\Frontend\SearchForm'
         );
 
     }

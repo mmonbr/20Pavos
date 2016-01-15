@@ -9,10 +9,28 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
         ->name('home');
 
     //Productos
-    Route::resource('productos', 'ProductsController');
+    Route::resource('productos', 'ProductsController', [
+        'only'  => [
+            'index',
+            'show'
+        ],
+        'names' => [
+            'all'  => 'products.all',
+            'show' => 'products.show'
+        ]
+    ]);
 
     //Categorías
-    Route::resource('categorias', 'CategoriesController');
+    Route::resource('categorias', 'CategoriesController', [
+        'only'  => [
+            'index',
+            'show'
+        ],
+        'names' => [
+            'all'  => 'categories.all',
+            'show' => 'categories.show'
+        ]
+    ]);
 
     //Buscador
     Route::get('buscar', 'SearchController@search')

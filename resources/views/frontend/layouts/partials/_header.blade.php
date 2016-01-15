@@ -9,7 +9,7 @@
             Categorías
             <div class="menu">
                 @foreach($categories as $category)
-                    <a href="{{ route('categorias.show' , [$category['slug']]) }}"
+                    <a href="{{ route('categories.show' , [$category['slug']]) }}"
                        class="item">{{ $category['name'] }}</a>
                 @endforeach
             </div>
