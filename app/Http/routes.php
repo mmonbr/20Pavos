@@ -1,11 +1,12 @@
 <?php
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     //Autenticación
     Route::auth();
 
     //Inicio
-    Route::get('/', ['as' => 'home', 'uses' => 'ProductsController@index']);
+    Route::get('/', 'ProductsController@index')
+        ->name('home');
 
     //Productos
     Route::resource('productos', 'ProductsController');
@@ -14,18 +15,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('categorias', 'CategoriesController');
 
     //Buscador
-    Route::get('buscar', ['as' => 'search', 'uses' => 'SearchController@search']);
+    Route::get('buscar', 'SearchController@search')
+        ->name('search');
 
     //Subscriptions
-    Route::post('subscribe', ['as' => 'newsletter.subscribe', 'uses' => 'SubscriptionsController@subscribe']);
-
-    //Categories TEST
-    Route::get('/test', function () {
-        //$c = \App\Category::find(3);
-        //$c->children()->create(['name' => 'Otro children 3']);
-
-        $categories = \App\Category::all()->toTree();
-
-        dd($categories);
-    });
+    Route::post('subscribe', 'SubscriptionsController@subscribe')
+        ->name('newsletter.subscribe');
 });

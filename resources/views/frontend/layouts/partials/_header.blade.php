@@ -32,7 +32,7 @@
 
         <div class="right menu">
             <div class="item">
-                @include('layouts.partials._search', ['prompt' => true, 'placeholder' => '¿Buscas algo?'])
+                @include('frontend.layouts.partials._search', ['prompt' => true, 'placeholder' => '¿Buscas algo?'])
             </div>
         </div>
     </div>

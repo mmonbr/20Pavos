@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use App\Product;
 use Illuminate\Http\Request;
@@ -14,6 +14,6 @@ class SearchController extends Controller
     {
         $products = Product::search($request->get('query'))->paginate(21);
 
-        return view('products.all', compact('products'));
+        return view('frontend.products.all', compact('products'));
     }
 }

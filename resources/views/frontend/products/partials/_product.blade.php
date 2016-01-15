@@ -1,11 +1,11 @@
 <div class="ui fluid card">
     <div class="image">
-        @include('layouts.partials._share-buttons',[
+        @include('frontend.layouts.partials._share-buttons',[
             'url'  => route('productos.show', $product->slug),
             'description'  => $product->name,
         ])
 
-        @include('products.partials._featured', ['product' => $product])
+        @include('frontend.products.partials._featured', ['product' => $product])
 
         <img src="{{ $product->image_url }}">
     </div>

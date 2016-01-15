@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app')
 
 @section('content')
     <div id="products-container" class="ui three doubling stackable cards">
         @foreach($products as $product)
-            @include('products.partials._product', ['product' => $product])
+            @include('frontend.products.partials._product', ['product' => $product])
         @endforeach
     </div>
 

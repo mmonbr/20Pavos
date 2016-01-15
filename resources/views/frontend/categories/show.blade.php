@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app')
 
 @section('content')
     <div class="ui two column doubling stackable grid">
         <div class="four wide column">
             <div class="ui large fluid vertical menu">
                 <div class="item">
-                    @include('layouts.partials._search', ['fluid' => true, 'placeholder' => 'breaking bad, star wars...'])
+                    @include('frontend.layouts.partials._search', ['fluid' => true, 'placeholder' => 'breaking bad, star wars...'])
                 </div>
                 @foreach(\App\Category::all()->toTree() as $treeItem)
                     {!! renderNode($treeItem, $category) !!}
@@ -30,7 +30,7 @@
 
             <div id="products-container" class="ui three doubling stackable cards">
                 @foreach($products as $product)
-                    @include('products.partials._product', ['product' => $product])
+                    @include('frontend.products.partials._product', ['product' => $product])
                 @endforeach
             </div>
 

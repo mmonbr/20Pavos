@@ -18,13 +18,13 @@
 </head>
 <body>
 
-@include('layouts.partials._header')
+@include('frontend.layouts.partials._header')
 
 <div class="ui container">
     @yield('content')
 </div>
 
-@include('layouts.partials._scripts')
+@include('frontend.layouts.partials._scripts')
 
 </body>
 </html>

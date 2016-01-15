@@ -1,4 +1,4 @@
-@extends('layouts.sidebar')
+@extends('frontend.layouts.sidebar')
 
 @section('content')
     <div class="ui piled segment">
@@ -71,5 +71,5 @@
             </div>
         </div>
     </div>
-    @include('products.partials._related', ['related' => $product->getRelatedModels(3)])
+    @include('frontend.products.partials._related', ['related' => $product->getRelatedModels(3)])
 @endsection
