@@ -15,7 +15,7 @@
 * SHARE BUTTONS
 */
 
-.share-buttons {
+.ShareButtons {
     position: absolute;
     list-style: none;
     margin: 0;
@@ -27,22 +27,22 @@
     transition:opacity 0.5s linear, ease 0.5s;
 }
 
-.image:hover .share-buttons {
+.image:hover .ShareButtons {
     opacity: 1;
     right: 10px;
 }
 
-.share-buttons img {
+.ShareButton__item__image {
     max-width: 48px;
     max-height: 48px;
     transition:all 0.25s linear;
 }
 
-.share-buttons img:hover {
+.ShareButton__item__image:hover {
     transform: rotate(25deg);
 }
 
-.share-buttons li {
+.ShareButton__item {
     margin-bottom: 5px;
 }
 
