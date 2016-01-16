@@ -47,7 +47,7 @@ elixir(function (mix) {
      * ADMIN
      */
 
-    mix.less('AdminLTE.less', 'public/css/admin.css');
+    /*mix.less('AdminLTE.less', 'public/css/admin.css');
 
     mix.styles([
         'lib/bootstrap.min.css',
@@ -62,7 +62,7 @@ elixir(function (mix) {
         'lib/fastclick.min.js',
         'lib/jquery.slimscroll.min.js',
         'admin.js'
-    ], './public/js/admin.min.js', './public/js');
+    ], './public/js/admin.min.js', './public/js');*/
 
 });
 

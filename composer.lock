@@ -49,16 +49,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.12.2",
+            "version": "3.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "07e01f31ebfe283f24d06544c0cd615b5758486c"
+                "reference": "dff1c76551777fcc5890d2d5324f9f9e5cdd4e3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/07e01f31ebfe283f24d06544c0cd615b5758486c",
-                "reference": "07e01f31ebfe283f24d06544c0cd615b5758486c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/dff1c76551777fcc5890d2d5324f9f9e5cdd4e3d",
+                "reference": "dff1c76551777fcc5890d2d5324f9f9e5cdd4e3d",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "ext-simplexml": "*",
                 "ext-spl": "*",
                 "nette/neon": "^2.3",
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.0|~5.0"
             },
             "suggest": {
                 "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
@@ -124,7 +124,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-01-13 02:19:36"
+            "time": "2016-01-15 02:01:24"
         },
         {
             "name": "aws/aws-sdk-php-laravel",
@@ -1663,16 +1663,16 @@
         },
         {
             "name": "sofa/eloquence",
-            "version": "v5.2",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jarektkaczyk/eloquence.git",
-                "reference": "74d67bd55f6ee317a3376dc029c5f2d305d7d640"
+                "reference": "fcc6415b21f099cca18eb6311aa6817328597a60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/74d67bd55f6ee317a3376dc029c5f2d305d7d640",
-                "reference": "74d67bd55f6ee317a3376dc029c5f2d305d7d640",
+                "url": "https://api.github.com/repos/jarektkaczyk/eloquence/zipball/fcc6415b21f099cca18eb6311aa6817328597a60",
+                "reference": "fcc6415b21f099cca18eb6311aa6817328597a60",
                 "shasum": ""
             },
             "require": {
@@ -1715,7 +1715,7 @@
                 "mutable",
                 "searchable"
             ],
-            "time": "2016-01-14 21:43:27"
+            "time": "2016-01-14 23:12:48"
         },
         {
             "name": "sofa/hookable",
