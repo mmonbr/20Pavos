@@ -104,7 +104,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="http://www.mediavida.com/img/users/avatar/6K/6KJ0vN9Bp_big.gif" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">Manuel Montenegro</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -112,7 +112,7 @@
                             <img src="http://www.mediavida.com/img/users/avatar/6K/6KJ0vN9Bp_big.gif" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
+                                Manuel Montenegro - Web Developer
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
