@@ -32,6 +32,8 @@
 
         <!-- Main content -->
         <section class="content">
+            @include('backend.layouts.partials._errors')
+
             @yield('content')
         <!-- /.content -->
         </section>

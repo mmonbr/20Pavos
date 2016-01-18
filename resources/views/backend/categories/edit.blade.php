@@ -10,6 +10,8 @@
 
                     {{ method_field('patch') }}
 
+                    <input type="hidden" name="id" value="{{ $category->id }}">
+
                     <div class="box-header">
                         <h3 class="box-title">Edit category</h3>
                     </div>
