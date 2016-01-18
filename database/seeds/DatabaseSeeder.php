@@ -37,6 +37,9 @@ class DatabaseSeeder extends Seeder
         {
             $this->command->info('Category > Filling category {' . $category->name . '} with products');
             $category->addProducts(factory(Product::class, 50)->create());
+            $category->children()->create(['name' => 'Superchildren' . str_random(10)]);
+            $category->children()->create(['name' => 'Superchildren' . str_random(10)]);
+            $category->children()->create(['name' => 'Superchildren' . str_random(10)]);
         });
     }
 }
