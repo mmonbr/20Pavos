@@ -8,3 +8,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="https://almsaeedstudio.com/themes/AdminLTE/dist/js/app.js"></script>
+<!-- CK Editor -->
+<script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+<script>
+    $(function () {
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace('short_description');
+        CKEDITOR.replace('long_description');
+    });
+</script>

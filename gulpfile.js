@@ -39,6 +39,7 @@ elixir(function (mix) {
         'lib/jquery-ias.min.js',
         'lib/swiper.min.js',
         'lib/nouislider.min.js',
+        'lib/url.min.js',
         'lib/semantic.min.js',
         'app.js'
     ], './public/js/app.min.js', './public/js');

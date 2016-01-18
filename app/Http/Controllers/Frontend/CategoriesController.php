@@ -20,8 +20,9 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = Category::findBySlugOrIdOrFail($id);
-        $products = $category->items(Product::class)->paginate(21);
+        $categories = Category::defaultOrder()->get()->toTree();
+        $products = $category->products()->paginate(21);
 
-        return view('frontend.categories.show', compact('products', 'category'));
+        return view('frontend.categories.show', compact('products', 'category', 'categories'));
     }
 }

@@ -10,11 +10,24 @@ use Sofa\Eloquence\Eloquence;
 
 class Product extends Model implements SluggableInterface
 {
-    use Eloquence, Categorizable, SluggableTrait;
+    use Eloquence, SluggableTrait;
 
     protected $sluggable = ['build_from' => 'name'];
 
-    protected $searchableColumns = ['name', 'long_description', 'short_description', 'ASIN', 'hits'];
+    protected $searchableColumns = ['name', 'long_description', 'short_description', 'ASIN'];
+
+    /*
+     * Relations
+     */
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    /*
+     * Methods
+     */
 
     public function isFeatured()
     {
@@ -25,6 +38,20 @@ class Product extends Model implements SluggableInterface
     {
         return $this->increment('hits');
     }
+
+    public function getRelatedProducts($items = 3)
+    {
+        return $this->whereHas('categories', function ($query) {
+            $query->whereIn('id', $this->categories()->pluck('id'));
+        })
+            ->orderByRaw("RAND()")
+            ->take($items)
+            ->get();
+    }
+
+    /*
+     * Scopes
+     */
 
     public function scopeFilter($query, $params)
     {
@@ -71,10 +98,5 @@ class Product extends Model implements SluggableInterface
     public static function cheap()
     {
         return self::orderBy('current_price', 'ASC');
-    }
-
-    public function related()
-    {
-        return $this->categories();
     }
 }

@@ -7,7 +7,7 @@
                 <div class="item">
                     @include('frontend.layouts.partials._search', ['fluid' => true, 'placeholder' => 'breaking bad, star wars...'])
                 </div>
-                @foreach(\App\Category::all()->toTree() as $treeItem)
+                @foreach($categories as $treeItem)
                     {!! renderNode($treeItem, $category) !!}
                 @endforeach
                 <div class="item">

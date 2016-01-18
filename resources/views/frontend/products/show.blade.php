@@ -71,5 +71,5 @@
             </div>
         </div>
     </div>
-    @include('frontend.products.partials._related', ['related' => $product->getRelatedModels(3)])
+    @include('frontend.products.partials._related', ['related' => $product->getRelatedProducts(3)])
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 use App\User;
@@ -15,25 +16,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Artisan::call('migrate:refresh');
+
         //Users
-        $this->command->info('Users > Truncating');
-        User::truncate();
+        //$this->command->info('Users > Truncating');
+        //DB::table('users')->delete();
         $this->command->info('Users > Creating sample users');
-        $users = factory(User::class, 20)->create();
+        $users = factory(User::class, 10)->create();
 
         //Products
-        $this->command->info('Products > Truncating');
-        Product::truncate();
+        //$this->command->info('Products > Truncating');
+        //DB::table('products')->delete();
 
         //Categories
-        $this->command->info('Categories > Truncating');
-        Category::truncate();
-        \DB::table('categories_relations')->truncate();
+        //$this->command->info('Categories > Truncating');
+        //DB::table('categories')->delete();
+        //DB::table('category_product')->delete();
         $this->command->info('Category > Creating sample categories');
         $categories = factory(Category::class, 10)->create()->each(function($category)
         {
             $this->command->info('Category > Filling category {' . $category->name . '} with products');
-            $category->addItems(factory(Product::class, 50)->create());
+            $category->addProducts(factory(Product::class, 50)->create());
         });
     }
 }

@@ -14,27 +14,50 @@ class Category extends Node implements SluggableInterface
 
     protected $fillable = ['name'];
 
-    public function categorizable()
+    /*
+     * Relations
+     */
+
+    public function products()
     {
-        return $this->morphTo();
+        return $this->belongsToMany(Product::class);
     }
 
-    public function items($class)
+    /*
+     * Methods
+     */
+
+    public function addProduct($product)
     {
-        return $this->morphedByMany($class, 'categorizable', 'categories_relations');
+        $this->products()->attach($product);
     }
 
-    public function addItem($item)
+    public function addProducts($products)
     {
-        return $this->items($this->getActualClassNameForMorph($item->getMorphClass()))->save($item);
-    }
-
-    public function addItems($items)
-    {
-        foreach ($items as $item) {
-            $this->addItem($item);
+        foreach ($products as $product) {
+            $this->addProduct($product);
         }
     }
+
+    public function getProductsCountAttribute()
+    {
+        if (!array_key_exists('productsCount', $this->relations)) $this->load('productsCount');
+
+        if (is_null($this->getRelation('productsCount')->first())) return 0;
+
+        return $this->getRelation('productsCount')->first()->aggregate;
+    }
+
+    public function productsCount()
+    {
+        return $this->products()
+            ->selectRaw('count(*) as aggregate, category_id')
+            ->groupBy('pivot_category_id');
+    }
+
+    /*
+     * Helpers
+     */
 
     public static function tree()
     {

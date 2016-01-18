@@ -21,11 +21,6 @@ class CreateCategoriesTable extends Migration
             NestedSet::columns($table);
             $table->timestamps();
         });
-
-        Schema::create('categories_relations', function (Blueprint $table) {
-            $table->integer('category_id');
-            $table->morphs('categorizable');
-        });
     }
 
     /**
@@ -36,6 +31,5 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categories');
-        Schema::dropIfExists('categories_relations');
     }
 }
