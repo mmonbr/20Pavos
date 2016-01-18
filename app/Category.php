@@ -12,7 +12,7 @@ class Category extends Node implements SluggableInterface
 
     protected $sluggable = ['build_from' => 'name'];
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'slug', 'description', 'parent_id'];
 
     /*
      * Relations
@@ -37,6 +37,11 @@ class Category extends Node implements SluggableInterface
         foreach ($products as $product) {
             $this->addProduct($product);
         }
+    }
+
+    public function makeChildrenOf($category)
+    {
+        return $this->appendTo($category)->save();
     }
 
     public function getProductsCountAttribute()

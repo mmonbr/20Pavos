@@ -25,11 +25,11 @@ function renderCategoryLink($item, $current)
     return '<a class="' . $active . '" href="' . route('categories.show', $item->slug) . '">' . $item->name . ' </a>';
 }
 
-function renderAdminNodes($node, $current, $depth = 0)
+function renderAdminNodes($node, $current = null, $depth = 0)
 {
-    $parent = ($current->isChildOf($node)) ? 'selected' : '';
+    $parent = (isset($current) && ($current->isChildOf($node))) ? 'selected' : '';
 
-    if ($node->id == $current->id || $node->isChildOf($current)) {
+    if (isset($current) && ($node->id == $current->id || $node->isChildOf($current))) {
         return;
     }
 

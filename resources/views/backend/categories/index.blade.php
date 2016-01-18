@@ -2,20 +2,10 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-">
+        <div class="col-md-9">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Categories</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
@@ -64,9 +54,9 @@
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <select name="category_id" class="form-control">
-                                                    <option value="root"></option>
-                                                    @foreach($dropdown as $node)
+                                                <select name="parent_id" class="form-control">
+                                                    <option></option>
+                                                    @foreach($categoriesDropdown as $node)
                                                         {!! renderAdminNodes($node, $category) !!}
                                                     @endforeach
                                                 </select>
@@ -80,9 +70,9 @@
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('products.show', $category->slug) }}" class="btn btn-success"><i
+                                    <a href="{{ route('categories.show', $category->slug) }}" class="btn btn-success"><i
                                                 class="fa fa-link"></i></a>
-                                    <a href="{{ route('admin.products.edit', $category->id) }}" class="btn btn-primary"><i
+                                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-primary"><i
                                                 class="fa fa-edit"></i></a>
                                     <form method="POST"
                                           action="{{ route('admin.categories.destroy', [$category->id]) }}"
@@ -101,6 +91,37 @@
                 <!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-3">
+            <div class="box">
+                <form method="post" action="{{ route('admin.categories.store') }}">
+
+                    {{ csrf_field() }}
+
+                    <div class="box-header">
+                        <h3 class="box-title">Add a new category</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input name="name" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Children Of</label>
+                            <select name="parent_id" class="form-control">
+                                <option></option>
+                                @foreach($categoriesDropdown as $node)
+                                    {!! renderAdminNodes($node) !!}
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary btn-block">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection

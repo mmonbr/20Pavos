@@ -26,8 +26,8 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li>
-                <a href="dashboard.html">
-                    <i class="fa fa-dashboard"></i> <span>Calendar</span>
+                <a href="{{ route('admin.index') }}">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
             <li class="treeview">
@@ -35,8 +35,8 @@
                     <i class="fa fa-gift"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Products</a></li>
-                    <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Add Product</a></li>
+                    <li><a href="{{ route('admin.products.index') }}"><i class="fa fa-circle-o"></i> Products</a></li>
+                    <li><a href="{{ route('admin.products.create') }}l"><i class="fa fa-circle-o"></i> Add Product</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -44,8 +44,8 @@
                     <i class="fa fa-cubes"></i> <span>Categories</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Categories</a></li>
-                    <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Add Category</a></li>
+                    <li><a href="{{ route('admin.categories.index') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
+                    <li><a href="{{ route('admin.categories.create') }}"><i class="fa fa-circle-o"></i> Add Category</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -53,16 +53,7 @@
                     <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Users</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-envelope"></i> <span>Mailing</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Compose</a></li>
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Manage</a></li>
+                    <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>
                 </ul>
             </li>
             <li class="treeview">

@@ -16,6 +16,10 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         /*
+         * FRONTEND
+         */
+
+        /*
          * Header Categories
          */
         view()->composer(
@@ -36,6 +40,16 @@ class ComposerServiceProvider extends ServiceProvider
             'frontend.layouts.partials._search', 'App\Http\ViewComposers\Frontend\SearchForm'
         );
 
+        /*
+         * BACKEND
+         */
+        view()->composer(
+            [
+                'backend.categories.index',
+                'backend.categories.edit',
+                'backend.categories.create',
+            ], 'App\Http\ViewComposers\Backend\CategoriesDropdown'
+        );
     }
 
     /**

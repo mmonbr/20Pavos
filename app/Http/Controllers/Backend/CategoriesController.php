@@ -19,9 +19,7 @@ class CategoriesController extends Controller
     {
         $categories = Category::defaultOrder()->withDepth()->with(['children', 'productsCount'])->get();
 
-        $dropdown = Category::all()->toTree();
-
-        return view('backend.categories.index', compact('categories', 'dropdown'));
+        return view('backend.categories.index', compact('categories'));
     }
 
     /**
@@ -31,58 +29,63 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
-    }
+        $category = Category::create([
+            'name' => $request->name
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $category->update([
+            'parent_id' => $request->parent_id
+        ]);
+
+        return redirect()->back();
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('backend.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        Category::findOrFail($id)->update([
+            'name'      => $request->name,
+            'slug'      => $request->slug,
+            'parent_id' => $request->parent_id
+        ]);
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -108,16 +111,9 @@ class CategoriesController extends Controller
 
     public function makeChildrenOf(Request $request, $id)
     {
-        $children = Category::findOrFail($id);
-
-        if($request->category_id == 'root'){
-            $children->makeRoot()->save();;
-            return redirect()->back();
-        }
-
-        $parent = Category::findOrFail($request->category_id);
-
-        $parent->appendNode($children);
+        Category::findOrFail($id)->update([
+            'parent_id' => $request->parent_id
+        ]);
 
         return redirect()->back();
     }
