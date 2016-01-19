@@ -48,6 +48,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'is_featured'       => $faker->boolean(),
         'hits'              => $faker->randomNumber(),
         'image_url'         => $images_array[array_rand($images_array)],
+        'referral_link'     => $faker->url,
         'ASIN'              => $asin_array[array_rand($asin_array)],
     ];
 });

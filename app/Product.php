@@ -16,6 +16,8 @@ class Product extends Model implements SluggableInterface
 
     protected $searchableColumns = ['name', 'long_description', 'short_description', 'ASIN'];
 
+    protected $fillable = ['name', 'long_description', 'short_description', 'current_price', 'ASIN', 'image_url', 'referral_link'];
+
     /*
      * Relations
      */
@@ -47,6 +49,18 @@ class Product extends Model implements SluggableInterface
             ->orderByRaw("RAND()")
             ->take($items)
             ->get();
+    }
+
+    public function categorize($category)
+    {
+        $this->categories()->attach($category);
+    }
+
+    public function categorizeMany($categories)
+    {
+        foreach ($categories as $category) {
+            $this->categorize($category);
+        }
     }
 
     /*

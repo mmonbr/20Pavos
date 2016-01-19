@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'cloudfront' => [
+        'url' => env('AWS_CLOUDFRONT_URL'),
+        'cdn' => env('AWS_CLOUDFRONT_CDN')
+    ]
+
 ];

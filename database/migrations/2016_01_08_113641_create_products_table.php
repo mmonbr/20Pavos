@@ -20,9 +20,10 @@ class CreateProductsTable extends Migration
             $table->text('long_description');
             $table->integer('current_price');
             $table->integer('hits')->unsigned()->default(0);
-            $table->integer('is_featured');
+            $table->boolean('is_featured')->unsigned()->default(false);
             $table->string('image_url');
-            $table->string('ASIN');
+            $table->string('referral_link');
+            $table->string('ASIN')->nullable();
             $table->timestamps();
         });
     }
