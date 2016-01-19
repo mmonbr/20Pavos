@@ -40,7 +40,10 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = app('App\Utilities\S3PhotoUploader')->file($request->file);
+        $file->upload();
+
+        //dd($request->file);
     }
 
     /**

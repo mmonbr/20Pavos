@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Category;
-use App\Http\Requests\Backend\CategoryRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\Backend\CategoryRequest;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
