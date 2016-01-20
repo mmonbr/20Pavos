@@ -47,7 +47,7 @@ class ProductRequest extends Request
                     'long_description'  => 'required',
                     'current_price'     => 'required',
                     'referral_link'     => 'required|url',
-                    //'file'              => 'required',
+                    'file'              => 'image',
                     'categories'        => 'required',
                 ];
             }

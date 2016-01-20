@@ -67,9 +67,17 @@ class Product extends Model implements SluggableInterface
             ->get();
     }
 
+    public function setImageUrl($url)
+    {
+        return $this->update(['image_url' => $url]);
+    }
+
     public function categorize($category)
     {
-        $this->categories()->attach($category);
+        if(!$this->categories->contains($category))
+        {
+            $this->categories()->attach($category);
+        }
     }
 
     public function categorizeMany($categories)
@@ -77,6 +85,12 @@ class Product extends Model implements SluggableInterface
         foreach ($categories as $category) {
             $this->categorize($category);
         }
+    }
+
+    public function recategorize($categories)
+    {
+        $this->categories()->sync([]);
+        $this->categorizeMany($categories);
     }
 
     public function categoriesList()

@@ -80,6 +80,8 @@ class CategoriesController extends Controller
             'parent_id' => $request->parent_id
         ]);
 
+        alert()->success('The category has been created successfully.', '#feelsgood');
+
         return redirect()->back();
     }
 
@@ -93,6 +95,8 @@ class CategoriesController extends Controller
     {
         Category::findOrFail($id)->delete();
 
+        alert()->success('The category has been successfully deleted.', 'Bye bye beautiful');
+
         return redirect()->back();
     }
 
@@ -100,12 +104,16 @@ class CategoriesController extends Controller
     {
         Category::findOrFail($id)->down();
 
+        alert()->success('The category has been successfully moved down.', 'The last will be first');
+
         return redirect()->back();
     }
 
     public function moveUp($id)
     {
         Category::findOrFail($id)->up();
+
+        alert()->success('The category has been successfully moved up.', 'Step aside bitches');
 
         return redirect()->back();
     }
@@ -115,6 +123,8 @@ class CategoriesController extends Controller
         Category::findOrFail($id)->update([
             'parent_id' => $request->parent_id
         ]);
+
+        alert()->success('The category has been successfully moved.', 'Luke, I am your father');
 
         return redirect()->back();
     }

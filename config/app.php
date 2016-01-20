@@ -164,7 +164,8 @@ return [
         Sofa\Eloquence\ServiceProvider::class,
         Aws\Laravel\AwsServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
-        Spatie\Newsletter\NewsletterServiceProvider::class
+        Spatie\Newsletter\NewsletterServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class
 
     ],
 
@@ -217,7 +218,9 @@ return [
          */
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         'AWS'        => Aws\Laravel\AwsFacade::class,
-        'Newsletter' => Spatie\Newsletter\NewsletterFacade::class
+        'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class
+
     ],
 
 ];

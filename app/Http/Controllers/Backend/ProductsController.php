@@ -42,22 +42,22 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $uploader = app('App\Utilities\S3FileUploader')->file($request->file)->upload();
+        $uploader = app('App\Utilities\S3FileUploader')->file($request->file('file'))->upload();
 
         $product = Product::create([
             'name'              => $request->name,
             'short_description' => $request->short_description,
             'long_description'  => $request->long_description,
-            'current_price'     => $request->long_description,
+            'current_price'     => $request->current_price,
             'is_featured'       => $request->featured,
             'referral_link'     => $request->referral_link,
             'ASIN'              => $request->ASIN,
             'image_url'         => $uploader->getPath(),
         ]);
 
-        dd($request);
-
         $product->categorizeMany($request->categories);
+
+        alert()->success('The product has been created successfully.', 'Awww yeah!');
 
         return redirect(route('backend.products.index'));
     }
@@ -89,13 +89,34 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param ProductRequest $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $product->update([
+            'name'              => $request->name,
+            'short_description' => $request->short_description,
+            'long_description'  => $request->long_description,
+            'current_price'     => $request->current_price,
+            'is_featured'       => $request->featured,
+            'referral_link'     => $request->referral_link,
+            'ASIN'              => $request->ASIN
+        ]);
+
+        if($request->hasFile('file')){
+            $uploader = app('App\Utilities\S3FileUploader')->file($request->file('file'))->upload();
+            $product->setImageUrl($uploader->getPath());
+        }
+
+        $product->recategorize($request->categories);
+
+        alert()->success('The product has been updated successfully.', 'Oh yesh!');
+
+        return redirect()->back();
     }
 
     /**
@@ -107,6 +128,8 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         Product::findOrFail($id)->delete();
+
+        alert()->success('The product has been deleted successfully.', 'It ain\'t gonna be missed');
 
         return redirect()->back();
     }

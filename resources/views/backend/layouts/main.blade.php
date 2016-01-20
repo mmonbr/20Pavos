@@ -49,6 +49,7 @@
 <!-- ./wrapper -->
 
 @include('backend.layouts.partials._scripts')
+@include('sweet::alert')
 
 </body>
 </html>

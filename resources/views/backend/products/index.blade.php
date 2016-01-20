@@ -24,7 +24,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Provider</th>
+                            <th>Categories</th>
                             <th>Hits</th>
                             <th>Price</th>
                             <th class="text-center">Options</th>
@@ -33,12 +33,18 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td><span class="label label-success">Amazon</span></td>
+                                <td>
+                                    @foreach($product->categories as $category)
+                                        <span class="label label-default">{{ $category->name }}</span>
+                                    @endforeach
+                                </td>
                                 <td>{{ $product->hits }}</td>
                                 <td>{{ $product->current_price }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="btn btn-success"><i class="fa fa-link"></i></a>
-                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('products.show', $product->slug) }}" class="btn btn-success"><i
+                                                class="fa fa-link"></i></a>
+                                    <a href="{{ route('admin.products.edit', $product->id) }}"
+                                       class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                     <form method="POST"
                                           action="{{ route('admin.products.destroy', [$product->id]) }}"
                                           class="inline">
