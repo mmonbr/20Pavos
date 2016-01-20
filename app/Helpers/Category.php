@@ -25,47 +25,6 @@ function renderCategoryLink($item, $current)
     return '<a class="' . $active . '" href="' . route('categories.show', $item->slug) . '">' . $item->name . ' </a>';
 }
 
-function render_categories($node, $current = null, array $attributes = [], $depth = 0)
-{
-    $selected = (isset($current) && $current->isChildOf($node) || in_array($node->id, $attributes['selected'])) ? 'selected' : '';
-
-    if (isset($current) && ($node->id == $current->id || $node->isChildOf($current))) {
-        return;
-    }
-
-    $html = '<option value="' . $node->id . '"' . $selected . '>' . depthSymbol($depth) . $node->name . '</option>';
-
-    if ($node->hasChildren()) {
-        $depth++;
-        foreach ($node->children as $child) {
-            $html .= render_categories($child, $current, $attributes, $depth);
-        }
-    }
-
-    return $html;
-}
-
-
-function renderAdminNodes($node, $current = null, $depth = 0)
-{
-    $selected = (isset($current) && ($current->isChildOf($node)) || old('categories') && in_array($node->id, old('categories'))) ? 'selected' : '';
-
-    if (isset($current) && ($node->id == $current->id || $node->isChildOf($current))) {
-        return;
-    }
-
-    $html = '<option value="' . $node->id . '"' . $selected . '>' . depthSymbol($depth) . $node->name . '</option>';
-
-    if ($node->hasChildren()) {
-        $depth++;
-        foreach ($node->children as $child) {
-            $html .= renderAdminNodes($child, $current, $depth);
-        }
-    }
-
-    return $html;
-}
-
 function depthSymbol($depth, $symbol = '&emsp;')
 {
     $output = '';
