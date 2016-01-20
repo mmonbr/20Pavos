@@ -5,7 +5,7 @@ namespace App\Http\ViewComposers\Backend;
 use App\Category;
 use Illuminate\View\View;
 
-class CategoriesDropdown
+class CategoriesList
 {
     protected $category;
 
@@ -22,6 +22,6 @@ class CategoriesDropdown
      */
     public function compose(View $view)
     {
-        $view->with('categoriesDropdown', $this->category->all()->toTree());
+        $view->with('categories_list', $this->category->all()->toTree());
     }
 }

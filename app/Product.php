@@ -12,11 +12,27 @@ class Product extends Model implements SluggableInterface
 {
     use Eloquence, SluggableTrait;
 
-    protected $sluggable = ['build_from' => 'name'];
+    protected $sluggable = [
+        'build_from' => 'name'
+    ];
 
-    protected $searchableColumns = ['name', 'long_description', 'short_description', 'ASIN'];
+    protected $searchableColumns = [
+        'name',
+        'long_description',
+        'short_description',
+        'ASIN'
+    ];
 
-    protected $fillable = ['name', 'long_description', 'short_description', 'current_price', 'ASIN', 'image_url', 'referral_link'];
+    protected $fillable = [
+        'name',
+        'long_description',
+        'short_description',
+        'current_price',
+        'ASIN',
+        'image_url',
+        'referral_link',
+        'is_featured'
+    ];
 
     /*
      * Relations
@@ -61,6 +77,11 @@ class Product extends Model implements SluggableInterface
         foreach ($categories as $category) {
             $this->categorize($category);
         }
+    }
+
+    public function categoriesList()
+    {
+        return $this->categories()->pluck('id')->toArray();
     }
 
     /*

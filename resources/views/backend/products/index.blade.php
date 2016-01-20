@@ -39,7 +39,14 @@
                                 <td class="text-center">
                                     <a href="{{ route('products.show', $product->slug) }}" class="btn btn-success"><i class="fa fa-link"></i></a>
                                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <form method="POST"
+                                          action="{{ route('admin.products.destroy', [$product->id]) }}"
+                                          class="inline">
+                                        {{ method_field('delete') }}
+
+                                        {{ csrf_field() }}
+                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

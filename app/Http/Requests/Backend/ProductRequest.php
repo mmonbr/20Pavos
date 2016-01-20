@@ -34,6 +34,7 @@ class ProductRequest extends Request
                     'short_description' => 'required',
                     'long_description'  => 'required',
                     'current_price'     => 'required',
+                    'referral_link'     => 'required|url',
                     'file'              => 'required',
                     'categories'        => 'required',
                 ];
@@ -41,8 +42,13 @@ class ProductRequest extends Request
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'name' => 'required|unique:categories,name,' . $this->id,
-                    'slug' => 'required|unique:categories,slug,' . $this->id
+                    'name'              => 'required',
+                    'short_description' => 'required',
+                    'long_description'  => 'required',
+                    'current_price'     => 'required',
+                    'referral_link'     => 'required|url',
+                    //'file'              => 'required',
+                    'categories'        => 'required',
                 ];
             }
             default:

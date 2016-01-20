@@ -48,7 +48,9 @@ class ComposerServiceProvider extends ServiceProvider
                 'backend.categories.index',
                 'backend.categories.edit',
                 'backend.categories.create',
-            ], 'App\Http\ViewComposers\Backend\CategoriesDropdown'
+                'backend.products.edit',
+                'backend.products.create',
+            ], 'App\Http\ViewComposers\Backend\CategoriesList'
         );
     }
 

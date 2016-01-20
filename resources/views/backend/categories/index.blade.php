@@ -54,12 +54,7 @@
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <select name="parent_id" class="form-control">
-                                                    <option></option>
-                                                    @foreach($categoriesDropdown as $node)
-                                                        {!! renderAdminNodes($node, $category) !!}
-                                                    @endforeach
-                                                </select>
+                                                {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected($category)->render() !!}
                                             </div>
                                             <div class="col-md-4">
                                                 <button class="btn btn-default" type="submit"><i
@@ -107,13 +102,7 @@
                             <input name="name" value="{{ old('name') }}" type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Children Of</label>
-                            <select name="parent_id" class="form-control">
-                                <option></option>
-                                @foreach($categoriesDropdown as $node)
-                                    {!! renderAdminNodes($node) !!}
-                                @endforeach
-                            </select>
+                            {!! app('App\Utilities\NestedSelect')->name('category_id')->categories($categories_list)->selected(old('category_id', []))->render() !!}
                         </div>
                     </div>
                     <!-- /.box-body -->

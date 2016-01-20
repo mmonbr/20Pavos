@@ -36,7 +36,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('admin.products.index') }}"><i class="fa fa-circle-o"></i> Products</a></li>
-                    <li><a href="{{ route('admin.products.create') }}l"><i class="fa fa-circle-o"></i> Add Product</a></li>
+                    <li><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
                 </ul>
             </li>
             <li class="treeview">

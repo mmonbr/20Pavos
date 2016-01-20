@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "75e428bd387e9034dacf2b12850f7280",
+    "hash": "c40c850b0229b92022da93d369032d76",
     "content-hash": "dcdfbd131e280330c9e5fe349512a687",
     "packages": [
         {
@@ -49,16 +49,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.13.0",
+            "version": "3.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "dff1c76551777fcc5890d2d5324f9f9e5cdd4e3d"
+                "reference": "cc1796d1c21146cdcbfb7628aee816acb7b85e09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/dff1c76551777fcc5890d2d5324f9f9e5cdd4e3d",
-                "reference": "dff1c76551777fcc5890d2d5324f9f9e5cdd4e3d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cc1796d1c21146cdcbfb7628aee816acb7b85e09",
+                "reference": "cc1796d1c21146cdcbfb7628aee816acb7b85e09",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +124,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-01-15 02:01:24"
+            "time": "2016-01-19 22:46:22"
         },
         {
             "name": "aws/aws-sdk-php-laravel",
@@ -828,16 +828,16 @@
         },
         {
             "name": "kalnoy/nestedset",
-            "version": "v4.0.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lazychaser/laravel-nestedset.git",
-                "reference": "d2bcfe39c5023444086f43785a987e7509390bdc"
+                "reference": "ebf2dac94f29351f54acd007823d3e73f5aee5c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/d2bcfe39c5023444086f43785a987e7509390bdc",
-                "reference": "d2bcfe39c5023444086f43785a987e7509390bdc",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/ebf2dac94f29351f54acd007823d3e73f5aee5c2",
+                "reference": "ebf2dac94f29351f54acd007823d3e73f5aee5c2",
                 "shasum": ""
             },
             "require": {
@@ -873,7 +873,7 @@
                 "nested sets",
                 "nsm"
             ],
-            "time": "2015-12-23 07:20:42"
+            "time": "2016-01-20 08:19:29"
         },
         {
             "name": "laravel/framework",

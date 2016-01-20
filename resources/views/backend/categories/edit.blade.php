@@ -27,12 +27,7 @@
                         </div>
                         <div class="form-group">
                             <label>Children Of</label>
-                            <select name="parent_id" class="form-control">
-                                <option></option>
-                                @foreach($categoriesDropdown as $node)
-                                    {!! renderAdminNodes($node, $category) !!}
-                                @endforeach
-                            </select>
+                            {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected($category)->render() !!}
                         </div>
                     </div>
                     <!-- /.box-body -->

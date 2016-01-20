@@ -31,9 +31,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $categories = Category::all()->toTree();
-
-        return view('backend.products.create', compact('categories'));
+        return view('backend.products.create');
     }
 
     /**
@@ -50,15 +48,18 @@ class ProductsController extends Controller
             'name'              => $request->name,
             'short_description' => $request->short_description,
             'long_description'  => $request->long_description,
+            'current_price'     => $request->long_description,
             'is_featured'       => $request->featured,
             'referral_link'     => $request->referral_link,
             'ASIN'              => $request->ASIN,
             'image_url'         => $uploader->getPath(),
         ]);
 
+        dd($request);
+
         $product->categorizeMany($request->categories);
 
-        return redirect(route('backend.products.show', [$product->id]));
+        return redirect(route('backend.products.index'));
     }
 
     /**
@@ -80,7 +81,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.products.edit');
+        $product = Product::findOrFail($id);
+
+        return view('backend.products.edit', compact('product'));
     }
 
     /**
@@ -103,6 +106,8 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->delete();
+
+        return redirect()->back();
     }
 }
