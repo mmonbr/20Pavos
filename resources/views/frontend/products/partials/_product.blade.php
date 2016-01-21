@@ -4,7 +4,9 @@
 
             @include('frontend.layouts.partials._share-buttons',[
                         'url'  => route('products.show', $product->slug),
-                        'description'  => $product->name,
+                        'name'  => $product->name,
+                        'description'  => $product->short_description,
+                        'media' => cdn_file($product->image_url)
                     ])
 
             @include('frontend.products.partials._featured', ['product' => $product])

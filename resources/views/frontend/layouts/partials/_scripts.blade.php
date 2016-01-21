@@ -10,3 +10,5 @@
     ga('create', 'UA-72528411-1', 'auto');
     ga('send', 'pageview');
 </script>
+
+@include('sweet::alert')

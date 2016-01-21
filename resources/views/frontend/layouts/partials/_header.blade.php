@@ -1,7 +1,7 @@
 <header class="ui borderless doubling top large stackable menu">
     <div class="ui container">
         <a href="{{ route('home') }}" class="item">
-            <img src="http://semantic-ui.com/images/logo.png">
+            <img src="{{ asset('img/logo.png') }}">
         </a>
 
         <div class="ui dropdown item">

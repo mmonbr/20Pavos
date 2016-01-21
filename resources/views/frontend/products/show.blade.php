@@ -30,20 +30,17 @@
                 <a href="{{ $product->referral_link }}" target="_blank" class="ui huge yellow button fluid"><i
                             class="shop icon"></i> ¡Lo quiero!</a>
 
-                <div class="ui basic segment center aligned container">
-                    <h3 class="ui header">¿Te ha gustado? ¡Compártelo con tus amigos y lo mismo tienes suerte y
-                        te lo
-                        compran!</h3>
+                <h3 class="ui header">
+                    ¿Te ha gustado? ¡Compártelo con tus amigos y lo mismo tienes suerte y te lo compran!
+                </h3>
 
-                    <button class="ui huge circular facebook icon button">
-                        <i class="facebook icon"></i>
-                    </button>
-                    <button class="ui huge circular twitter icon button">
-                        <i class="twitter icon"></i>
-                    </button>
-                    <button class="ui huge circular google plus icon button">
-                        <i class="google plus icon"></i>
-                    </button>
+                <div class="ui basic segment center aligned container">
+                    @include('frontend.products.partials._share', [
+                        'url' => route('products.show', $product->slug),
+                        'name' => $product->name,
+                        'description' => $product->short_description,
+                        'media' => cdn_file($product->image_url)
+                    ])
                 </div>
             </div>
         </div>
