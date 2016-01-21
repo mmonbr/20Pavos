@@ -107,23 +107,11 @@ class Product extends Model implements SluggableInterface
         $query->latest();
 
         if(isset($params['min_price'])){
-            $query->where('current_price', '>=', $params['min_price']);
+            $this->scopeMinimumPrice($query, $params['min_price']);
         }
 
         if(isset($params['max_price'])){
-            $query->where('current_price', '<=', $params['max_price']);
-        }
-
-        if(isset($params['filtro']) && $params['filtro'] == 'nuevos'){
-            $query->latest();
-        }
-
-        if(isset($params['filtro']) && $params['filtro'] == 'populares'){
-            $query->orderBy('hits', 'DESC');
-        }
-
-        if(isset($params['filtro']) && $params['filtro'] == 'baratos'){
-            $query->orderBy('current_price', 'ASC');
+            $this->scopeMaximumPrice($query, $params['max_price']);
         }
 
         return $query;
@@ -139,13 +127,18 @@ class Product extends Model implements SluggableInterface
         $query->where('current_price', '<=', $price);
     }
 
-    public static function popular()
+    public static function scopeRecent($query)
     {
-        return self::orderBy('hits', 'DESC');
+        return $query->latest();
     }
 
-    public static function cheap()
+    public function scopePopular($query)
     {
-        return self::orderBy('current_price', 'ASC');
+        return $query->orderBy('hits', 'DESC');
+    }
+
+    public static function scopeCheap($query)
+    {
+        return $query->orderBy('current_price', 'ASC');
     }
 }

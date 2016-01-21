@@ -49,6 +49,8 @@ class CategoriesController extends Controller
             'parent_id' => $request->parent_id
         ]);
 
+        alert()->success('The category has been created successfully.', 'Tasty!');
+
         return redirect()->back();
     }
 
@@ -80,7 +82,7 @@ class CategoriesController extends Controller
             'parent_id' => $request->parent_id
         ]);
 
-        alert()->success('The category has been created successfully.', '#feelsgood');
+        alert()->success('The category has been updated successfully.', '#feelsgood');
 
         return redirect()->back();
     }

@@ -54,7 +54,7 @@
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-8">
-                                                {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected($category)->render() !!}
+                                                {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected($category)->render($firstEmptyNode = true) !!}
                                             </div>
                                             <div class="col-md-4">
                                                 <button class="btn btn-default" type="submit"><i
@@ -102,7 +102,7 @@
                             <input name="name" value="{{ old('name') }}" type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            {!! app('App\Utilities\NestedSelect')->name('category_id')->categories($categories_list)->selected(old('category_id', []))->render() !!}
+                            {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected(old('category_id', []))->render($firstEmptyNode = true) !!}
                         </div>
                     </div>
                     <!-- /.box-body -->

@@ -35,6 +35,12 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id'     => env('FACEBOOK_KEY'),
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect'      => env('FACEBOOK_CALLBACK')
+    ],
+
     'cloudfront' => [
         'url' => env('AWS_CLOUDFRONT_URL'),
         'cdn' => env('AWS_CLOUDFRONT_CDN')

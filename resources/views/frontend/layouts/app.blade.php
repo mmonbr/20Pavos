@@ -20,6 +20,7 @@
 
 @include('frontend.layouts.partials._header')
 
+
 <div class="ui container">
     @yield('content')
 </div>

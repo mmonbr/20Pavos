@@ -39,8 +39,11 @@ class NestedSelect
         return $this;
     }
 
-    public function render()
+    public function render($firstEmptyNode = false)
     {
+        if($firstEmptyNode)
+            $this->output .= $this->addEmptyNode();
+
         while ($category = $this->categories->shift()) {
             $this->addNode($category);
 
@@ -49,7 +52,7 @@ class NestedSelect
             }
         }
 
-        return '<select ' . $this->attributes['multiple'] . ' name="' . $this->attributes['name'] . '" class="form-control"><option></option>' . $this->output . '</select>';
+        return '<select ' . $this->attributes['multiple'] . ' name="' . $this->attributes['name'] . '" class="form-control">' . $this->output . '</select>';
     }
 
     public function addChildren($children)
@@ -62,6 +65,11 @@ class NestedSelect
         }
 
         $this->depth--;
+    }
+
+    private function addEmptyNode()
+    {
+        return '<option></option>';
     }
 
     private function addNode($node)

@@ -59,7 +59,7 @@ class ProductsController extends Controller
 
         alert()->success('The product has been created successfully.', 'Awww yeah!');
 
-        return redirect(route('backend.products.index'));
+        return redirect(route('admin.products.index'));
     }
 
     /**

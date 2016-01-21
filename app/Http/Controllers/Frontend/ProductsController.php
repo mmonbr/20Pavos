@@ -38,4 +38,40 @@ class ProductsController extends Controller
 
         return view('frontend.products.show', compact('product'));
     }
+
+    /**
+     * Displays latest products
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function latest()
+    {
+        $products = Product::recent()->paginate(21);
+
+        return view('frontend.products.all', compact('products'));
+    }
+
+    /**
+     * Displays popular products
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function popular()
+    {
+        $products = Product::popular()->paginate(21);
+
+        return view('frontend.products.all', compact('products'));
+    }
+
+    /**
+     * Displays cheap products
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cheap()
+    {
+        $products = Product::cheap()->paginate(21);
+
+        return view('frontend.products.all', compact('products'));
+    }
 }

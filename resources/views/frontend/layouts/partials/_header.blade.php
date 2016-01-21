@@ -8,26 +8,34 @@
             <i class="big sidebar icon"></i>
             Categorías
             <div class="menu">
-                @foreach($categories as $category)
-                    <a href="{{ route('categories.show' , [$category['slug']]) }}"
-                       class="item">{{ $category['name'] }}</a>
-                @endforeach
+                <a href="#" class="item">Novedades</a>
+                <a href="{{ route('home') }}?max_price=10" class="item">Menos de 10€</a>
+                <a href="#" class="item">Categoría 1</a>
+                <a href="#" class="item">Categoría 2</a>
+                <a href="#" class="item">Categoría 3</a>
+                <a href="#" class="item">Categoría 4</a>
+                <a href="#" class="item">Contacto</a>
             </div>
         </div>
 
-        <a href="{{ route('home') }}?filtro=nuevos" class="item">
+        <a href="{{ route('products.latest') }}" class="item {{ active_class(if_route(['products.latest', 'home']), 'active') }}">
             <i class="big announcement icon"></i>
             Recientes
         </a>
 
-        <a href="{{ route('home') }}?filtro=populares" class="item">
+        <a href="{{ route('products.popular') }}" class="item {{ active_class(if_route(['products.popular']), 'active') }}">
             <i class="big heart icon"></i>
             Populares
         </a>
 
-        <a href="{{ route('home') }}?filtro=baratos" class="item">
+        <a href="{{ route('products.cheap') }}" class="item {{ active_class(if_route(['products.cheap']), 'active') }}">
             <i class="big euro icon"></i>
             Baratos
+        </a>
+
+        <a href="{{ route('home') }}" class="item">
+            <i class="big user icon"></i>
+            Mi cuenta
         </a>
 
         <div class="right menu">

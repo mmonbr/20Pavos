@@ -25,27 +25,27 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li>
+            <li class="{{ active_class(if_route(['admin.index']), 'active') }}">
                 <a href="{{ route('admin.index') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-gift"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.products.index') }}"><i class="fa fa-circle-o"></i> Products</a></li>
-                    <li><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
+            <li class="treeview {{ active_class(if_route_pattern(['admin.categories.*']), 'active') }}">
                 <a href="#">
                     <i class="fa fa-cubes"></i> <span>Categories</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.categories.index') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
-                    <li><a href="{{ route('admin.categories.create') }}"><i class="fa fa-circle-o"></i> Add Category</a></li>
+                    <li class="{{ active_class(if_route(['admin.categories.index']), 'active') }}"><a href="{{ route('admin.categories.index') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
+                    <li class="{{ active_class(if_route(['admin.categories.create']), 'active') }}"><a href="{{ route('admin.categories.create') }}"><i class="fa fa-circle-o"></i> Add Category</a></li>
+                </ul>
+            </li>
+            <li class="treeview {{ active_class(if_route_pattern(['admin.products.*']), 'active') }}">
+                <a href="#">
+                    <i class="fa fa-gift"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ active_class(if_route(['admin.products.index']), 'active') }}"><a href="{{ route('admin.products.index') }}"><i class="fa fa-circle-o"></i> Products</a></li>
+                    <li class="{{ active_class(if_route(['admin.products.create']), 'active') }}"><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
                 </ul>
             </li>
             <li class="treeview">

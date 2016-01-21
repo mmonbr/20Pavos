@@ -13,7 +13,7 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name'           => $faker->name,
+        'username'       => $faker->userName,
         'email'          => $faker->email,
         'password'       => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
@@ -25,19 +25,19 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $asin_array = ['B005WU8WQW', 'B00TX5O8WE', 'B01427MW3O'];
 
     $images_array = [
-        'http://www.thisiswhyimbroke.com/images/ball-cannon-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/amazing-galaxy-lollipops-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/rainbow-flower-plushies-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/candle-chandelier-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/remote-control-land-cruiser-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/water-filtration-water-bottle-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/steam-shower-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/multi-color-led-earrings-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/stravaganza-fire-pit-640x533.jpg',
-        'http://www.thisiswhyimbroke.com/images/ultra-strech-stain-resistant-denim-jeans-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/solar-powered-bike-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/picnic-organizer-300x250.jpg',
-        'http://www.thisiswhyimbroke.com/images/heart-rate-tracking-bracelet-300x250.jpg'
+        'uploads/products/3JvRxviHaHQMBoy1.jpg',
+        //'http://www.thisiswhyimbroke.com/images/amazing-galaxy-lollipops-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/rainbow-flower-plushies-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/candle-chandelier-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/remote-control-land-cruiser-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/water-filtration-water-bottle-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/steam-shower-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/multi-color-led-earrings-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/stravaganza-fire-pit-640x533.jpg',
+        //'http://www.thisiswhyimbroke.com/images/ultra-strech-stain-resistant-denim-jeans-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/solar-powered-bike-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/picnic-organizer-300x250.jpg',
+        //'http://www.thisiswhyimbroke.com/images/heart-rate-tracking-bracelet-300x250.jpg'
     ];
 
     return [

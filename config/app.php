@@ -165,7 +165,9 @@ return [
         Aws\Laravel\AwsServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Spatie\Newsletter\NewsletterServiceProvider::class,
-        UxWeb\SweetAlert\SweetAlertServiceProvider::class
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -219,7 +221,9 @@ return [
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         'AWS'        => Aws\Laravel\AwsFacade::class,
         'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
-        'Alert' => UxWeb\SweetAlert\SweetAlert::class
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        'Active' => HieuLe\Active\Facades\Active::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

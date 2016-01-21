@@ -44,23 +44,30 @@
                                            name="current_price">
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" class="form-control" name="file">
-                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                            <input type="file" class="form-control" name="file">
+                                        </div>
 
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <p>
-                                            <strong>Feature this product</strong>
-                                        </p>
-                                        <label>
-                                            <input type="checkbox" @if(old('featured', $product->is_featured)) checked
-                                                   @endif name="featured" value="1"> Check
-                                        </label>
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <p>
+                                                    <strong>Feature this product</strong>
+                                                </p>
+                                                <label>
+                                                    <input type="checkbox" @if(old('featured', $product->is_featured)) checked
+                                                           @endif name="featured" value="1"> Check
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Current image</label>
+                                        <img src="{{ cdn_file($product->image_url) }}" class="img-responsive">
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">

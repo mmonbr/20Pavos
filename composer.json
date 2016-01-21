@@ -16,7 +16,9 @@
         "spatie/laravel-newsletter": "^2.2",
         "almasaeed2010/adminlte": "~2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "uxweb/sweet-alert": "^1.1"
+        "uxweb/sweet-alert": "^1.1",
+        "hieu-le/active": "^3.1",
+        "laravel/socialite": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

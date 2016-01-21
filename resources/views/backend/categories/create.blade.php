@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <label>Children Of</label>
-                            {!! app('App\Utilities\NestedSelect')->name('category_id')->categories($categories_list)->selected(old('category_id', []))->render() !!}
+                            {!! app('App\Utilities\NestedSelect')->name('category_id')->categories($categories_list)->selected(old('category_id', []))->render($firstEmptyNode = true) !!}
                         </div>
                     </div>
                     <!-- /.box-body -->
