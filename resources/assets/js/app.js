@@ -1,3 +1,5 @@
+var Vue = require('vue');
+
 /*
  * DROPDOWNS
  */

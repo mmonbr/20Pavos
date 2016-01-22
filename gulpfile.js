@@ -18,55 +18,46 @@ elixir(function (mix) {
      */
 
     //Semantic UI
-    mix.copy('semantic/dist/semantic.min.css', 'public/css/lib/semantic.min.css')
-        .copy('semantic/dist/semantic.min.js', 'public/js/lib/semantic.min.js')
-        .copy('semantic/dist/themes', 'public/css/themes');
+    mix.copy('semantic/dist/semantic.min.css', 'public/css/lib/semantic/semantic.min.css')
+        .copy('semantic/dist/semantic.min.js', 'public/js/lib/semantic/semantic.min.js')
+        .copy('semantic/dist/themes', 'public/css/themes')
+        //Jquery
+        .copy('bower_components/jquery/dist/jquery.js', 'public/js/lib/jquery/jquery.min.js')
+        //Infinite Ajax Scroll
+        .copy('bower_components/jquery-ias/src/jquery-ias.js', 'public/js/lib/ias/jquery-ias.min.js')
+        .copy('bower_components/jquery-ias/src/callbacks.js', 'public/js/lib/ias/callbacks.js')
+        .copy('bower_components/jquery-ias/src/extensions', 'public/js/lib/ias/extensions')
+        //Swiper
+        .copy('bower_components/swiper/dist/js/swiper.min.js', 'public/js/lib/swiper/swiper.min.js')
+        .copy('bower_components/swiper/dist/css/swiper.min.css', 'public/css/lib/swiper/swiper.min.css')
+        //NoUISlider
+        .copy('bower_components/nouislider/distribute/nouislider.min.js', 'public/js/lib/nouislider/nouislider.min.js')
+        .copy('bower_components/nouislider/distribute/nouislider.min.css', 'public/css/lib/nouislider/nouislider.min.css')
+        //SweetAlert
+        .copy('bower_components/sweetalert/dist/sweetalert.min.js', 'public/js/lib/sweetalert/sweetalert.min.js')
+        .copy('bower_components/sweetalert/dist/sweetalert.css', 'public/css/lib/sweetalert/sweetalert.css');
 
     //Styles
+    elixir(function (mix) {
+        mix.stylesIn('public/css/lib', 'public/css/lib/all.css');
+    });
+
     mix.styles([
-        'lib/swiper.min.css',
-        'lib/nouislider.min.css',
-        'lib/semantic.min.css',
-        'lib/sweetalert.css',
-         'app.css'
+        'lib/all.css',
+        'app.css'
     ], './public/css/all.min.css', './public/css');
 
-    //JS
+    //Scripts
     mix.browserify('app.js');
 
-    //Scripts
+    elixir(function (mix) {
+        mix.scriptsIn('public/js/lib', 'public/js/lib/all.js');
+    });
+
     mix.scripts([
-        'lib/jquery-2.2.0.min.js',
-        'lib/jquery-ias.min.js',
-        'lib/swiper.min.js',
-        'lib/nouislider.min.js',
-        'lib/url.min.js',
-        'lib/semantic.min.js',
-        'lib/sweetalert.min.js',
+        'lib/all.js',
         'app.js'
     ], './public/js/app.min.js', './public/js');
-
-    /*
-     * ADMIN
-     */
-
-    /*mix.less('AdminLTE.less', 'public/css/admin.css');
-
-    mix.styles([
-        'lib/bootstrap.min.css',
-        'admin.css'
-    ], './public/css/admin.min.css', './public/css');
-
-    mix.browserify('admin.js');
-
-    mix.scripts([
-        'lib/jquery-2.1.4.min.js',
-        'lib/bootstrap.min.js',
-        'lib/fastclick.min.js',
-        'lib/jquery.slimscroll.min.js',
-        'admin.js'
-    ], './public/js/admin.min.js', './public/js');*/
-
 });
 
 /*

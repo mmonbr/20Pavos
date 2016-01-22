@@ -4,61 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a4ee2b80571cd5b4f9d6f88a57a4965e",
-    "content-hash": "8b200bebbaa68ac474d51779484ee1c5",
+    "hash": "56da41a1e67c5ffcb678d4ce03b65503",
+    "content-hash": "8f7a0aeda1b92163bfc2b17f8df7e557",
     "packages": [
         {
-            "name": "almasaeed2010/adminlte",
-            "version": "v2.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/almasaeed2010/AdminLTE.git",
-                "reference": "1ee281b3b99e8d8cccdc72fb8437c6888149cb46"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/1ee281b3b99e8d8cccdc72fb8437c6888149cb46",
-                "reference": "1ee281b3b99e8d8cccdc72fb8437c6888149cb46",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Abdullah Almsaeed",
-                    "email": "support@almsaeedstudio.com"
-                }
-            ],
-            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
-            "homepage": "http://almsaeedstudio.com/",
-            "keywords": [
-                "JS",
-                "admin",
-                "back-end",
-                "css",
-                "less",
-                "responsive",
-                "template",
-                "theme",
-                "web"
-            ],
-            "time": "2015-10-23 14:50:49"
-        },
-        {
             "name": "aws/aws-sdk-php",
-            "version": "3.13.1",
+            "version": "3.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "cc1796d1c21146cdcbfb7628aee816acb7b85e09"
+                "reference": "ca5aafa853d213d9dd81e167dea82498183badf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cc1796d1c21146cdcbfb7628aee816acb7b85e09",
-                "reference": "cc1796d1c21146cdcbfb7628aee816acb7b85e09",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ca5aafa853d213d9dd81e167dea82498183badf7",
+                "reference": "ca5aafa853d213d9dd81e167dea82498183badf7",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-01-19 22:46:22"
+            "time": "2016-01-22 00:21:01"
         },
         {
             "name": "aws/aws-sdk-php-laravel",
@@ -1825,21 +1785,21 @@
         },
         {
             "name": "orchestra/testbench",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "2d609a27dac57f86c45de70363db018ad3c5e910"
+                "reference": "872ea88b0025a8286356d235c49c22f9f37d5d8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/2d609a27dac57f86c45de70363db018ad3c5e910",
-                "reference": "2d609a27dac57f86c45de70363db018ad3c5e910",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/872ea88b0025a8286356d235c49c22f9f37d5d8f",
+                "reference": "872ea88b0025a8286356d235c49c22f9f37d5d8f",
                 "shasum": ""
             },
             "require": {
                 "fzaninotto/faker": "~1.4",
-                "laravel/framework": "~5.2.0",
+                "laravel/framework": "~5.2.7",
                 "orchestra/database": "~3.2.0",
                 "php": ">=5.5.0",
                 "symfony/css-selector": "2.8.*|3.0.*",
@@ -1884,7 +1844,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2015-12-21 23:36:20"
+            "time": "2016-01-21 22:55:15"
         },
         {
             "name": "paragonie/random_compat",
