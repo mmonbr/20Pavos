@@ -24,9 +24,10 @@ elixir(function (mix) {
         //Jquery
         .copy('bower_components/jquery/dist/jquery.js', 'public/js/lib/jquery/jquery.min.js')
         //Infinite Ajax Scroll
-        .copy('bower_components/jquery-ias/src/jquery-ias.js', 'public/js/lib/ias/jquery-ias.min.js')
+        .copy('bower_components/jquery-ias/src/jquery-ias.js', 'public/js/lib/ias/jquery-ias.js')
         .copy('bower_components/jquery-ias/src/callbacks.js', 'public/js/lib/ias/callbacks.js')
-        .copy('bower_components/jquery-ias/src/extensions', 'public/js/lib/ias/extensions')
+        .copy('bower_components/jquery-ias/src/extension', 'public/js/lib/ias/extension')
+        .scriptsIn('public/js/lib/ias', 'public/js/lib/ias/jquery-ias.min.js')
         //Swiper
         .copy('bower_components/swiper/dist/js/swiper.min.js', 'public/js/lib/swiper/swiper.min.js')
         .copy('bower_components/swiper/dist/css/swiper.min.css', 'public/css/lib/swiper/swiper.min.css')
@@ -35,7 +36,10 @@ elixir(function (mix) {
         .copy('bower_components/nouislider/distribute/nouislider.min.css', 'public/css/lib/nouislider/nouislider.min.css')
         //SweetAlert
         .copy('bower_components/sweetalert/dist/sweetalert.min.js', 'public/js/lib/sweetalert/sweetalert.min.js')
-        .copy('bower_components/sweetalert/dist/sweetalert.css', 'public/css/lib/sweetalert/sweetalert.css');
+        .copy('bower_components/sweetalert/dist/sweetalert.css', 'public/css/lib/sweetalert/sweetalert.css')
+        //Font Awesome
+        .copy('bower_components/font-awesome/css/font-awesome.min.css', 'public/css/lib/font-awesome/font-awesome.min.css')
+        .copy('bower_components/font-awesome/fonts/', 'public/fonts');
 
     //Styles
     elixir(function (mix) {
@@ -50,12 +54,13 @@ elixir(function (mix) {
     //Scripts
     mix.browserify('app.js');
 
-    elixir(function (mix) {
-        mix.scriptsIn('public/js/lib', 'public/js/lib/all.js');
-    });
-
     mix.scripts([
-        'lib/all.js',
+        'lib/jquery/jquery.min.js',
+        'lib/ias/jquery-ias.min.js',
+        'lib/swiper/swiper.min.js',
+        'lib/nouislider/nouislider.min.js',
+        'lib/sweetalert/sweetalert.min.js',
+        'lib/semantic/semantic.min.js',
         'app.js'
     ], './public/js/app.min.js', './public/js');
 });

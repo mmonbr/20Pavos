@@ -4,9 +4,5 @@
 
 <title>20Pavos - El cajón desastre de Internet</title>
 
-<!-- Fonts -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel='stylesheet'
-      type='text/css'>
-
 <!-- Styles -->
 <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
