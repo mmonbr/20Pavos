@@ -1,0 +1,26 @@
+{
+  "name": "Derrochando",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Manuel Montenegro <manuel.monbr@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mmonbr/20Pavos",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ias": "~2.2.1",
+    "nouislider": "~8.2.1",
+    "Swiper": "swiper#~3.3.0",
+    "jquery": "~2.2.0",
+    "sweetalert": "~1.1.3"
+  }
+}
