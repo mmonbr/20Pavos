@@ -23,8 +23,8 @@
     bottom: 0;
     right: -64px;
 
-    opacity:0;
-    transition:opacity 0.5s linear, ease 0.5s;
+    opacity: 0;
+    transition: opacity 0.5s linear, ease 0.5s;
 }
 
 .image:hover .ShareButtons {
@@ -35,7 +35,7 @@
 .ShareButton__item__image {
     max-width: 48px;
     max-height: 48px;
-    transition:all 0.25s linear;
+    transition: all 0.25s linear;
 }
 
 .ShareButton__item__image:hover {
@@ -69,6 +69,33 @@
     position: absolute;
     left: 15px;
     font-weight: bold;
+}
+
+/*
+* Products
+*/
+
+.Items {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.Item {
+    min-width: 33.33%;
+    max-width: 33.33%;
+}
+
+.Item__title {
+    text-align: center;
+}
+
+.Item__photo {
+    align-content: center;
+}
+
+.Item__description {
+    text-align: justify;
 }
 
 /*

@@ -1,7 +1,7 @@
 <header class="ui borderless doubling top large stackable menu">
     <div class="ui container">
         <a href="{{ route('home') }}" class="item">
-            <img src="{{ asset('img/logo.png') }}">
+            <h1>Derrochando</h1>
         </a>
 
         <div class="ui dropdown item">
@@ -17,21 +17,6 @@
                 <a href="#" class="item">Contacto</a>
             </div>
         </div>
-
-        <a href="{{ route('products.latest') }}" class="item {{ active_class(if_route(['products.latest', 'home']), 'active') }}">
-            <i class="big announcement icon"></i>
-            Recientes
-        </a>
-
-        <a href="{{ route('products.popular') }}" class="item {{ active_class(if_route(['products.popular']), 'active') }}">
-            <i class="big heart icon"></i>
-            Populares
-        </a>
-
-        <a href="{{ route('products.cheap') }}" class="item {{ active_class(if_route(['products.cheap']), 'active') }}">
-            <i class="big euro icon"></i>
-            Baratos
-        </a>
 
         <a href="{{ route('home') }}" class="item">
             <i class="big user icon"></i>

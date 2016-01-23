@@ -16,8 +16,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->string('short_description');
-            $table->text('long_description');
+            $table->text('description');
             $table->integer('current_price');
             $table->integer('hits')->unsigned()->default(0);
             $table->boolean('is_featured')->unsigned()->default(false);

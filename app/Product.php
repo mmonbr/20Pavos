@@ -18,15 +18,13 @@ class Product extends Model implements SluggableInterface
 
     protected $searchableColumns = [
         'name',
-        'long_description',
-        'short_description',
+        'description',
         'ASIN'
     ];
 
     protected $fillable = [
         'name',
-        'long_description',
-        'short_description',
+        'description',
         'current_price',
         'ASIN',
         'image_url',

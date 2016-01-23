@@ -6,7 +6,7 @@
 <body>
 
 @include('frontend.layouts.partials._header')
-
+@include('frontend.layouts.partials._block')
 
 <div class="ui container">
     @yield('content')

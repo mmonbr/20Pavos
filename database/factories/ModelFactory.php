@@ -41,15 +41,14 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     ];
 
     return [
-        'name'              => $faker->sentence,
-        'short_description' => $faker->paragraph(2),
-        'long_description'  => $faker->paragraph(10),
-        'current_price'     => $faker->randomNumber(2),
-        'is_featured'       => $faker->boolean(),
-        'hits'              => $faker->randomNumber(),
-        'image_url'         => $images_array[array_rand($images_array)],
-        'referral_link'     => $faker->url,
-        'ASIN'              => $asin_array[array_rand($asin_array)],
+        'name'          => $faker->sentence,
+        'description'   => $faker->sentences(5, true),
+        'current_price' => $faker->randomNumber(2),
+        'is_featured'   => $faker->boolean(),
+        'hits'          => $faker->randomNumber(),
+        'image_url'     => $images_array[array_rand($images_array)],
+        'referral_link' => $faker->url,
+        'ASIN'          => $asin_array[array_rand($asin_array)],
     ];
 });
 

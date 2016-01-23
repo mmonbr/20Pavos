@@ -25,7 +25,7 @@
         </div>
         <div class="nine wide column">
             <div class="ui segment">
-                {!! $product->long_description !!}
+                {!! $product->description !!}
 
                 <a href="{{ $product->referral_link }}" target="_blank" class="ui huge yellow button fluid"><i
                             class="shop icon"></i> ¡Lo quiero!</a>
@@ -38,7 +38,7 @@
                     @include('frontend.products.partials._share', [
                         'url' => route('products.show', $product->slug),
                         'name' => $product->name,
-                        'description' => $product->short_description,
+                        'description' => $product->description,
                         'media' => cdn_file($product->image_url)
                     ])
                 </div>

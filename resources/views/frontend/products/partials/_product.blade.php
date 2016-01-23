@@ -1,11 +1,11 @@
-<div class="ui fluid card">
+<div class="ui card">
     <div class="image">
         <a href="{{ $product->referral_link }}" target="_blank" class="ui image fluid">
 
             @include('frontend.layouts.partials._share-buttons',[
                         'url'  => route('products.show', $product->slug),
                         'name'  => $product->name,
-                        'description'  => $product->short_description,
+                        'description'  => $product->description,
                         'media' => cdn_file($product->image_url)
                     ])
 
@@ -20,7 +20,9 @@
             {{ $product->current_price }} <i class="euro icon"></i>
         </div>
         <div class="description">
-            {!! $product->short_description !!}
+            <div class="ui justified container">
+                {!! $product->description !!}
+            </div>
         </div>
     </div>
     <div class="ui bottom attached yellow button">

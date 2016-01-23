@@ -64,16 +64,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Short description</label>
+                                    <label>Description</label>
                                     <textarea class="form-control"
-                                      name="short_description">{{ old('short_description') }}
-                                    </textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Long description</label>
-                                    <textarea class="form-control"
-                                      name="long_description">{{ old('long_description') }}
+                                      name="description">{{ old('description') }}
                                     </textarea>
                                 </div>
                             </div>
