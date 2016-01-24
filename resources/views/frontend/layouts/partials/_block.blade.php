@@ -1,32 +1,30 @@
 <div class="ui container" style="margin-bottom: 20px">
-    <div class="ui center aligned stackable grid">
-        <div class="eleven wide column">
+    <div class="ui relaxed stackable grid">
+        <div class="ten wide column">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="http://placehold.it/730x250">
+                        <img src="http://placehold.it/650x250">
                     </div>
                     <div class="swiper-slide">
-                        <img src="http://placehold.it/730x250">
+                        <img src="http://placehold.it/650x250">
                     </div>
                     <div class="swiper-slide">
-                        <img src="http://placehold.it/730x250">
+                        <img src="http://placehold.it/650x250">
                     </div>
                     <div class="swiper-slide">
-                        <img src="http://placehold.it/730x250">
+                        <img src="http://placehold.it/650x250">
                     </div>
                     <div class="swiper-slide">
-                        <img src="http://placehold.it/730x250">
+                        <img src="http://placehold.it/650x250">
                     </div>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
         </div>
-        <div class="fourfive wide column">
-            <div class="ui medium rectangle ad">
-                <img src="http://placehold.it/300x250">
-            </div>
+        <div class="six wide right floated right aligned column">
+            <img src="http://placehold.it/300x250">
 
             <!--<div class="ui middle algined segment">
                 <h3 class="header">Recibe los pruductos más raros en tu email</h3>
