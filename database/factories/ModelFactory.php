@@ -25,7 +25,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $asin_array = ['B005WU8WQW', 'B00TX5O8WE', 'B01427MW3O'];
 
     $images_array = [
-        'uploads/products/3JvRxviHaHQMBoy1.jpg',
+        'uploads/products/vu3nZhZWG9j3153x.jpg',
         //'http://www.thisiswhyimbroke.com/images/amazing-galaxy-lollipops-300x250.jpg',
         //'http://www.thisiswhyimbroke.com/images/rainbow-flower-plushies-300x250.jpg',
         //'http://www.thisiswhyimbroke.com/images/candle-chandelier-300x250.jpg',

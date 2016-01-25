@@ -1,0 +1,30 @@
+.ShareButtons {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  right: -64px;
+
+  opacity: 0;
+  transition: opacity 0.5s linear, ease 0.5s;
+}
+
+.image:hover .ShareButtons {
+  opacity: 1;
+  right: 10px;
+}
+
+.ShareButton__item__image {
+  max-width: 48px;
+  max-height: 48px;
+  transition: all 0.25s linear;
+}
+
+.ShareButton__item__image:hover {
+  transform: rotate(25deg);
+}
+
+.ShareButton__item {
+  margin-bottom: 5px;
+}

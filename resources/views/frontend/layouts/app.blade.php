@@ -8,7 +8,7 @@
 @include('frontend.layouts.partials._header')
 @include('frontend.layouts.partials._block')
 
-<div class="ui container">
+<div class="ui mobile only container">
     @yield('content')
 </div>
 

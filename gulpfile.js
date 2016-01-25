@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+elixir.config.sourcemaps = false;
 
 /*
  |--------------------------------------------------------------------------
@@ -29,8 +30,14 @@ elixir(function (mix) {
         .copy('bower_components/jquery-ias/src/extension', 'public/js/lib/ias/extension')
         .scriptsIn('public/js/lib/ias', 'public/js/lib/ias/jquery-ias.min.js')
         //Swiper
-        .copy('bower_components/swiper/dist/js/swiper.min.js', 'public/js/lib/swiper/swiper.min.js')
-        .copy('bower_components/swiper/dist/css/swiper.min.css', 'public/css/lib/swiper/swiper.min.css')
+        //.copy('bower_components/swiper/dist/js/swiper.min.js', 'public/js/lib/swiper/swiper.min.js')
+        //.copy('bower_components/swiper/dist/css/swiper.min.css', 'public/css/lib/swiper/swiper.min.css')
+        //Slick
+        .copy('bower_components/slick-carousel/slick/slick.min.js', 'public/js/lib/slick/slick.min.js')
+        .copy('bower_components/slick-carousel/slick/slick.css', 'public/css/lib/slick/slick.css')
+        //.copy('bower_components/slick-carousel/slick/slick-theme.css', 'public/css/lib/slick/slick-theme.css')
+        .copy('bower_components/slick-carousel/slick/fonts', 'public/fonts')
+        .copy('bower_components/slick-carousel/slick/ajax-loader.gif', 'public/img/ajax-loader.gif')
         //NoUISlider
         .copy('bower_components/nouislider/distribute/nouislider.min.js', 'public/js/lib/nouislider/nouislider.min.js')
         .copy('bower_components/nouislider/distribute/nouislider.min.css', 'public/css/lib/nouislider/nouislider.min.css')
@@ -42,6 +49,8 @@ elixir(function (mix) {
         .copy('bower_components/font-awesome/fonts/', 'public/fonts');
 
     //Styles
+    mix.sass('app.scss');
+
     elixir(function (mix) {
         mix.stylesIn('public/css/lib', 'public/css/lib/all.css');
     });
@@ -57,7 +66,8 @@ elixir(function (mix) {
     mix.scripts([
         'lib/jquery/jquery.min.js',
         'lib/ias/jquery-ias.min.js',
-        'lib/swiper/swiper.min.js',
+        //'lib/swiper/swiper.min.js',
+        'lib/slick/slick.min.js',
         'lib/nouislider/nouislider.min.js',
         'lib/sweetalert/sweetalert.min.js',
         'lib/semantic/semantic.min.js',

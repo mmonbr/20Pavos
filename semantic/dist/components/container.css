@@ -40,7 +40,7 @@
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1042px) {
   .ui.container {
     width: 723px;
     margin-left: auto !important;
@@ -58,38 +58,38 @@
 }
 
 /* Small Monitor */
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 1043px) and (max-width: 1042px) {
   .ui.container {
-    width: 933px;
+    width: 984px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 933px  +  2rem ) !important;
+    width: calc( 984px  +  2rem ) !important;
   }
   .ui.relaxed.grid.container {
-    width: calc( 933px  +  3rem ) !important;
+    width: calc( 984px  +  3rem ) !important;
   }
   .ui.very.relaxed.grid.container {
-    width: calc( 933px  +  5rem ) !important;
+    width: calc( 984px  +  5rem ) !important;
   }
 }
 
 /* Large Monitor */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1043px) {
   .ui.container {
-    width: 1127px;
+    width: 970px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 1127px  +  2rem ) !important;
+    width: calc( 970px  +  2rem ) !important;
   }
   .ui.relaxed.grid.container {
-    width: calc( 1127px  +  3rem ) !important;
+    width: calc( 970px  +  3rem ) !important;
   }
   .ui.very.relaxed.grid.container {
-    width: calc( 1127px  +  5rem ) !important;
+    width: calc( 970px  +  5rem ) !important;
   }
 }
 

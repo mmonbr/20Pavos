@@ -9634,13 +9634,24 @@ $('.dropdown').dropdown({
 /*
  * SWIPER - PRODUCT IMAGE SLIDER
  */
-var swiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    lazyLoading: true,
-    spaceBetween: 30
+/*var swiper = new Swiper('.swiper-container', {
+ pagination: '.swiper-pagination',
+ paginationClickable: true,
+ nextButton: '.swiper-button-next',
+ prevButton: '.swiper-button-prev',
+ lazyLoading: true,
+ spaceBetween: 30
+ });*/
+
+/*
+ * Slick Caroussel
+ */
+
+$('.slick-container').slick({
+    dots: false,
+    autoplay: true,
+    adaptiveHeight: true,
+    autoplaySpeed: 4000
 });
 
 /*
@@ -9682,5 +9693,3 @@ slider.noUiSlider.on('update', function (values, handle) {
 });
 
 },{"vue":2}]},{},[3]);
-
-//# sourceMappingURL=app.js.map
