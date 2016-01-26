@@ -28,9 +28,9 @@
                 <p>{{ $category->description }}</p>
             </div>
 
-            <div id="products-container" class="ui three doubling stackable cards">
+            <div id="Products">
                 @foreach($products as $product)
-                    @include('frontend.products.partials._product', ['product' => $product])
+                    @include('frontend.products.partials._product_small', ['product' => $product])
                 @endforeach
             </div>
 

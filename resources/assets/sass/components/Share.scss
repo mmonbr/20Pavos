@@ -3,16 +3,16 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  bottom: 0;
+  top: 100px;
   right: -64px;
 
   opacity: 0;
   transition: opacity 0.5s linear, ease 0.5s;
 }
 
-.image:hover .ShareButtons {
+.Product:hover .ShareButtons {
   opacity: 1;
-  right: 10px;
+  right: 11px;
 }
 
 .ShareButton__item__image {
@@ -27,4 +27,10 @@
 
 .ShareButton__item {
   margin-bottom: 5px;
+}
+
+@media (max-width: 680px) {
+  .ShareButtons {
+    display: none;
+  }
 }

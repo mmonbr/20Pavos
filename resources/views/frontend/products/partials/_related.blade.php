@@ -2,8 +2,8 @@
     <h3 class="ui header">Otros productos que te podrían interesar...</h3>
 </div>
 
-<div class="ui three doubling stackable cards">
+<div id="Products">
     @foreach($related as $product)
-        @include('frontend.products.partials._product', ['product' => $product])
+        @include('frontend.products.partials._product_small', ['product' => $product])
     @endforeach
 </div>
