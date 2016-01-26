@@ -38,8 +38,8 @@ $('.slick-container').slick({
  */
 
 var ias = jQuery.ias({
-    container: '#products-container',
-    item: '.card',
+    container: '#Products',
+    item: '.Product',
     pagination: '.pagination',
     next: '.active.item + a'
 });

@@ -1,13 +1,9 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <div id="products-container">
-        @foreach ($products->chunk(3) as $chunk)
-            <div class="ui three doubling stackable cards">
-                @foreach ($chunk as $product)
-                    @include('frontend.products.partials._product', ['product' => $product])
-                @endforeach
-            </div>
+    <div id="Products">
+        @foreach ($products as $product)
+            @include('frontend.products.partials._product', ['product' => $product])
         @endforeach
     </div>
 

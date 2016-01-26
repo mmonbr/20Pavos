@@ -1,32 +1,29 @@
-<div class="ui card">
-    <div class="image">
-        <a href="{{ $product->referral_link }}" target="_blank" class="ui image fluid">
+<div class="Product">
+    <a class="Product__title" href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
 
-            @include('frontend.layouts.partials._share-buttons',[
-                        'url'  => route('products.show', $product->slug),
-                        'name'  => $product->name,
-                        'description'  => $product->description,
-                        'media' => cdn_file($product->image_url)
-                    ])
+    <a href="{{ $product->referral_link }}" target="_blank">
+        <img class="Product__image" src="{{ cdn_file($product->image_url) }}">
+    </a>
 
-            @include('frontend.products.partials._featured', ['product' => $product])
+    @include('frontend.layouts.partials._share-buttons',
+    [
+        'url'  => route('products.show', $product->slug),
+        'name'  => $product->name,
+        'description'  => $product->description,
+        'media' => cdn_file($product->image_url)
+    ])
 
-            <img src="{{ cdn_file($product->image_url) }}">
-        </a>
+    <div class="Product__description">
+        {!! $product->description !!}
     </div>
-    <div class="content">
-        <div class="header"><a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></div>
-        <div class="meta">
-            {{ $product->current_price }} <i class="euro icon"></i>
+    <div class="Product__info">
+        <div class="Product__price">
+            {{ $product->current_price }}
+            <i class="euro icon"></i>
         </div>
-        <div class="description">
-            <div class="ui justified container">
-                {!! $product->description !!}
-            </div>
+
+        <div class="Product__buy">
+            <a href="#" class="ui yellow button"><i class="shop icon"></i> !Lo quiero!</a>
         </div>
-    </div>
-    <div class="ui bottom attached yellow button">
-        <i class="shop icon"></i>
-        ¡Lo quiero!
     </div>
 </div>

@@ -29,9 +29,6 @@ elixir(function (mix) {
         .copy('bower_components/jquery-ias/src/callbacks.js', 'public/js/lib/ias/callbacks.js')
         .copy('bower_components/jquery-ias/src/extension', 'public/js/lib/ias/extension')
         .scriptsIn('public/js/lib/ias', 'public/js/lib/ias/jquery-ias.min.js')
-        //Swiper
-        //.copy('bower_components/swiper/dist/js/swiper.min.js', 'public/js/lib/swiper/swiper.min.js')
-        //.copy('bower_components/swiper/dist/css/swiper.min.css', 'public/css/lib/swiper/swiper.min.css')
         //Slick
         .copy('bower_components/slick-carousel/slick/slick.min.js', 'public/js/lib/slick/slick.min.js')
         .copy('bower_components/slick-carousel/slick/slick.css', 'public/css/lib/slick/slick.css')
@@ -51,12 +48,12 @@ elixir(function (mix) {
     //Styles
     mix.sass('app.scss');
 
-    elixir(function (mix) {
-        mix.stylesIn('public/css/lib', 'public/css/lib/all.css');
-    });
-
     mix.styles([
-        'lib/all.css',
+        'public/css/lib/semantic/semantic.min.css',
+        'public/css/lib/slick/slick.css',
+        'public/css/lib/nouislider/nouislider.min.css',
+        'public/css/lib/sweetalert/sweetalert.css',
+        'public/css/lib/font-awesome/font-awesome.min.css',
         'app.css'
     ], './public/css/all.min.css', './public/css');
 
@@ -66,7 +63,6 @@ elixir(function (mix) {
     mix.scripts([
         'lib/jquery/jquery.min.js',
         'lib/ias/jquery-ias.min.js',
-        //'lib/swiper/swiper.min.js',
         'lib/slick/slick.min.js',
         'lib/nouislider/nouislider.min.js',
         'lib/sweetalert/sweetalert.min.js',

@@ -40,9 +40,12 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         //'http://www.thisiswhyimbroke.com/images/heart-rate-tracking-bracelet-300x250.jpg'
     ];
 
+    $title = 'DIY Cookie Monster Rug';
+    $description = 'Everyone’s favorite zombie series comes alive like never before inside the pages of The Walking Dead pop-up book. The book depicts five key elements from the series in terrifyingly gory detail – like the zombie in the well, the secrets of Terminus, and the prison.';
+
     return [
-        'name'          => $faker->sentence,
-        'description'   => $faker->sentences(5, true),
+        'name'          => $title,
+        'description'   => $description,
         'current_price' => $faker->randomNumber(2),
         'is_featured'   => $faker->boolean(),
         'hits'          => $faker->randomNumber(),
