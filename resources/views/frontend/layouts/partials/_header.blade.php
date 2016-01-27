@@ -16,10 +16,32 @@
                 <a href="#" class="item">Contacto</a>
             </div>
         </div>
-        <a href="{{ route('home') }}" class="item">
-            <i class="big user icon"></i>
-            Mi cuenta
-        </a>
+
+        @if(auth()->user())
+            <div class="ui dropdown item" tabindex="0">
+                <img class="ui avatar image" src="http://www.mediavida.com/img/users/avatar/6K/6KJ0vN9Bp_big.gif">
+                {{ '@' . auth()->user()->username }}<i class="dropdown icon"></i>
+
+                <div class="menu">
+                    <a class="item"><i class="gift icon"></i> Lista de regalos</a>
+                    <a href="{{ route('home', [auth()->user()->username]) }}" class="item"><i
+                                class="wrench icon"></i> Configuración</a>
+                    <a href="{{ route('auth.logout') }}" class="item"><i class="sign out icon"></i> Logout</a>
+                </div>
+            </div>
+        @else
+            <div class="ui dropdown item">
+                <i class="big user icon"></i>
+                Mi cuenta
+
+                <div class="menu">
+                    <a href="{{ route('auth.form') }}" class="item"><i class="sign in icon"></i> Login</a>
+                    <a href="{{ route('auth.form') }}" class="item"><i class="facebook icon"></i> Login con Facebook</a>
+                    <a href="{{ route('auth.registration') }}" class="item"><i class="signup icon"></i> Registro</a>
+                </div>
+            </div>
+        @endif
+
         <div class="item">
             @include('frontend.layouts.partials._search', ['prompt' => true, 'placeholder' => '¿Buscas algo?'])
         </div>

@@ -9632,6 +9632,14 @@ $('.dropdown').dropdown({
 });
 
 /*
+* CLOSING BUTTON
+ */
+
+$('.message .close').on('click', function () {
+    $(this).closest('.message').transition('fade');
+});
+
+/*
  * SWIPER - PRODUCT IMAGE SLIDER
  */
 /*var swiper = new Swiper('.swiper-container', {

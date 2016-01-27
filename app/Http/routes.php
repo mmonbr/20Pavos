@@ -6,6 +6,28 @@ Route::group(['prefix' => 'auth', 'middleware' => 'web', 'namespace' => 'Auth'],
         ->name('auth.facebook');
     Route::get('facebook/callback', 'SocialAuthController@handleFacebookCallback')
         ->name('auth.facebook_callback');
+
+    #Login
+    Route::get('login', 'AuthController@showLoginForm')
+        ->name('auth.form');
+    Route::post('login', 'AuthController@login')
+        ->name('auth.login');
+    Route::get('logout', 'AuthController@logout')
+        ->name('auth.logout');
+
+    #Registro
+    Route::get('register', 'AuthController@showRegistrationForm')
+        ->name('auth.registration');
+    Route::post('register', 'AuthController@register')
+        ->name('auth.register');
+
+    #Recuperación Contraseña
+    Route::get('password/reset/{token?}', 'PasswordController@showResetForm')
+        ->name('password.token');
+    Route::post('password/email', 'PasswordController@sendResetLinkEmail')
+        ->name('password.email');
+    Route::post('password/reset', 'PasswordController@reset')
+        ->name('password.reset');
 });
 
 Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {

@@ -25,7 +25,9 @@
         </div>
         <div class="nine wide column">
             <div class="ui segment">
-                {!! $product->description !!}
+                <p>
+                    {!! $product->description !!}
+                </p>
 
                 <a href="{{ $product->referral_link }}" target="_blank" class="ui huge yellow button fluid"><i
                             class="shop icon"></i> ¡Lo quiero!</a>
