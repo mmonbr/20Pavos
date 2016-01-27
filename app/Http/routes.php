@@ -78,6 +78,14 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     #Suscripciones
     Route::post('subscribe', 'SubscriptionsController@subscribe')
         ->name('newsletter.subscribe');
+
+    #User Routes
+    Route::resource('users', 'UsersController', [
+        'except' => ['edit']
+    ]);
+
+    Route::get('@{username}', 'UsersController@showByUsername')->name('users.show_username');
+    Route::get('@{username}/edit', 'UsersController@edit')->name('users.edit');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Backend'], function () {
