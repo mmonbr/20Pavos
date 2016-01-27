@@ -11,7 +11,7 @@
         <p>Estas son algunas de las ventajas que obtendrás al registrarte en Derrochando.com</p>
         <ul class="ui list">
             <li>Compartir listas de regalos con tus amigos</li>
-            <li>Recibirás los productos más molones cada lunes en tu email</li>
+            <li>Los productos más molones cada lunes en tu email</li>
         </ul>
     </div>
     <form method="POST" action="{{ route('auth.register') }}" class="ui form attached fluid segment">
@@ -38,8 +38,16 @@
             <input type="password" name="password_confirmation">
         </div>
 
-        <button type="submit" class="ui fluid button">Registro</button>
-    </form>
+        <div class="field">
+            <div class="two fields">
+                <div class="field">
+                    <button type="submit" class="ui fluid button">Registro</button>
+                </div>
+                <div class="field">
+                    <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button"><i class="icon facebook"></i> Registro con Facebook</a>
+                </div>
+            </div>
+        </div>    </form>
     <div class="ui bottom attached message">
         <i class="icon help"></i>
         ¿Ya eres miembro? <a href="{{ route('auth.form') }}">inicia sesión</a>.

@@ -40,9 +40,10 @@
                         derrochadores.
                     </small>
                 </p>
-                <form class="ui large form">
-                    <div class="field">
-                        <input type="email" name="email" class="Subscribe__input" placeholder="Introduce tu email...">
+                <form method="POST" action="{{ route('newsletter.subscribe') }}" class="ui large form">
+                    {{ csrf_field() }}
+                    <div class="field @if ($errors->has('subscriber_email')) error @endif">
+                        <input type="email" name="subscriber_email" value="{{ old('subscriber_email') }}" class="Subscribe__input" placeholder="Introduce tu email...">
                     </div>
                     <button class="ui yellow button Subscribe__button">¡Suscríbeme!</button>
                 </form>

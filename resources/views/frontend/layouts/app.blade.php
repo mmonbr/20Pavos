@@ -6,7 +6,10 @@
 <body>
 
 @include('frontend.layouts.partials._header')
-@include('frontend.layouts.partials._block')
+
+@if(in_array(Route::current()->getName(), ['products.latest', 'products.popular', 'products.cheap', 'home']))
+    @include('frontend.layouts.partials._block')
+@endif
 
 <div class="ui container">
     @yield('content')

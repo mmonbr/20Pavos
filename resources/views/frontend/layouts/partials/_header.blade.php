@@ -35,9 +35,8 @@
                 Mi cuenta
 
                 <div class="menu">
-                    <a href="{{ route('auth.form') }}" class="item"><i class="sign in icon"></i> Login</a>
-                    <a href="{{ route('auth.form') }}" class="item"><i class="facebook icon"></i> Login con Facebook</a>
                     <a href="{{ route('auth.registration') }}" class="item"><i class="signup icon"></i> Registro</a>
+                    <a href="{{ route('auth.form') }}" class="item"><i class="sign in icon"></i> Login</a>
                 </div>
             </div>
         @endif
