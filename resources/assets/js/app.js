@@ -50,13 +50,19 @@ ias.extension(new IASSpinnerExtension({
 }));
 
 /*
- * Slider
+ * Price Slider
  */
 
 var slider = document.querySelector('.PriceSlider__container');
+var url = new URI();
+var start = 10;
+
+if(url.hasQuery('max_price')) start = url.query(true).max_price;
+
+console.log(start);
 
 noUiSlider.create(slider, {
-    start: [10],
+    start: [start],
     step: 5,
     range: {
         'min': [0],
@@ -69,5 +75,11 @@ var priceSliderValue = document.querySelector('.PriceSlider__current');
 
 slider.noUiSlider.on('update', function (values, handle) {
     priceSliderValue.innerHTML = values[handle] + '€';
+});
+
+slider.noUiSlider.on('change', function(value){
+    url.setQuery('max_price', parseInt(value));
+
+    window.location.href = url.href();
 });
 

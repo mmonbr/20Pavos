@@ -24,6 +24,8 @@ elixir(function (mix) {
         .copy('semantic/dist/themes', 'public/css/themes')
         //Jquery
         .copy('bower_components/jquery/dist/jquery.js', 'public/js/lib/jquery/jquery.min.js')
+        //UriJS
+        .copy('bower_components/urijs/src/URI.min.js', 'public/js/lib/urijs/URI.min.js')
         //Infinite Ajax Scroll
         .copy('bower_components/jquery-ias/src/jquery-ias.js', 'public/js/lib/ias/jquery-ias.js')
         .copy('bower_components/jquery-ias/src/callbacks.js', 'public/js/lib/ias/callbacks.js')
@@ -62,6 +64,7 @@ elixir(function (mix) {
 
     mix.scripts([
         'lib/jquery/jquery.min.js',
+        'lib/urijs/URI.min.js',
         'lib/ias/jquery-ias.min.js',
         'lib/slick/slick.min.js',
         'lib/nouislider/nouislider.min.js',
