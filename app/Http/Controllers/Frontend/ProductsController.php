@@ -19,7 +19,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::filter($request->all())->paginate(21);
+        $products = Product::filter($request->all())->paginate(14);
 
         return view('frontend.products.all', compact('products'));
     }

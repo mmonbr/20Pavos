@@ -9640,16 +9640,11 @@ $('.message .close').on('click', function () {
 });
 
 /*
- * SWIPER - PRODUCT IMAGE SLIDER
+* Sticky
  */
-/*var swiper = new Swiper('.swiper-container', {
- pagination: '.swiper-pagination',
- paginationClickable: true,
- nextButton: '.swiper-button-next',
- prevButton: '.swiper-button-prev',
- lazyLoading: true,
- spaceBetween: 30
- });*/
+$(".Product__details--meta").stick_in_parent().on("sticky_kit:bottom", function (e) {
+    e.target.style.bottom = "5px";
+});
 
 /*
  * Slick Caroussel
@@ -9667,6 +9662,7 @@ $('.slick-container').slick({
  */
 
 var ias = jQuery.ias({
+    //negativeMargin: 500,
     container: '#Products',
     item: '.Product',
     pagination: '.pagination',
@@ -9675,7 +9671,7 @@ var ias = jQuery.ias({
 
 ias.extension(new IASSpinnerExtension({
     src: '/img/loading_spinner.gif',
-    html: '<img class="ui centered image" src="{src}"/>'
+    html: '<div style="display: block; position: fixed; left: 50%; margin-left: -100px; bottom: 0"><img src="{src}"/></div>'
 }));
 
 /*
@@ -9687,8 +9683,6 @@ var url = new URI();
 var start = 10;
 
 if (url.hasQuery('max_price')) start = url.query(true).max_price;
-
-console.log(start);
 
 noUiSlider.create(slider, {
     start: [start],

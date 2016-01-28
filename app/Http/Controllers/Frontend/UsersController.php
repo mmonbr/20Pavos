@@ -40,7 +40,8 @@ class UsersController extends Controller
      */
     public function edit($username)
     {
-        $user = User::whereUsername($username)->first();
+        $user = auth()->user();
+
         return view('frontend.users.edit', compact('user'));
     }
 

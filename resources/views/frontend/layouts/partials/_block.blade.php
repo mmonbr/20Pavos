@@ -30,7 +30,15 @@
 
         <div class="Featured__extra">
             <div class="Featured__ads">
-                <img src="http://placehold.it/300x250">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Header Block -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-7268316187159751"
+                     data-ad-slot="9193927623"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             <div class="Featured__subscribe">
                 <h3 class="Subscribe__header">Boletín semanal</h3>
@@ -43,7 +51,8 @@
                 <form method="POST" action="{{ route('newsletter.subscribe') }}" class="ui large form">
                     {{ csrf_field() }}
                     <div class="field @if ($errors->has('subscriber_email')) error @endif">
-                        <input type="email" name="subscriber_email" value="{{ old('subscriber_email') }}" class="Subscribe__input" placeholder="Introduce tu email...">
+                        <input type="email" name="subscriber_email" value="{{ old('subscriber_email') }}"
+                               class="Subscribe__input" placeholder="Introduce tu email...">
                     </div>
                     <button class="ui yellow button Subscribe__button">¡Suscríbeme!</button>
                 </form>

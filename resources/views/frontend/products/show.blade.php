@@ -1,51 +1,68 @@
-@extends('frontend.layouts.sidebar')
+@extends('frontend.layouts.app')
 
 @section('content')
-    <div class="ui piled segment">
-        <h1 class="ui header">{{ $product->name }}</h1>
-    </div>
-    <div class="ui two column stackable grid">
-        <div class="seven wide column">
-            <div class="">
-                <a href="{{ $product->referral_link }}" target="_blank" class="ui rounded image fluid">
-                    <img src="{{ cdn_file($product->image_url) }}">
-                </a>
+    <div class="Product__details--container">
+        <div class="Product__details--media">
+            <div class="Product__details--media--item">
+                <h2 class="Product__details--title">{{ $product->name }}</h2>
+                <img class="Product__details--image" src="http://placehold.it/640x530" alt="">
             </div>
 
-            <div class="ui segment">
-                <h3>Categorías:</h3>
-                <div class="ui blue labels">
-                    @foreach($product->categories as $category)
-                        <a class="ui label" href="{{ route('categories.show', $category->id) }}">
-                            {{ $category->name }}
-                        </a>
-                    @endforeach
-                </div>
+            <div class="Product__details--media--item">
+                <h2 class="Product__details--title">{{ $product->name }}</h2>
+                <img class="Product__details--image" src="http://placehold.it/640x530" alt="">
+            </div>
+
+            <div class="Product__details--media--item">
+                <h2 class="Product__details--title">{{ $product->name }}</h2>
+                <img class="Product__details--image" src="http://placehold.it/640x530" alt="">
             </div>
         </div>
-        <div class="nine wide column">
-            <div class="ui segment">
-                <p>
-                    {!! $product->description !!}
-                </p>
+        <div class="Product__details--meta">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Product Details -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7268316187159751"
+                 data-ad-slot="2168358421"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
 
-                <a href="{{ $product->referral_link }}" target="_blank" class="ui huge yellow button fluid"><i
-                            class="shop icon"></i> ¡Lo quiero!</a>
-
-                <h3 class="ui header">
-                    ¿Te ha gustado? ¡Compártelo con tus amigos y lo mismo tienes suerte y te lo compran!
-                </h3>
-
-                <div class="ui basic segment center aligned container">
-                    @include('frontend.products.partials._share', [
-                        'url' => route('products.show', $product->slug),
-                        'name' => $product->name,
-                        'description' => $product->description,
-                        'media' => cdn_file($product->image_url)
-                    ])
-                </div>
+            <div class="Product__details--description">
+                {!! $product->description !!}
             </div>
+
+            <div class="Product__details--price">
+                {!! $product->current_price !!}
+                <i class="fitted euro icon"></i>
+            </div>
+
+            <button class="ui button fluid yellow">¡Lo quiero!</button>
+        </div>
+        <div class="Product__details--meta--responsive">
+            <div class="Product__details--name">
+                {!! $product->name !!}
+            </div>
+
+            <div class="Product__details--description">
+                {!! $product->description !!}
+            </div>
+
+            <div class="Product__details--price">
+                {!! $product->current_price !!}
+                <i class="fitted euro icon"></i>
+            </div>
+
+            <button class="ui button fluid yellow">¡Lo quiero!</button>
         </div>
     </div>
-    @include('frontend.products.partials._related', ['related' => $product->getRelatedProducts(3)])
+
+    <div class="Product__details--share">
+        <button class="ui button facebook"><i class="fitted facebook icon"></i> <span class="Product__Share--network">Facebook</span></button>
+        <button class="ui button twitter"><i class="fitted twitter icon"></i> <span class="Product__Share--network">Twitter</span></button>
+        <button class="ui button red"><i class="fitted pinterest icon"></i> <span class="Product__Share--network">Pinterest</span></button>
+    </div>
+
+    @include('frontend.products.partials._related', ['related' => $product->getRelatedProducts(12)])
 @endsection

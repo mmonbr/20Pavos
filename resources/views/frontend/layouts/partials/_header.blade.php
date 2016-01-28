@@ -19,7 +19,7 @@
 
         @if(auth()->user())
             <div class="ui dropdown item" tabindex="0">
-                <img class="ui avatar image" src="http://www.mediavida.com/img/users/avatar/6K/6KJ0vN9Bp_big.gif">
+                <img class="ui avatar image" src="{{ Gravatar::src(auth()->user()->email, 28) }}">
                 {{ '@' . auth()->user()->username }}<i class="dropdown icon"></i>
 
                 <div class="menu">

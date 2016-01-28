@@ -168,6 +168,7 @@ return [
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class
 
     ],
 
@@ -224,6 +225,7 @@ return [
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'Active' => HieuLe\Active\Facades\Active::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class
 
     ],
 

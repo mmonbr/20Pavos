@@ -34,9 +34,10 @@ elixir(function (mix) {
         //Slick
         .copy('bower_components/slick-carousel/slick/slick.min.js', 'public/js/lib/slick/slick.min.js')
         .copy('bower_components/slick-carousel/slick/slick.css', 'public/css/lib/slick/slick.css')
-        //.copy('bower_components/slick-carousel/slick/slick-theme.css', 'public/css/lib/slick/slick-theme.css')
         .copy('bower_components/slick-carousel/slick/fonts', 'public/fonts')
         .copy('bower_components/slick-carousel/slick/ajax-loader.gif', 'public/img/ajax-loader.gif')
+        //StickyKIT
+        .copy('bower_components/sticky-kit/jquery.sticky-kit.min.js', 'public/js/lib/sticky-kit/jquery.sticky-kit.min.js')
         //NoUISlider
         .copy('bower_components/nouislider/distribute/nouislider.min.js', 'public/js/lib/nouislider/nouislider.min.js')
         .copy('bower_components/nouislider/distribute/nouislider.min.css', 'public/css/lib/nouislider/nouislider.min.css')
@@ -67,6 +68,7 @@ elixir(function (mix) {
         'lib/urijs/URI.min.js',
         'lib/ias/jquery-ias.min.js',
         'lib/slick/slick.min.js',
+        'lib/sticky-kit/jquery.sticky-kit.min.js',
         'lib/nouislider/nouislider.min.js',
         'lib/sweetalert/sweetalert.min.js',
         'lib/semantic/semantic.min.js',

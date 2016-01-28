@@ -32,7 +32,7 @@
         </div>
 
         <div class="Product__buy">
-            <a href="#" class="ui yellow fluid button"><i class="shop icon"></i> !Lo quiero!</a>
+            <a href="{{ $product->referral_link }}" target="_blank" class="ui yellow fluid button"><i class="shop icon"></i> !Lo quiero!</a>
         </div>
     </div>
 
