@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "eac2f5c568371c24a724434684f73f71",
+    "hash": "7e2b85e40309cf4307d75164d43157a7",
     "content-hash": "226555f23fbfd30feade21356db8def7",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.14.1",
+            "version": "3.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a50b9a66486ad2f27b90521c2250c4c06ae8abea"
+                "reference": "2970cb63e7b7b37dd8c07a4fa4e4e18a110ed4e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a50b9a66486ad2f27b90521c2250c4c06ae8abea",
-                "reference": "a50b9a66486ad2f27b90521c2250c4c06ae8abea",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2970cb63e7b7b37dd8c07a4fa4e4e18a110ed4e2",
+                "reference": "2970cb63e7b7b37dd8c07a4fa4e4e18a110ed4e2",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-01-22 22:32:38"
+            "time": "2016-01-28 21:33:18"
         },
         {
             "name": "aws/aws-sdk-php-laravel",

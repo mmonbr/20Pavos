@@ -12,11 +12,7 @@
 <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 <!-- SweetAlert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<script>
-    $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        CKEDITOR.replace('short_description');
-        CKEDITOR.replace('long_description');
-    });
-</script>
+<!-- Dropzone -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+
+@yield('scripts')

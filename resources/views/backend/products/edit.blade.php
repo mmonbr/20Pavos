@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
-                <form enctype='multipart/form-data' method="POST" action="{{ route('admin.products.update', [$product->id]) }}"
+                <form enctype='multipart/form-data' method="POST"
+                      action="{{ route('admin.products.update', [$product->id]) }}"
                       role="form">
 
                     {{ method_field('patch') }}
@@ -19,7 +20,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" value="{{ old('name', $product->name) }}" class="form-control" name="name">
+                                    <input type="text" value="{{ old('name', $product->name) }}" class="form-control"
+                                           name="name">
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
@@ -28,7 +30,8 @@
 
                                 <div class="form-group">
                                     <label>Referral Link</label>
-                                    <input type="text" value="{{ old('referral_link', $product->referral_link) }}" class="form-control"
+                                    <input type="text" value="{{ old('referral_link', $product->referral_link) }}"
+                                           class="form-control"
                                            name="referral_link">
                                 </div>
 
@@ -40,8 +43,16 @@
 
                                 <div class="form-group">
                                     <label>Price (in cents)</label>
-                                    <input type="text" value="{{ old('current_price', $product->current_price) }}" class="form-control"
+                                    <input type="text" value="{{ old('current_price', $product->current_price) }}"
+                                           class="form-control"
                                            name="current_price">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea rows="3" class="form-control"
+                                              name="description">{{ old('description', $product->description) }}</textarea>
                                 </div>
 
                                 <div class="row">
@@ -57,7 +68,8 @@
                                                     <strong>Feature this product</strong>
                                                 </p>
                                                 <label>
-                                                    <input type="checkbox" @if(old('featured', $product->is_featured)) checked
+                                                    <input type="checkbox"
+                                                           @if(old('featured', $product->is_featured)) checked
                                                            @endif name="featured" value="1"> Check
                                                 </label>
                                             </div>
@@ -69,13 +81,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea class="form-control"
-                                      name="description">{{ old('description', $product->description) }}</textarea>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -84,6 +89,8 @@
                     </div>
                 </form>
             </div>
+
+            @include('backend.products.partials._attachments', ['attachments' => $product->attachments])
         </div>
     </div>
 @endsection

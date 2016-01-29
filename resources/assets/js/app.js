@@ -26,9 +26,9 @@ $('.message .close')
 /*
 * Sticky
  */
-$(".Product__details--meta").stick_in_parent()
+$(".ProductDetails__meta").stick_in_parent()
     .on("sticky_kit:bottom", function(e) {
-        e.target.style.bottom = "5px";
+        e.target.style.bottom = "3px";
     });
 
 /*
@@ -38,8 +38,7 @@ $(".Product__details--meta").stick_in_parent()
 $('.slick-container').slick({
     dots: false,
     autoplay: true,
-    adaptiveHeight: true,
-    autoplaySpeed: 4000
+    lazyLoad: 'progressive'
 });
 
 /*
@@ -55,8 +54,8 @@ var ias = jQuery.ias({
 });
 
 ias.extension(new IASSpinnerExtension({
-    src: '/img/loading_spinner.gif',
-    html: '<div style="display: block; position: fixed; left: 50%; margin-left: -100px; bottom: 0"><img src="{src}"/></div>'
+    src: '/img/infinity.gif',
+    html: '<div style="position: fixed; left: 50%; margin-left: -50px; bottom: 0"><img src="{src}"/></div>'
 }));
 
 /*

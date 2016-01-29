@@ -103,6 +103,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Backen
 
     #Productos
     Route::resource('products', 'ProductsController');
+    Route::post('products/{id}/attachments', 'ProductsController@addAttachment')
+        ->name('admin.products.attachments.store');
+    Route::delete('products/{id}/attachments/{attachment_id}', 'ProductsController@removeAttachment')
+        ->name('admin.products.attachments.delete');
+    Route::post('products/{id}/attachments/{attachment_id}/up', 'ProductsController@moveAttachment')
+        ->name('admin.products.attachments.move');
 
     #Usuarios
     Route::resource('users', 'UsersController');

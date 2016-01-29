@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Traits\Categorizable;
+use App\Traits\DeleteFromS3;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +10,7 @@ use Sofa\Eloquence\Eloquence;
 
 class Product extends Model implements SluggableInterface
 {
-    use Eloquence, SluggableTrait;
+    use Eloquence, SluggableTrait, DeleteFromS3;
 
     protected $sluggable = [
         'build_from' => 'name'
@@ -32,6 +32,15 @@ class Product extends Model implements SluggableInterface
         'is_featured'
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        self::deleting(function ($product) {
+            self::deleteS3File($product->image_url);
+        });
+    }
+
     /*
      * Relations
      */
@@ -39,6 +48,11 @@ class Product extends Model implements SluggableInterface
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class)->orderBy('order', 'ASC');
     }
 
     /*
@@ -94,6 +108,32 @@ class Product extends Model implements SluggableInterface
     public function categoriesList()
     {
         return $this->categories()->pluck('id')->toArray();
+    }
+
+    public function addAttachment($url)
+    {
+        $attachment = $this->attachments()->create([
+            'path' => $url
+        ]);
+
+        $lastAttachment = $this->attachments->last();
+
+        $attachment->order = $lastAttachment->order + 1;
+        $attachment->save();
+
+        return $attachment;
+    }
+
+    public function removeAttachment($id)
+    {
+        return $this->attachments()->find($id)->delete();
+    }
+
+    public function moveAttachment($id, $direction)
+    {
+        $method = ($direction == 'up') ? 'decrement' : 'increment';
+
+        return $this->attachments()->find($id)->{$method}('order');
     }
 
     /*

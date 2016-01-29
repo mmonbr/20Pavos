@@ -2,9 +2,15 @@
     <div id="Featured">
         <div class="Featured__carousel">
             <div class="slick-container">
-                <div><img src="http://placehold.it/640x400" class="ui fluid image"></div>
-                <div><img src="http://placehold.it/640x400" class="ui fluid image"></div>
-                <div><img src="http://placehold.it/640x400" class="ui fluid image"></div>
+                <div class="slick-slide">
+                    <img data-lazy="http://placehold.it/640x400" class="ui image fluid">
+                    <div class="slick-text"><a href="#">DIY Cookie Monster Rug</a></div>
+                </div>
+
+                <div class="slick-slide">
+                    <img data-lazy="http://placehold.it/640x400" class="ui image fluid">
+                    <div class="slick-text"><a href="#">DIY Cookie Monster Rug</a></div>
+                </div>
             </div>
 
             <div class="ui fluid doubling borderless three item stackable menu">
@@ -58,7 +64,5 @@
                 </form>
             </div>
         </div>
-
-        <div style="clear: both"></div>
     </div>
 </div>

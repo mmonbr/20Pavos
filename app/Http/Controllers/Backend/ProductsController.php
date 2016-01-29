@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Category;
+use App\Http\Requests\Backend\AttachmentRequest;
 use App\Http\Requests\Backend\ProductRequest;
 use App\Product;
+use App\Utilities\S3FileUpload;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -107,8 +109,8 @@ class ProductsController extends Controller
             'ASIN'              => $request->ASIN
         ]);
 
-        if($request->hasFile('file')){
-            $uploader = app('App\Utilities\S3FileUploader')->file($request->file('file'))->upload();
+        if ($request->hasFile('file')) {
+            $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
             $product->setImageUrl($uploader->getPath());
         }
 
@@ -132,5 +134,36 @@ class ProductsController extends Controller
         alert()->success('The product has been deleted successfully.', 'It ain\'t gonna be missed');
 
         return redirect()->back();
+    }
+
+    public function addAttachment($id, AttachmentRequest $request)
+    {
+        $product = Product::findOrFail($id);
+
+        if ($request->hasFile('file')) {
+            $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
+            $attachment = $product->addAttachment($uploader->getPath());
+
+            return response([
+                'path'  => cdn_file($uploader->getPath()),
+                'order' => $attachment->order
+            ], 200);
+        }
+    }
+
+    public function moveAttachment($id, $attachment_id, Request $request)
+    {
+        $product = Product::findOrFail($id);
+        $product->moveAttachment($attachment_id, $request->action);
+
+        return redirect(route('admin.products.edit', [$product->id]));
+    }
+
+    public function removeAttachment($id, $attachment_id)
+    {
+        $product = Product::findOrFail($id);
+        $product->removeAttachment($attachment_id);
+
+        return redirect(route('admin.products.edit', [$product->id]));
     }
 }

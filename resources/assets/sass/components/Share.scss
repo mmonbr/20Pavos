@@ -8,6 +8,10 @@
 
   opacity: 0;
   transition: opacity 0.5s linear, ease 0.5s;
+
+  @media (max-width: 680px) {
+    display: none;
+  }
 }
 
 .Product:hover .ShareButtons {
@@ -15,22 +19,18 @@
   right: 11px;
 }
 
-.ShareButton__item__image {
-  max-width: 48px;
-  max-height: 48px;
-  transition: all 0.25s linear;
-}
+.ShareButton {
+  @include has(item) {
+    margin-bottom: 5px;
 
-.ShareButton__item__image:hover {
-  transform: rotate(25deg);
-}
+    @include has(image) {
+      max-width: 48px;
+      max-height: 48px;
+      transition: all 0.25s linear;
 
-.ShareButton__item {
-  margin-bottom: 5px;
-}
-
-@media (max-width: 680px) {
-  .ShareButtons {
-    display: none;
+      &:hover {
+        transform: rotate(25deg);
+      }
+    }
   }
 }

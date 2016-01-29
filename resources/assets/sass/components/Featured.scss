@@ -5,12 +5,15 @@
 }
 
 .Featured__carousel {
-  float: left;
-  max-width: 637px;
+  position: relative;
+  width: 637px;
+}
+
+.Featured__carousel img {
+  max-height: 400px;
 }
 
 .Featured__extra {
-  float: right;
   min-width: 300px;
   max-width: 300px;
   margin-left: 30px;
@@ -42,7 +45,7 @@
 
 @media (max-width: 1042px) {
   .Featured__carousel {
-    max-width: 100%;
+    width: 100%;
   }
   .Featured__extra {
     display: none;
