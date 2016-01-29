@@ -1,5 +1,7 @@
 @extends('backend.layouts.main')
 
+@section('title', 'New product')
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
