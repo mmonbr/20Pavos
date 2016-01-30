@@ -168,7 +168,9 @@ return [
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class
+
 
     ],
 
@@ -222,11 +224,14 @@ return [
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         'AWS'        => Aws\Laravel\AwsFacade::class,
         'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
-        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
-        'Active' => HieuLe\Active\Facades\Active::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class
-
+        'Alert'      => UxWeb\SweetAlert\SweetAlert::class,
+        'Active'     => HieuLe\Active\Facades\Active::class,
+        'Socialite'  => Laravel\Socialite\Facades\Socialite::class,
+        'Gravatar'   => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
+        // SEO Stuff
+        'SEOMeta'    => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph'  => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'    => Artesaos\SEOTools\Facades\TwitterCard::class,
     ],
 
 ];

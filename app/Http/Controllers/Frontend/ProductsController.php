@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Events\ProductWasHit;
 use App\Product;
+use App\Traits\SEO;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,6 +12,8 @@ use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller
 {
+    use SEO;
+
     /**
      * Display a listing of the resource.
      *
@@ -34,6 +37,8 @@ class ProductsController extends Controller
     {
         $product = Product::findBySlugOrIdOrFail($id);
 
+        $this->addSEOTagsForProduct($product);
+
         event(new ProductWasHit($product));
 
         return view('frontend.products.show', compact('product'));
@@ -48,6 +53,8 @@ class ProductsController extends Controller
     {
         $products = Product::recent()->paginate(21);
 
+        $this->setCanonicalURL(route('home'));
+
         return view('frontend.products.all', compact('products'));
     }
 
@@ -60,6 +67,8 @@ class ProductsController extends Controller
     {
         $products = Product::popular()->paginate(21);
 
+        $this->setCanonicalURL(route('home'));
+
         return view('frontend.products.all', compact('products'));
     }
 
@@ -71,6 +80,8 @@ class ProductsController extends Controller
     public function cheap()
     {
         $products = Product::cheap()->paginate(21);
+
+        $this->setCanonicalURL(route('home'));
 
         return view('frontend.products.all', compact('products'));
     }
