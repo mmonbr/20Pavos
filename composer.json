@@ -36,9 +36,9 @@
             "database"
         ],
         "files" : [
-            "App/Helpers/Category.php",
-            "App/Helpers/CDN.php",
-            "App/Helpers/Ads.php"
+            "app/Helpers/Category.php",
+            "app/Helpers/CDN.php",
+            "app/Helpers/Ads.php"
         ],
         "psr-4": {
             "App\\": "app/"
