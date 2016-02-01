@@ -11,11 +11,11 @@ $('.dropdown')
 ;
 
 /*
-* CLOSING BUTTON
+ * CLOSING BUTTON
  */
 
 $('.message .close')
-    .on('click', function() {
+    .on('click', function () {
         $(this)
             .closest('.message')
             .transition('fade')
@@ -24,10 +24,10 @@ $('.message .close')
 ;
 
 /*
-* Sticky
+ * Sticky
  */
 $(".ProductDetails__meta").stick_in_parent()
-    .on("sticky_kit:bottom", function(e) {
+    .on("sticky_kit:bottom", function (e) {
         e.target.style.bottom = "3px";
     });
 
@@ -62,11 +62,11 @@ ias.extension(new IASSpinnerExtension({
  * Price Slider
  */
 
-var slider = document.querySelector('.PriceSlider__container');
+/*var slider = document.querySelector('.PriceSlider__container');
 var url = new URI();
 var start = 10;
 
-if(url.hasQuery('max_price')) start = url.query(true).max_price;
+if (url.hasQuery('max_price')) start = url.query(true).max_price;
 
 noUiSlider.create(slider, {
     start: [start],
@@ -84,9 +84,18 @@ slider.noUiSlider.on('update', function (values, handle) {
     priceSliderValue.innerHTML = values[handle] + '€';
 });
 
-slider.noUiSlider.on('change', function(value){
+slider.noUiSlider.on('change', function (value) {
     url.setQuery('max_price', parseInt(value));
 
     window.location.href = url.href();
-});
+});*/
 
+/*
+ * POPUPS
+ */
+
+$('.new_window').click(function(e){
+    e.preventDefault();
+
+    $.popupWindow($(this).attr('href'));
+});

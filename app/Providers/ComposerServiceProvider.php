@@ -27,6 +27,13 @@ class ComposerServiceProvider extends ServiceProvider
         );
 
         /*
+         * FeaturedProducts
+         */
+        view()->composer(
+            ['frontend.layouts.partials._block'], 'App\Http\ViewComposers\Frontend\FeaturedProducts'
+        );
+
+        /*
          * Widgets - Top Products
          */
         view()->composer(

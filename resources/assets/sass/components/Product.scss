@@ -58,6 +58,7 @@ $single-product-breakpoint: 680px;
         font-weight: bold;
         font-size: 3em;
         line-height: 1em;
+        color: #606060;
       }
 
     }
@@ -151,7 +152,7 @@ $product-details-breakpoint: 1045px;
       font-weight: bold;
       font-size: 3em;
       line-height: 1em;
-      margin: 0.65em;
+      margin: 0.75em;
     }
 
     @include has(responsive) {
@@ -183,11 +184,5 @@ $product-details-breakpoint: 1045px;
     @media (max-width: $product-details-breakpoint) {
       display: none;
     }
-  }
-
-  @include has(share) {
-    display: flex;
-    width: 530px;
-    margin-top: 1em;
   }
 }

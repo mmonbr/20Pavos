@@ -175,17 +175,11 @@
      Breakpoints
 --------------------*/
 
-/*@mobileBreakpoint            : 320px;
+@mobileBreakpoint            : 320px;
 @tabletBreakpoint            : 768px;
 @computerBreakpoint          : 992px;
 @largeMonitorBreakpoint      : 1200px;
-@widescreenMonitorBreakpoint : 1920px;*/
-
-@mobileBreakpoint            : 320px;
-@tabletBreakpoint            : 768px;
-@computerBreakpoint          : 1043px; //992
-@largeMonitorBreakpoint      : 1043px; //1200
-@widescreenMonitorBreakpoint : 1043px; // 1920
+@widescreenMonitorBreakpoint : 1920px;
 
 /*-------------------
       Site Colors

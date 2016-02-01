@@ -49,7 +49,7 @@
   font-family: "slick";
   font-size: 20px;
   line-height: 1;
-  color: black;
+  color: white;
   opacity: 0.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -125,30 +125,43 @@
         font-size: 6px;
         line-height: 20px;
         text-align: center;
-        color: black;
+        color: white;
         opacity: 0.25;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale; }
     .slick-dots li.slick-active button:before {
-      color: black;
+      color: white;
       opacity: 0.75; }
 
 .slick-slide {
   position: relative; }
 
-.slick-text {
+.slick-meta {
   text-align: center;
+  line-height: 20px;
   width: 100%;
   text-shadow: 2px 2px 2px #222;
-  font-size: 2em;
+  font-weight: bold;
   color: white;
   position: absolute;
-  bottom: 55px; }
+  padding: 20px 0 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.66) 0%, transparent 100%); }
 
-.slick-text a {
-  color: white; }
+.slick-meta h3 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0; }
 
-.ShareButtons {
+.slick-meta p {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 30px; }
+
+.slick-meta h3:hover {
+  color: #FBBD08; }
+
+.ShareButtonsList {
   position: absolute;
   list-style: none;
   margin: 0;
@@ -158,10 +171,10 @@
   opacity: 0;
   transition: opacity 0.5s linear, ease 0.5s; }
   @media (max-width: 680px) {
-    .ShareButtons {
+    .ShareButtonsList {
       display: none; } }
 
-.Product:hover .ShareButtons {
+.Product:hover .ShareButtonsList {
   opacity: 1;
   right: 11px; }
 
@@ -174,6 +187,16 @@
     .ShareButton__item__image:hover {
       -webkit-transform: rotate(25deg);
       transform: rotate(25deg); }
+
+.ShareButtons {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-top: 1em; }
+  @media (max-width: 680px) {
+    .ShareButtons .ShareButton__network {
+      display: none; } }
 
 .widget {
   margin-bottom: 20px; }
@@ -244,7 +267,8 @@
       .Product__info__meta__price {
         font-weight: bold;
         font-size: 3em;
-        line-height: 1em; }
+        line-height: 1em;
+        color: #606060; }
     .Product__info__buy {
       width: 50%; }
   .Product__share {
@@ -317,7 +341,7 @@
       font-weight: bold;
       font-size: 3em;
       line-height: 1em;
-      margin: 0.65em; }
+      margin: 0.75em; }
     .ProductDetails__meta__responsive {
       display: none; }
       .ProductDetails__meta__responsive__name {
@@ -339,12 +363,6 @@
     @media (max-width: 1045px) {
       .ProductDetails__meta {
         display: none; } }
-  .ProductDetails__share {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 530px;
-    margin-top: 1em; }
 
 #Featured {
   display: -webkit-flex;
@@ -355,34 +373,33 @@
   flex-flow: row wrap;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin: 0 0 1em 0; }
 
 .Featured__carousel {
   position: relative;
   width: 637px; }
-
-.Featured__carousel img {
-  max-height: 400px; }
+  .Featured__carousel img {
+    max-height: 400px; }
 
 .Featured__extra {
   min-width: 300px;
   max-width: 300px;
   margin-left: 30px; }
-
-.Featured__subscribe {
-  padding: 5px;
-  height: 205px;
-  margin-top: 10px;
-  border: 1px dashed rgba(34, 36, 38, 0.15);
-  min-width: 300px;
-  max-width: 300px;
-  text-align: center; }
-
-.Subscribe__header {
-  text-transform: uppercase; }
-
-.Subscribe__button, .Subscribe__input {
-  width: 250px !important; }
+  .Featured__extra__subscribe {
+    padding: 5px;
+    height: 205px;
+    margin-top: 10px;
+    border: 1px dashed rgba(34, 36, 38, 0.15);
+    min-width: 300px;
+    max-width: 300px;
+    text-align: center; }
+    .Featured__extra__subscribe__header {
+      text-transform: uppercase; }
+    .Featured__extra__subscribe__button {
+      width: 250px !important; }
+    .Featured__extra__subscribe__input {
+      width: 250px !important; }
 
 @media (max-width: 1042px) {
   .Featured__carousel {
@@ -406,3 +423,10 @@
   position: absolute;
   left: 15px;
   font-weight: bold; }
+
+body {
+  margin: 5.5em 0 0 0; }
+
+@media (max-width: 768px) {
+  body {
+    margin: 17em 0 1em 0; } }

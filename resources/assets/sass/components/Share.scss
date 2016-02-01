@@ -1,4 +1,4 @@
-.ShareButtons {
+.ShareButtonsList {
   position: absolute;
   list-style: none;
   margin: 0;
@@ -14,7 +14,7 @@
   }
 }
 
-.Product:hover .ShareButtons {
+.Product:hover .ShareButtonsList {
   opacity: 1;
   right: 11px;
 }
@@ -31,6 +31,18 @@
       &:hover {
         transform: rotate(25deg);
       }
+    }
+  }
+}
+
+.ShareButtons {
+    display: flex;
+    width: 100%;
+    margin-top: 1em;
+  .ShareButton__network {
+
+    @media (max-width: 680px) {
+      display: none;
     }
   }
 }

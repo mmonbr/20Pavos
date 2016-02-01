@@ -179,4 +179,9 @@ class Product extends Model implements SluggableInterface
     {
         return $query->orderBy('current_price', 'ASC');
     }
+
+    public function scopeFeatured($query)
+    {
+        return $query->with('attachments')->where('is_featured', '=', true);
+    }
 }

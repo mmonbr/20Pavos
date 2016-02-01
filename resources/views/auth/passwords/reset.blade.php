@@ -31,7 +31,7 @@
             <input type="password" name="password_confirmation">
         </div>
 
-        <button type="submit" class="ui fluid button">
+        <button type="submit" class="ui yellow fluid button">
             Cambiar contraseña
         </button>
     </form>

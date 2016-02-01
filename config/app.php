@@ -169,9 +169,8 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
-        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class
-
-
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Dawson\AmazonECS\AmazonECSServiceProvider::class
     ],
 
     /*
@@ -228,6 +227,8 @@ return [
         'Active'     => HieuLe\Active\Facades\Active::class,
         'Socialite'  => Laravel\Socialite\Facades\Socialite::class,
         'Gravatar'   => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
+        'Amazon' => Dawson\AmazonECS\AmazonECSFacade::class,
+
         // SEO Stuff
         'SEOMeta'    => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph'  => Artesaos\SEOTools\Facades\OpenGraph::class,

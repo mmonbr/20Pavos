@@ -53,13 +53,19 @@
         </div>
     </div>
 
-    <div class="ProductDetails__share">
-        <button class="ui button facebook"><i class="fitted facebook icon"></i> <span class="Product__Share--network">Facebook</span>
-        </button>
-        <button class="ui button twitter"><i class="fitted twitter icon"></i> <span class="Product__Share--network">Twitter</span>
-        </button>
-        <button class="ui button red"><i class="fitted pinterest icon"></i> <span class="Product__Share--network">Pinterest</span>
-        </button>
+    @include('frontend.products.partials._share',
+            [
+                'type'  => 'Buttons',
+                'url'  => route('products.show', $product->slug),
+                'name'  => $product->name,
+                'description'  => $product->description,
+                'media' => cdn_file($product->image_url)
+            ])
+
+    <div class="comments">
+        <div class="fb-comments" data-href="{{ route('products.show', [$product->slug]) }}"
+             data-width="100%" data-numposts="5">
+        </div>
     </div>
 
     @include('frontend.products.partials._related', ['related' => $product->getRelatedProducts(12)])

@@ -6,8 +6,9 @@
             <img class="Product__media__image" src="{{ cdn_file($product->image_url) }}">
         </a>
 
-        @include('frontend.products.partials._share-buttons',
+        @include('frontend.products.partials._share',
         [
+            'type'  => 'List',
             'url'  => route('products.show', $product->slug),
             'name'  => $product->name,
             'description'  => $product->description,
@@ -32,13 +33,15 @@
         </div>
 
         <div class="Product__info__buy">
-            <a href="{{ $product->referral_link }}" target="_blank" class="ui yellow fluid button"><i class="shop icon"></i> !Lo quiero!</a>
+            <a href="{{ $product->referral_link }}" target="_blank" class="ui yellow fluid button"><i
+                        class="shop icon"></i> !Lo quiero!</a>
         </div>
     </div>
 
     <div class="Product__share">
-        @include('frontend.products.partials._share_buttons_responsive',
+        @include('frontend.products.partials._share',
         [
+            'type'  => 'Buttons',
             'url'  => route('products.show', $product->slug),
             'name'  => $product->name,
             'description'  => $product->description,

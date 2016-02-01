@@ -14,8 +14,6 @@
     </div>
 
     <div class="Product__description">
-        The future of motorcycle helmets has arrived! Forgoing the traditional chinstrap, the Vozz RS 1.0 motorcycle
-        helmet’s bold design splits vertically in two parts that pivot around a hinge to provide a more secure and
-        comfortable fit.
+
     </div>
 </div>

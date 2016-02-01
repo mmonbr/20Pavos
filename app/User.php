@@ -3,9 +3,17 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Sofa\Eloquence\Eloquence;
 
 class User extends Authenticatable
 {
+    use Eloquence;
+
+    protected $searchableColumns = [
+        'username',
+        'email',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *

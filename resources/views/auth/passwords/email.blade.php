@@ -21,7 +21,7 @@
         </div>
 
         <div>
-            <button type="submit" class="ui fluid button">
+            <button type="submit" class="ui yellow fluid button">
                 Reiniciar contraseña
             </button>
         </div>

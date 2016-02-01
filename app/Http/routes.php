@@ -112,4 +112,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Backen
 
     #Usuarios
     Route::resource('users', 'UsersController');
+
+    #Search
+    Route::post('search', 'BackendController@search')
+        ->name('admin.search');
 });

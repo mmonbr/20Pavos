@@ -5,6 +5,7 @@
 </head>
 <body>
 
+@include('frontend.layouts.partials._facebook')
 @include('frontend.layouts.partials._header')
 
 <div class="ui container">

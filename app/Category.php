@@ -5,6 +5,7 @@ namespace App;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Kalnoy\Nestedset\Node;
+use Sofa\Eloquence\Eloquence;
 
 class Category extends Node implements SluggableInterface
 {

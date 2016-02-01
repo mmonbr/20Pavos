@@ -30,25 +30,23 @@ class ProductRequest extends Request
             }
             case 'POST': {
                 return [
-                    'name'              => 'required',
-                    'short_description' => 'required',
-                    'long_description'  => 'required',
-                    'current_price'     => 'required',
-                    'referral_link'     => 'required|url',
-                    'file'              => 'required',
-                    'categories'        => 'required',
+                    'name'          => 'required',
+                    'description'   => 'required',
+                    'current_price' => 'required',
+                    'referral_link' => 'required|url',
+                    'file'          => 'required',
+                    'categories'    => 'required',
                 ];
             }
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'name'              => 'required',
-                    'short_description' => 'required',
-                    'long_description'  => 'required',
-                    'current_price'     => 'required',
-                    'referral_link'     => 'required|url',
-                    'file'              => 'image',
-                    'categories'        => 'required',
+                    'name'          => 'required',
+                    'description'   => 'required',
+                    'current_price' => 'required',
+                    'referral_link' => 'required|url',
+                    'file'          => 'image',
+                    'categories'    => 'required',
                 ];
             }
             default:

@@ -2,45 +2,53 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  margin:0 0 1em 0;
 }
 
-.Featured__carousel {
-  position: relative;
-  width: 637px;
-}
+.Featured {
+  @include has(carousel) {
+    position: relative;
+    width: 637px;
 
-.Featured__carousel img {
-  max-height: 400px;
-}
+    & img {
+      max-height: 400px;
+    }
+  }
 
-.Featured__extra {
-  min-width: 300px;
-  max-width: 300px;
-  margin-left: 30px;
-}
+  @include has(extra) {
+    min-width: 300px;
+    max-width: 300px;
+    margin-left: 30px;
 
-.Featured__ads {
-}
+    @include has(ads) {
 
-.Featured__subscribe {
-  padding: 5px;
-  height: 205px;
-  margin-top: 10px;
-  border: 1px dashed rgba(34,36,38,.15);
-  min-width: 300px;
-  max-width: 300px;
-  text-align: center;
-}
+    }
 
-.Subscribe__header {
-  text-transform: uppercase;
-}
+    @include has(subscribe) {
+      padding: 5px;
+      height: 205px;
+      margin-top: 10px;
+      border: 1px dashed rgba(34, 36, 38, .15);
+      min-width: 300px;
+      max-width: 300px;
+      text-align: center;
 
-.Subscribe_text {
-}
+      @include has(header) {
+        text-transform: uppercase;
+      }
 
-.Subscribe__button, .Subscribe__input {
-  width: 250px !important;
+      @include has(text) {
+      }
+
+      @include has(button) {
+        width: 250px !important;
+      }
+
+      @include has(input) {
+        width: 250px !important;
+      }
+    }
+  }
 }
 
 @media (max-width: 1042px) {

@@ -1,16 +1,23 @@
-<div class="ui container" style="margin-bottom: 20px">
+<div class="ui container">
     <div id="Featured">
         <div class="Featured__carousel">
             <div class="slick-container">
-                <div class="slick-slide">
-                    <img data-lazy="http://placehold.it/640x400" class="ui image fluid">
-                    <div class="slick-text"><a href="#">DIY Cookie Monster Rug</a></div>
-                </div>
-
-                <div class="slick-slide">
-                    <img data-lazy="http://placehold.it/640x400" class="ui image fluid">
-                    <div class="slick-text"><a href="#">DIY Cookie Monster Rug</a></div>
-                </div>
+                @foreach($featuredProducts as $featured)
+                    <div class="slick-slide">
+                        <a href="{{ $featured->referral_link }}" rel="_nofollow" target="_blank">
+                            <img data-lazy="{{ cdn_file($featured->attachments->first()->path) }}"
+                                 class="ui image fluid">
+                            <div class="slick-meta">
+                                <h3>
+                                    {{ $featured->name }}
+                                </h3>
+                                <p>
+                                    {{ $featured->current_price }} <i class="fitted euro icon"></i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
 
             <div class="ui fluid doubling borderless three item stackable menu">
@@ -35,7 +42,7 @@
         </div>
 
         <div class="Featured__extra">
-            <div class="Featured__ads">
+            <div class="Featured__extra__ads">
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- Header Block -->
                 <ins class="adsbygoogle"
@@ -46,9 +53,9 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>
-            <div class="Featured__subscribe">
-                <h3 class="Subscribe__header">Boletín semanal</h3>
-                <p class="Subscribe__text">
+            <div class="Featured__extra__subscribe">
+                <h3 class="Featured__extra__subscribe__header"><i class="at icon"></i> Boletín semanal</h3>
+                <p class="Featured__extra__subscribe__text">
                     <small>
                         Los productos más hilarantes cada lunes en tu email. Ya somos <strong>5420</strong>
                         derrochadores.
@@ -58,9 +65,9 @@
                     {{ csrf_field() }}
                     <div class="field @if ($errors->has('subscriber_email')) error @endif">
                         <input type="email" name="subscriber_email" value="{{ old('subscriber_email') }}"
-                               class="Subscribe__input" placeholder="Introduce tu email...">
+                               class="Featured__extra__subscribe__input" placeholder="Introduce tu email...">
                     </div>
-                    <button class="ui yellow button Subscribe__button">¡Suscríbeme!</button>
+                    <button class="ui yellow button Featured__extra__subscribe__button">¡Suscríbeme!</button>
                 </form>
             </div>
         </div>

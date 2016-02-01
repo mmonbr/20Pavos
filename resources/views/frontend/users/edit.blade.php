@@ -34,6 +34,6 @@
             <input type="password" name="password_confirmation">
         </div>
 
-        <button type="submit" class="ui fluid button">Actualizar mis datos</button>
+        <button type="submit" class="ui yellow fluid button">Actualizar mis datos</button>
     </form>
 @endsection

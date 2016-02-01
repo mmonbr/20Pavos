@@ -1,6 +1,7 @@
-<header class="ui fluid four item borderless doubling stackable menu">
+<header class="ui top fixed fluid four item borderless doubling stackable small menu">
     <div class="ui container">
         <a href="{{ route('home') }}" class="item">
+            <!--<img class="ui image" src="{{ asset('img/drr.png') }}">-->
             <h1>Derrochando</h1>
         </a>
         <div class="ui dropdown item">

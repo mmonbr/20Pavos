@@ -41,7 +41,7 @@
         <div class="field">
             <div class="two fields">
                 <div class="field">
-                    <button type="submit" class="ui fluid button">Registro</button>
+                    <button type="submit" class="ui yellow fluid button">Registro</button>
                 </div>
                 <div class="field">
                     <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button"><i class="icon facebook"></i> Registro con Facebook</a>
