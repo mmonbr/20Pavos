@@ -6,14 +6,7 @@
             <img class="Product__media__image" src="{{ cdn_file($product->image_url) }}">
         </a>
 
-        @include('frontend.products.partials._share',
-        [
-            'type'  => 'List',
-            'url'  => route('products.show', $product->slug),
-            'name'  => $product->name,
-            'description'  => $product->description,
-            'media' => cdn_file($product->image_url)
-        ])
+   
     </div>
 
     <div class="Product__description">
