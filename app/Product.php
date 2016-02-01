@@ -182,6 +182,7 @@ class Product extends Model implements SluggableInterface
 
     public function scopeFeatured($query)
     {
-        return $query->with('attachments')->where('is_featured', '=', true);
+        return $query->with('attachments')->
+        where('is_featured', '=', true);
     }
 }

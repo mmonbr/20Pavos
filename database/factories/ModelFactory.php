@@ -25,26 +25,13 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $asin_array = ['B005WU8WQW', 'B00TX5O8WE', 'B01427MW3O'];
 
     $images_array = [
-        'uploads/products/vu3nZhZWG9j3153x.jpg',
-        //'http://www.thisiswhyimbroke.com/images/amazing-galaxy-lollipops-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/rainbow-flower-plushies-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/candle-chandelier-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/remote-control-land-cruiser-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/water-filtration-water-bottle-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/steam-shower-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/multi-color-led-earrings-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/stravaganza-fire-pit-640x533.jpg',
-        //'http://www.thisiswhyimbroke.com/images/ultra-strech-stain-resistant-denim-jeans-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/solar-powered-bike-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/picnic-organizer-300x250.jpg',
-        //'http://www.thisiswhyimbroke.com/images/heart-rate-tracking-bracelet-300x250.jpg'
+        'uploads/products/300x250.png'
     ];
 
-    $title = 'DIY Cookie Monster Rug';
-    $description = 'Everyone’s favorite zombie series comes alive like never before inside the pages of The Walking Dead pop-up book. The book depicts five key elements from the series in terrifyingly gory detail – like the zombie in the well, the secrets of Terminus, and the prison.';
+    $description = 'Producto de prueba. La descripción tiene que tener 6 líneas. ¡Cómprate esto, cómprate esto! Huehuehue. Amazon, ETSY, eBay. Un poquitín más. Faltan dos líneas. Hola hola hola, :roto2:. Mesa pato cuádriceps césped azúcar caracola con patas. E ya.';
 
     return [
-        'name'          => $title,
+        'name'          => 'Producto de Prueba - ' . $faker->randomNumber(3),
         'description'   => $description,
         'current_price' => $faker->randomNumber(2),
         'is_featured'   => $faker->boolean(),
