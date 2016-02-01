@@ -38,14 +38,4 @@
         </div>
     </div>
 
-    <div class="Product__share">
-        @include('frontend.products.partials._share',
-        [
-            'type'  => 'Buttons',
-            'url'  => route('products.show', $product->slug),
-            'name'  => $product->name,
-            'description'  => $product->description,
-            'media' => cdn_file($product->image_url)
-        ])
-    </div>
 </div>
