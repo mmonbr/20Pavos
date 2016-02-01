@@ -34,6 +34,7 @@ class UserRequest extends Request
                 return [
                     'username' => 'required|unique:users,username',
                     'email'    => 'required|email|unique:users,email',
+                    'password' => 'required|confirmed',
                 ];
             }
             case 'PUT':

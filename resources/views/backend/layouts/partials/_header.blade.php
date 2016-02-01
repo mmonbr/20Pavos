@@ -1,10 +1,10 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="{{ route('admin.index') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini"><b>A</b>DM</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b>LTE</span>
+        <span class="logo-lg"><b>DERROCHANDO</b>.com</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -103,17 +103,17 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="http://www.mediavida.com/img/users/avatar/6K/6KJ0vN9Bp_big.gif" class="user-image" alt="User Image">
+                        <img src="{{ Gravatar::src(auth()->user()->email) }}" class="user-image" alt="User Image">
                         <span class="hidden-xs">Manuel Montenegro</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="http://www.mediavida.com/img/users/avatar/6K/6KJ0vN9Bp_big.gif" class="img-circle" alt="User Image">
+                            <img src="{{ Gravatar::src(auth()->user()->email) }}" class="img-circle" alt="User Image">
 
                             <p>
-                                Manuel Montenegro - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                {{ auth()->user()->username }}
+                                <small>{{ auth()->user()->email }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->

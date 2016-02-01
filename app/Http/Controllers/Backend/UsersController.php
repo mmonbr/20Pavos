@@ -17,7 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(50);
+        $users = User::orderBy('id', 'DESC')->paginate(50);
 
         return view('backend.users.index', compact('users'));
     }
@@ -29,7 +29,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.users.create');
     }
 
     /**

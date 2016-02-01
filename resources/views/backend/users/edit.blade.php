@@ -16,13 +16,13 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" value="{{ old('name', $user->username) }}" class="form-control"
+                            <input type="text" value="{{ old('username', $user->username) }}" class="form-control"
                                    name="username">
                         </div>
 
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" value="{{ old('name', $user->email) }}" class="form-control"
+                            <input type="text" value="{{ old('email', $user->email) }}" class="form-control"
                                    name="email">
                         </div>
 

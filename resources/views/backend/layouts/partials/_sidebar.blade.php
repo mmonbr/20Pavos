@@ -4,10 +4,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="http://www.mediavida.com/img/users/avatar/6K/6KJ0vN9Bp_big.gif" class="img-circle" alt="User Image">
+                <img src="{{ Gravatar::src(auth()->user()->email) }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Manuel Montenegro</p>
+                <p>{{ auth()->user()->username }}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -55,6 +55,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{ active_class(if_route(['admin.users.index']), 'active') }}"><a href="{{ route('admin.users.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>
+                    <li class="{{ active_class(if_route(['admin.users.create']), 'active') }}"><a href="{{ route('admin.users.create') }}"><i class="fa fa-circle-o"></i> Add User</a></li>
                 </ul>
             </li>
         </ul>

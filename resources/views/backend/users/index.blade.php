@@ -17,6 +17,7 @@
                             <th>ID</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Provider</th>
                             <th>Type</th>
                             <th class="text-center">Options</th>
                         </tr>
@@ -25,6 +26,7 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->provider }}</td>
                                 <td>{{ $user->type }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-success"><i
