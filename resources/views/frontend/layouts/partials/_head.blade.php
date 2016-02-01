@@ -7,4 +7,4 @@
 {!! Twitter::generate() !!}
 
 <!-- Styles -->
-<link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
+<link href="{{ secure_asset('css/all.min.css') }}" rel="stylesheet">
