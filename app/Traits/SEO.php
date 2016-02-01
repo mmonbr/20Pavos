@@ -10,7 +10,7 @@ trait SEO {
         \OpenGraph::setTitle($product->name);
         \OpenGraph::setDescription($product->description);
         \OpenGraph::setUrl(route('products.show', [$product->slug]));
-        \OpenGraph::addImage(cdn_file($product->attachments->first->url));
+        \OpenGraph::addImage(cdn_file($product->attachments->first()->url));
     }
 
     public function setCanonicalURL($url)
