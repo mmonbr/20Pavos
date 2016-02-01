@@ -25,7 +25,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $asin_array = ['B005WU8WQW', 'B00TX5O8WE', 'B01427MW3O'];
 
     $images_array = [
-        'uploads/products/300x250.png'
+        'uploads/products/small.png'
     ];
 
     $description = 'Producto de prueba. La descripción tiene que tener 6 líneas. ¡Cómprate esto, cómprate esto! Huehuehue. Amazon, ETSY, eBay. Un poquitín más. Faltan dos líneas. Hola hola hola, :roto2:. Mesa pato cuádriceps césped azúcar caracola con patas. E ya.';
