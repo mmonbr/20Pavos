@@ -10,7 +10,7 @@ trait SEO {
         \OpenGraph::setTitle($product->name);
         \OpenGraph::setDescription($product->description);
         \OpenGraph::setUrl(route('products.show', [$product->slug]));
-        \OpenGraph::addImage(http_file($product->image_url));
+        \OpenGraph::addImage(cdn_file($product->image_url));
         \OpenGraph::addProperty('og:image:width', '300');
         \OpenGraph::addProperty('og:image:height', '250');
     }
