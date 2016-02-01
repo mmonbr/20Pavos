@@ -35,6 +35,10 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'ProductsController@index')
         ->name('home');
 
+    #Nuevos Productos
+    Route::get('/contacto', 'SectionsController@contact')
+        ->name('contact');
+
     #Productos
     Route::resource('productos', 'ProductsController', [
         'only'  => [
