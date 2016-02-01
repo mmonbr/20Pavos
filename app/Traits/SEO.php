@@ -11,8 +11,8 @@ trait SEO {
         \OpenGraph::setDescription($product->description);
         \OpenGraph::setUrl(route('products.show', [$product->slug]));
         \OpenGraph::addImage(cdn_file($product->image_url));
-        \OpenGraph::addProperty('og:image:width', '300');
-        \OpenGraph::addProperty('og:image:height', '250');
+        \OpenGraph::addProperty('image:width', '300');
+        \OpenGraph::addProperty('image:height', '250');
     }
 
     public function setCanonicalURL($url)
