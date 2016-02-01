@@ -10,7 +10,7 @@ trait SEO {
         \OpenGraph::setTitle($product->name);
         \OpenGraph::setDescription($product->description);
         \OpenGraph::setUrl(route('products.show', [$product->slug]));
-        \OpenGraph::addImage(cdn_file($product->image_url));
+        \OpenGraph::addImage('https://cdn.derrochando.com/uploads/products/small.png');
     }
 
     public function setCanonicalURL($url)
