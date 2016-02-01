@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e10be5e295a2928c62b098ba083bbb88",
-    "content-hash": "4afe85122074312d85d07345264c6362",
+    "hash": "f790b1ebebda1090a34d03bca9e0e63d",
+    "content-hash": "2360ba26e51c85b1d26094cfa1d0acf7",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -498,67 +498,6 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
-        },
-        {
-            "name": "exeu/apai-io",
-            "version": "1.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Exeu/apai-io.git",
-                "reference": "6b670a2aaaee2febe3d038b6f861d90ba2ffb11a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Exeu/apai-io/zipball/6b670a2aaaee2febe3d038b6f861d90ba2ffb11a",
-                "reference": "6b670a2aaaee2febe3d038b6f861d90ba2ffb11a",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mayflower/php-codebrowser": "1.*",
-                "pdepend/pdepend": "2.*",
-                "phploc/phploc": "2.*",
-                "phpmd/phpmd": "2.*",
-                "phpunit/phpunit": "4.5.*",
-                "sebastian/phpcpd": "2.*",
-                "squizlabs/php_codesniffer": "2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ApaiIO": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Eichhorn",
-                    "email": "exeu65@googlemail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Dejan Spasic",
-                    "email": "dejan.spasic@bitweise.biz",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Amazon Product Advertising PHP Library",
-            "homepage": "https://github.com/Exeu/apai-io",
-            "keywords": [
-                "ECS",
-                "Product Advertising",
-                "amazon",
-                "products",
-                "rest",
-                "soap"
-            ],
-            "time": "2015-12-24 12:52:59"
         },
         {
             "name": "fzaninotto/faker",

@@ -1,47 +1,6 @@
 var Vue = require('vue');
 
 /*
- * DROPDOWNS
- */
-
-$('.dropdown')
-    .dropdown({
-        on: 'hover'
-    })
-;
-
-/*
- * CLOSING BUTTON
- */
-
-$('.message .close')
-    .on('click', function () {
-        $(this)
-            .closest('.message')
-            .transition('fade')
-        ;
-    })
-;
-
-/*
- * Sticky
- */
-$(".ProductDetails__meta").stick_in_parent()
-    .on("sticky_kit:bottom", function (e) {
-        e.target.style.bottom = "3px";
-    });
-
-/*
- * Slick Caroussel
- */
-
-$('.slick-container').slick({
-    dots: false,
-    autoplay: true,
-    lazyLoad: 'progressive'
-});
-
-/*
  * INFINITE SCROLL
  */
 
@@ -58,44 +17,88 @@ ias.extension(new IASSpinnerExtension({
     html: '<div style="position: fixed; left: 50%; margin-left: -50px; bottom: 0"><img src="{src}"/></div>'
 }));
 
-/*
- * Price Slider
- */
+$(document).ready(function(){
+    /*
+     * DROPDOWNS
+     */
 
-/*var slider = document.querySelector('.PriceSlider__container');
-var url = new URI();
-var start = 10;
+    $('.dropdown')
+        .dropdown({
+            on: 'hover'
+        })
+    ;
 
-if (url.hasQuery('max_price')) start = url.query(true).max_price;
+    /*
+     * CLOSING BUTTON
+     */
 
-noUiSlider.create(slider, {
-    start: [start],
-    step: 5,
-    range: {
-        'min': [0],
-        '95%': [180],
-        'max': [2000]
-    }
-});
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade')
+            ;
+        })
+    ;
 
-var priceSliderValue = document.querySelector('.PriceSlider__current');
+    /*
+     * Sticky
+     */
+    $(".ProductDetails__meta").stick_in_parent()
+        .on("sticky_kit:bottom", function (e) {
+            e.target.style.bottom = "3px";
+        });
 
-slider.noUiSlider.on('update', function (values, handle) {
-    priceSliderValue.innerHTML = values[handle] + '€';
-});
+    /*
+     * Slick Caroussel
+     */
 
-slider.noUiSlider.on('change', function (value) {
-    url.setQuery('max_price', parseInt(value));
+    $('.slick-container').slick({
+        dots: false,
+        autoplay: true,
+        lazyLoad: 'progressive'
+    });
 
-    window.location.href = url.href();
-});*/
+    /*
+     * Price Slider
+     */
 
-/*
- * POPUPS
- */
+    var slider = document.querySelector('.PriceSlider__container');
+    var url = new URI();
+    var start = 10;
 
-$('.new_window').click(function(e){
-    e.preventDefault();
+    if (url.hasQuery('max_price')) start = url.query(true).max_price;
 
-    $.popupWindow($(this).attr('href'));
+    noUiSlider.create(slider, {
+        start: [start],
+        step: 5,
+        range: {
+            'min': [0],
+            '95%': [180],
+            'max': [2000]
+        }
+    });
+
+    var priceSliderValue = document.querySelector('.PriceSlider__current');
+
+    slider.noUiSlider.on('update', function (values, handle) {
+        priceSliderValue.innerHTML = values[handle] + '€';
+    });
+
+    slider.noUiSlider.on('change', function (value) {
+        url.setQuery('max_price', parseInt(value));
+
+        window.location.href = url.href();
+    });
+
+    /*
+     * POPUPS
+     */
+
+    $('.new_window').click(function(e){
+        e.preventDefault();
+
+        $.popupWindow($(this).attr('href'));
+    });
+
 });

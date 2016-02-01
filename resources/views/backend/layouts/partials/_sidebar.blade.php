@@ -49,21 +49,12 @@
                     <li class="{{ active_class(if_route(['admin.products.create']), 'active') }}"><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview {{ active_class(if_route_pattern(['admin.users.*']), 'active') }}">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-envelope"></i> <span>Mailing</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Compose</a></li>
-                    <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Manage</a></li>
+                    <li class="{{ active_class(if_route(['admin.users.index']), 'active') }}"><a href="{{ route('admin.users.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>
                 </ul>
             </li>
         </ul>

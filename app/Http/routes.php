@@ -88,7 +88,7 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     Route::get('@{username}/edit', 'UsersController@edit')->name('users.edit');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Backend'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Backend'], function () {
     #Dashboard
     Route::get('/', 'BackendController@dashboard')
         ->name('admin.index');
