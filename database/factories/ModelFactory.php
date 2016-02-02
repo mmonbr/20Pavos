@@ -36,7 +36,8 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'current_price' => $faker->randomNumber(2),
         'is_featured'   => $faker->boolean(),
         'hits'          => $faker->randomNumber(),
-        'image_url'     => $images_array[array_rand($images_array)],
+        'image_path'    => $images_array[array_rand($images_array)],
+        'video_url'     => 'https://www.youtube.com/watch?v=6zWuWsby8K0',
         'referral_link' => $faker->url,
         'ASIN'          => $asin_array[array_rand($asin_array)],
     ];
@@ -44,7 +45,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
-        'name'        => $faker->words(3, true),
+        'name'        => $faker->name,
         'description' => $faker->sentence,
     ];
 });

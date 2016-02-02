@@ -206,7 +206,7 @@
   margin-bottom: .5em; }
 
 .utility-active-category {
-  font-weight: bold; }
+  color: #FBBD08; }
 
 .utility-show {
   display: block !important; }
@@ -335,7 +335,8 @@
     max-width: 300px; }
     .ProductDetails__meta__description {
       text-align: justify;
-      font-size: 1.1em; }
+      line-height: 1.6em;
+      font-size: 1em; }
     .ProductDetails__meta__price {
       text-align: center;
       font-weight: bold;

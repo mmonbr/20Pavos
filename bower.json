@@ -24,6 +24,7 @@
     "sweetalert": "~1.1.3",
     "slick": "*",
     "slick-carousel": "^1.5.9",
-    "sticky-kit": "^1.1.2"
+    "sticky-kit": "^1.1.2",
+    "font-awesome": "^4.5.0"
   }
 }

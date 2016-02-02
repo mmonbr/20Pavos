@@ -39,9 +39,9 @@ class DatabaseSeeder extends Seeder
             $category->addProducts(factory(Product::class, 50)->create()->each(function($product){
                 $product->addAttachment('uploads/products/big.png');
             }));
-            $category->children()->create(['name' => 'Superchildren' . str_random(10)]);
-            $category->children()->create(['name' => 'Superchildren' . str_random(10)]);
-            $category->children()->create(['name' => 'Superchildren' . str_random(10)]);
+            $category->children()->create(['name' => str_random(10)]);
+            $category->children()->create(['name' => str_random(10)]);
+            $category->children()->create(['name' => str_random(10)]);
         });
     }
 }

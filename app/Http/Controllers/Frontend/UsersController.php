@@ -55,21 +55,11 @@ class UsersController extends Controller
     public function update(UserRequest $request)
     {
         $user = User::findOrFail(auth()->user()->id);
+
         $user->update($request->all());
 
         alert()->success('Tus datos han sido actualizados con éxito.', '¡Yoohoo!');
 
         return redirect(route('users.edit', $request->username));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

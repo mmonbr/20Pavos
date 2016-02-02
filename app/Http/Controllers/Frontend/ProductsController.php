@@ -22,7 +22,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::filter($request->all())->paginate(14);
+        $products = Product::filter($request->all())->paginate(config('settings.products.results'));
 
         return view('frontend.products.all', compact('products'));
     }
@@ -30,7 +30,7 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +51,7 @@ class ProductsController extends Controller
      */
     public function latest()
     {
-        $products = Product::recent()->paginate(21);
+        $products = Product::recent()->paginate(config('settings.products.results'));
 
         $this->setCanonicalURL(route('home'));
 
@@ -65,7 +65,7 @@ class ProductsController extends Controller
      */
     public function popular()
     {
-        $products = Product::popular()->paginate(21);
+        $products = Product::popular()->paginate(config('settings.products.results'));
 
         $this->setCanonicalURL(route('home'));
 
@@ -79,7 +79,7 @@ class ProductsController extends Controller
      */
     public function cheap()
     {
-        $products = Product::cheap()->paginate(21);
+        $products = Product::cheap()->paginate(config('settings.products.results'));
 
         $this->setCanonicalURL(route('home'));
 

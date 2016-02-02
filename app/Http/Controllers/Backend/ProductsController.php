@@ -111,7 +111,7 @@ class ProductsController extends Controller
 
         if ($request->hasFile('file')) {
             $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
-            $product->setImageUrl($uploader->getPath());
+            $product->setImagePath($uploader->getPath());
         }
 
         $product->recategorize($request->categories);

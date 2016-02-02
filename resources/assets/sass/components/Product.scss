@@ -144,7 +144,8 @@ $product-details-breakpoint: 1045px;
 
     @include has(description) {
       text-align: justify;
-      font-size: 1.1em;
+      line-height: 1.6em;
+      font-size: 1em;
     }
 
     @include has(price) {

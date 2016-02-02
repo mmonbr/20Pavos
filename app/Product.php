@@ -3,10 +3,10 @@
 namespace App;
 
 use App\Traits\DeleteFromS3;
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
-use Illuminate\Database\Eloquent\Model;
 use Sofa\Eloquence\Eloquence;
+use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+use Cviebrock\EloquentSluggable\SluggableInterface;
 
 class Product extends Model implements SluggableInterface
 {
@@ -28,6 +28,7 @@ class Product extends Model implements SluggableInterface
         'current_price',
         'ASIN',
         'image_url',
+        'video_url',
         'referral_link',
         'is_featured'
     ];
@@ -37,31 +38,22 @@ class Product extends Model implements SluggableInterface
         parent::boot();
 
         self::deleting(function ($product) {
-            self::deleteS3File($product->image_url);
+            self::deleteS3File($product->path);
         });
     }
 
     /*
-     * Relations
-     */
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
-    }
-
-    public function attachments()
-    {
-        return $this->hasMany(Attachment::class)->orderBy('order', 'ASC');
-    }
-
-    /*
-     * Methods
-     */
+    * Helpers
+    */
 
     public function isFeatured()
     {
-        return !! $this->is_featured;
+        return !!$this->is_featured;
+    }
+
+    public function hasVideo()
+    {
+        return isset($this->video_url);
     }
 
     public function hit()
@@ -69,7 +61,7 @@ class Product extends Model implements SluggableInterface
         return $this->increment('hits');
     }
 
-    public function getRelatedProducts($items = 3)
+    public function relatedProducts($items = 3)
     {
         return $this->whereHas('categories', function ($query) {
             $query->whereIn('id', $this->categories()->pluck('id'));
@@ -79,15 +71,27 @@ class Product extends Model implements SluggableInterface
             ->get();
     }
 
-    public function setImageUrl($url)
+    /*
+     * Setters
+     */
+
+    public function setImagePath($path)
     {
-        return $this->update(['image_url' => $url]);
+        return $this->update(['image_path' => $path]);
+    }
+
+    /*
+     * Categories
+     */
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 
     public function categorize($category)
     {
-        if(!$this->categories->contains($category))
-        {
+        if (!$this->categories->contains($category)) {
             $this->categories()->attach($category);
         }
     }
@@ -108,6 +112,15 @@ class Product extends Model implements SluggableInterface
     public function categoriesList()
     {
         return $this->categories()->pluck('id')->toArray();
+    }
+
+    /*
+     * Attachments
+     */
+
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class)->orderBy('order', 'ASC');
     }
 
     public function addAttachment($url)
@@ -144,11 +157,11 @@ class Product extends Model implements SluggableInterface
     {
         $query->latest();
 
-        if(isset($params['min_price'])){
+        if (isset($params['min_price'])) {
             $this->scopeMinimumPrice($query, $params['min_price']);
         }
 
-        if(isset($params['max_price'])){
+        if (isset($params['max_price'])) {
             $this->scopeMaximumPrice($query, $params['max_price']);
         }
 

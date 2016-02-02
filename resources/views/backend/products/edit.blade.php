@@ -57,6 +57,13 @@
                                               name="description">{{ old('description', $product->description) }}</textarea>
                                 </div>
 
+                                <div class="form-group">
+                                    <label>Video URL</label>
+                                    <input type="text" value="{{ old('video_url', $product->video_url) }}"
+                                           class="form-control"
+                                           name="video_url">
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -79,7 +86,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Current image</label>
-                                        <img src="{{ cdn_file($product->image_url) }}" class="img-responsive">
+                                        <img src="{{ cdn_file($product->image_path) }}" class="img-responsive">
                                     </div>
                                 </div>
                             </div>

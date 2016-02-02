@@ -11,6 +11,12 @@
                     <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}" alt="">
                 </div>
             @endforeach
+            <div class="ProductDetails__media__item">
+                @if($product->hasVideo())
+                    <iframe width="635" height="360" src="https://www.youtube.com/embed/8xe6nLVXEC0" frameborder="0"
+                            allowfullscreen></iframe>
+                @endif
+            </div>
         </div>
         <div class="ProductDetails__meta">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -59,7 +65,7 @@
                 'url'  => route('products.show', $product->slug),
                 'name'  => $product->name,
                 'description'  => $product->description,
-                'media' => cdn_file($product->image_url)
+                'media' => cdn_file($product->image_path)
             ])
 
     <div class="comments">
@@ -68,5 +74,5 @@
         </div>
     </div>
 
-    @include('frontend.products.partials._related', ['related' => $product->getRelatedProducts(12)])
+    @include('frontend.products.partials._related', ['related' => $product->relatedProducts(12)])
 @endsection

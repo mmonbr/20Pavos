@@ -47,11 +47,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" class="form-control" name="file">
-                                </div>
-
-                                <div class="form-group">
                                     <div class="checkbox">
                                         <p>
                                             <strong>Feature this product</strong>
@@ -70,6 +65,18 @@
                                     <textarea class="form-control"
                                       name="description">{{ old('description') }}
                                     </textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Video URL</label>
+                                    <input type="text" value="{{ old('video_url') }}"
+                                           class="form-control"
+                                           name="video_url">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" class="form-control" name="file">
                                 </div>
                             </div>
                         </div>

@@ -24,13 +24,12 @@ class Attachment extends Model
         });
     }
 
+    /*
+     * Products
+     */
+
     public function product()
     {
         return $this->belongsTo(Product::class);
-    }
-
-    public function getUrlAttribute()
-    {
-        return cdn_file($this->path);
     }
 }

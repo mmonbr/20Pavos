@@ -16,17 +16,13 @@ class Category extends Node implements SluggableInterface
     protected $fillable = ['name', 'slug', 'description', 'parent_id'];
 
     /*
-     * Relations
+     * Products
      */
 
     public function products()
     {
         return $this->belongsToMany(Product::class);
     }
-
-    /*
-     * Methods
-     */
 
     public function addProduct($product)
     {
@@ -40,9 +36,11 @@ class Category extends Node implements SluggableInterface
         }
     }
 
-    public function makeChildrenOf($category)
+    public function productsCount()
     {
-        return $this->appendTo($category)->save();
+        return $this->products()
+            ->selectRaw('count(*) as aggregate, category_id')
+            ->groupBy('pivot_category_id');
     }
 
     public function getProductsCountAttribute()
@@ -54,13 +52,6 @@ class Category extends Node implements SluggableInterface
         return $this->getRelation('productsCount')->first()->aggregate;
     }
 
-    public function productsCount()
-    {
-        return $this->products()
-            ->selectRaw('count(*) as aggregate, category_id')
-            ->groupBy('pivot_category_id');
-    }
-
     /*
      * Helpers
      */
@@ -68,5 +59,10 @@ class Category extends Node implements SluggableInterface
     public static function tree()
     {
         return static::get()->toTree()->toArray();
+    }
+
+    public function makeChildrenOf($category)
+    {
+        return $this->appendTo($category)->save();
     }
 }

@@ -6,7 +6,7 @@
     @foreach($topProducts as $product)
         <div class="item">
             <div class="ui tiny image">
-                <img src="{{ cdn_file($product->image_url) }}">
+                <img src="{{ cdn_file($product->image_path) }}">
             </div>
             <div class="middle aligned content">
                 <a class="header">{{ $product->name }}</a>

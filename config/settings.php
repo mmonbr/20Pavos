@@ -1,11 +1,14 @@
 <?php
 
 return [
-    'files'   =>
+    'products' => [
+        'results' => 14
+    ],
+    'files'    =>
         [
             'use_cdn' => false
         ],
-    'twitter' =>
+    'twitter'  =>
         [
             'via' => 'mmonbr'
         ]
