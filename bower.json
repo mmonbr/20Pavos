@@ -25,6 +25,7 @@
     "slick": "*",
     "slick-carousel": "^1.5.9",
     "sticky-kit": "^1.1.2",
-    "font-awesome": "^4.5.0"
+    "font-awesome": "^4.5.0",
+    "jquery-popupwindow": "^1.0.1"
   }
 }
