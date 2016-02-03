@@ -37,7 +37,9 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
 
     #Nuevos Productos
     Route::get('/contacto', 'SectionsController@contact')
-        ->name('contact');
+        ->name('contact.form');
+    Route::post('/contacto', 'SectionsController@postContact')
+        ->name('contact.send');
 
     #Productos
     Route::resource('productos', 'ProductsController', [
