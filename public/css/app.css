@@ -241,7 +241,11 @@
   .Product__media__image {
     width: 100%; }
   .Product__description {
-    text-align: justify; }
+    text-align: justify;
+    min-height: 114px; }
+    @media (max-width: 680px) {
+      .Product__description {
+        min-height: 0; } }
   .Product__info {
     display: -webkit-flex;
     display: -ms-flexbox;

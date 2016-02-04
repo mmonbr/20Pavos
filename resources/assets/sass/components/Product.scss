@@ -36,6 +36,10 @@ $single-product-breakpoint: 680px;
 
   @include has(description) {
     text-align: justify;
+    min-height: 114px;
+    @media (max-width: $single-product-breakpoint) {
+      min-height: 0;
+    }
   }
 
   @include has(meta) {
