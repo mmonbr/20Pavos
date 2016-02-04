@@ -1402,7 +1402,9 @@ body.stop-scrolling {
         margin: 0; }
       @media (max-width: 1045px) {
         .ProductDetails__media__item {
-          width: 100%; } }
+          width: 100%; }
+          .ProductDetails__media__item:nth-of-type(n+2) {
+            display: none; } }
     @media (max-width: 1045px) {
       .ProductDetails__media {
         width: 100%; } }

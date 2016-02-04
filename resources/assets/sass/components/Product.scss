@@ -134,6 +134,9 @@ $product-details-breakpoint: 1045px;
 
       @media (max-width: $product-details-breakpoint) {
         width: 100%;
+        &:nth-of-type(n+2){
+          display: none;
+        }
       }
     }
 
