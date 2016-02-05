@@ -27,6 +27,8 @@ class PasswordController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $subject = 'Reinicio de Contraseña';
+
     /**
      * Create a new password controller instance.
      *
@@ -35,5 +37,21 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $user->password = $password;
+
+        $user->save();
+
+        Auth::guard($this->getGuard())->login($user);
     }
 }
