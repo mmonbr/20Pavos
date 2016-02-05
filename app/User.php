@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Events\UserSubscribed;
+use App\Events\UserUnsubscribed;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Sofa\Eloquence\Eloquence;
 
@@ -21,8 +23,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
-        'email',
         'password',
+        'email',
+        'is_subscribed',
         'provider',
         'provider_id'
     ];
@@ -36,8 +39,56 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * @return bool
+     */
+    public function isSubscribed()
+    {
+        return !!$this->is_subscribed;
+    }
+
+    public function subscribe()
+    {
+        $this->is_subscribed = true;
+        $this->save();
+
+        event(new UserSubscribed($this));
+    }
+
+    public function unsubscribe()
+    {
+        $this->is_subscribed = false;
+        $this->save();
+
+        event(new UserUnsubscribed($this));
+    }
+
+    public function updateCredentials($data)
+    {
+        $this->update([
+            'username' => $data['email'],
+            'email'    => $data['email'],
+        ]);
+
+        if (isset($data['is_subscribed']))
+            $this->subscribe();
+        else
+            $this->unsubscribe();
+
+        if (isset($data['password']) && !empty($data['password']))
+            $this->updatePassword($data['password']);
+
+        return $this;
+    }
+
     protected function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    protected function updatePassword($password)
+    {
+        $this->password = $password;
+        $this->save();
     }
 }

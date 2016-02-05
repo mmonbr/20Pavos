@@ -30,7 +30,7 @@ return [
                  * how to get this value:
                  * http://kb.mailchimp.com/lists/managing-subscribers/find-your-list-id
                  */
-                'id' => 'a8722bfd7b',
+                'id' => '6bd8c9e084',
 
                 /*
                  * These values will be used when creating a new campaign.
@@ -46,8 +46,8 @@ return [
                  */
                 'subscribe' => [
                     'emailType' => 'html',
-                    'requireDoubleOptin' => true,
-                    'updateExistingUser' => false,
+                    'requireDoubleOptin' => false,
+                    'updateExistingUser' => true,
                 ],
 
                 /*

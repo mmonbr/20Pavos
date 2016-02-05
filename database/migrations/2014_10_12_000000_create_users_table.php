@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('provider_id')->nullable();
             $table->string('email')->unique();
             $table->string('password', 60);
+            $table->boolean('is_subscribed')->default(false);
             $table->enum('type', ['user', 'admin'])->default('user');
             $table->rememberToken();
             $table->timestamps();

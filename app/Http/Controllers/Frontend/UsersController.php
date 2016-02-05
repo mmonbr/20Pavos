@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests\Frontend\UserRequest;
+use App\Newsletter\NewsletterList;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -38,7 +39,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($username)
+    public function edit()
     {
         $user = auth()->user();
 
@@ -54,12 +55,12 @@ class UsersController extends Controller
      */
     public function update(UserRequest $request)
     {
-        $user = User::findOrFail(auth()->user()->id);
+        $user = auth()->user();
 
-        $user->update($request->all());
+        $user->updateCredentials($request->all());
 
         alert()->success('Tus datos han sido actualizados con éxito.', '¡Yoohoo!');
 
-        return redirect(route('users.edit', $request->username));
+        return redirect(route('users.edit'));
     }
 }

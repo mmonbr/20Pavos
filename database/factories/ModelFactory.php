@@ -34,7 +34,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'name'          => 'Producto de Prueba - ' . $faker->randomNumber(3),
         'description'   => $description,
         'current_price' => $faker->randomNumber(2),
-        'is_featured'   => $faker->boolean(),
+        'is_featured'   => $faker->boolean(1),
         'hits'          => $faker->randomNumber(),
         'image_path'    => $images_array[array_rand($images_array)],
         'video_url'     => 'https://www.youtube.com/watch?v=6zWuWsby8K0',

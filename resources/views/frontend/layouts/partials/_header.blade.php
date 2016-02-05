@@ -25,7 +25,7 @@
 
                 <div class="menu">
                     <a class="item"><i class="gift icon"></i> Lista de regalos</a>
-                    <a href="{{ route('users.edit', [auth()->user()->username]) }}" class="item"><i
+                    <a href="{{ route('users.edit') }}" class="item"><i
                                 class="wrench icon"></i> Configuración</a>
                     <a href="{{ route('auth.logout') }}" class="item"><i class="sign out icon"></i> Logout</a>
                 </div>

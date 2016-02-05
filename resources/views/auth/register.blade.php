@@ -39,15 +39,31 @@
         </div>
 
         <div class="field">
+            <div class="ui checkbox">
+                <input type="checkbox" name="newsletter" checked>
+                <label>Acepto recibir los mejores productos en mi email cada Lunes.</label>
+            </div>
+        </div>
+
+        <div class="field">
             <div class="two fields">
                 <div class="field">
-                    <button type="submit" class="ui yellow fluid button">Registro</button>
+                    <button type="submit" class="ui yellow fluid button">Crear cuenta</button>
                 </div>
                 <div class="field">
-                    <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button"><i class="icon facebook"></i> Registro con Facebook</a>
+                    <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button"><i
+                                class="icon facebook"></i> Crear cuenta con Facebook</a>
                 </div>
             </div>
-        </div>    </form>
+            <p>
+                <small>
+                    Al hacer clic en "Crear cuenta" certifico que tengo 13 años o más, y que acepto las Condiciones de
+                    Uso y la Política de Privacidad.
+                </small>
+            </p>
+
+        </div>
+    </form>
     <div class="ui bottom attached message">
         <i class="icon help"></i>
         ¿Ya eres miembro? <a href="{{ route('auth.form') }}">inicia sesión</a>.

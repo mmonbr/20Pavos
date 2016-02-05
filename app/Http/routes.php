@@ -91,7 +91,7 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     ]);
 
     Route::get('@{username}', 'UsersController@showByUsername')->name('users.show_username');
-    Route::get('@{username}/edit', 'UsersController@edit')->name('users.edit');
+    Route::get('cuenta/editar', 'UsersController@edit')->name('users.edit');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Backend'], function () {
@@ -122,4 +122,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
     #Search
     Route::post('search', 'BackendController@search')
         ->name('admin.search');
+});
+
+Route::get('yolo', function(\Spatie\Newsletter\MailChimp\Newsletter $mc){
+   dd($mc->getApi()->lists->members(config('laravel-newsletter.mailChimp.lists.subscribers.id')));
 });

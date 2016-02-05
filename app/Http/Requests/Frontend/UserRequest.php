@@ -40,7 +40,7 @@ class UserRequest extends Request
                 return [
                     'username' => 'required|unique:users,username,' . $id,
                     'email'    => 'required|email|unique:users,email,' . $id,
-                    'password' => 'confirmed',
+                    'password' => 'confirmed|min:6',
                 ];
             }
             default:

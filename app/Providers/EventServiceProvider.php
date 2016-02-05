@@ -13,8 +13,21 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        /*
+         * Products
+         */
         'App\Events\ProductWasHit' => [
             'App\Listeners\HitProduct',
+        ],
+
+        /*
+         * Newsletter
+         */
+        'App\Events\UserSubscribed' => [
+            'App\Listeners\SubscribeUser',
+        ],
+        'App\Events\UserUnsubscribed' => [
+            'App\Listeners\UnsubscribeUser',
         ],
     ];
 
@@ -27,7 +40,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot(DispatcherContract $events)
     {
         parent::boot($events);
-
-        //
     }
 }

@@ -34,6 +34,13 @@
             <input type="password" name="password_confirmation">
         </div>
 
+        <div class="field">
+            <div class="ui checkbox">
+                <input type="checkbox" name="is_subscribed" value="1" @if($user->isSubscribed()) checked @endif>
+                <label>Acepto recibir los mejores productos en mi email cada Lunes.</label>
+            </div>
+        </div>
+
         <button type="submit" class="ui yellow fluid button">Actualizar mis datos</button>
     </form>
 @endsection
