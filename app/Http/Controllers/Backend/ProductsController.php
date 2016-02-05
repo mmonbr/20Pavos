@@ -54,7 +54,7 @@ class ProductsController extends Controller
             'is_featured'       => $request->featured,
             'referral_link'     => $request->referral_link,
             'ASIN'              => $request->ASIN,
-            'image_url'         => $uploader->getPath(),
+            'image_path'         => $uploader->getPath(),
         ]);
 
         $product->categorizeMany($request->categories);
