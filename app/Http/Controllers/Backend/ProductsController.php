@@ -44,7 +44,7 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $uploader = app('App\Utilities\S3FileUploader')->file($request->file('file'))->upload();
+        $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
 
         $product = Product::create([
             'name'              => $request->name,

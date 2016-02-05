@@ -40,7 +40,7 @@
 
         <div class="field">
             <div class="ui checkbox">
-                <input type="checkbox" name="newsletter" checked>
+                <input type="checkbox" name="is_subscribed" value="1" checked>
                 <label>Acepto recibir los mejores productos en mi email cada Lunes.</label>
             </div>
         </div>

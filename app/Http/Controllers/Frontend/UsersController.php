@@ -11,6 +11,18 @@ use App\Http\Controllers\Controller;
 class UsersController extends Controller
 {
     /**
+     * Create a new authentication controller instance.
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',
+            [
+                'except' => ['show', 'showByUsername']
+            ]);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int $id

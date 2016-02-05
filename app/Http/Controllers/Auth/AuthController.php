@@ -63,11 +63,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'username'   => $data['username'],
-            'email'      => $data['email'],
-            'password'   => $data['password'],
-            'newsletter' => $data['newsletter'],
+        $user = User::create([
+            'username'      => $data['username'],
+            'email'         => $data['email'],
+            'password'      => $data['password'],
         ]);
+
+        if(isset($data['is_subscribed']))
+            $user->subscribe();
+
+        return $user;
     }
 }
