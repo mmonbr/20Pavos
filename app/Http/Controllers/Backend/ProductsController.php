@@ -47,14 +47,13 @@ class ProductsController extends Controller
         $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
 
         $product = Product::create([
-            'name'              => $request->name,
-            'short_description' => $request->short_description,
-            'long_description'  => $request->long_description,
-            'current_price'     => $request->current_price,
-            'is_featured'       => $request->featured,
-            'referral_link'     => $request->referral_link,
-            'ASIN'              => $request->ASIN,
-            'image_path'         => $uploader->getPath(),
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'current_price' => $request->current_price,
+            'is_featured'   => $request->featured,
+            'referral_link' => $request->referral_link,
+            'ASIN'          => $request->ASIN,
+            'image_path'    => $uploader->getPath(),
         ]);
 
         $product->categorizeMany($request->categories);

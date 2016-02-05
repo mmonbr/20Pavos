@@ -27,7 +27,7 @@ class Product extends Model implements SluggableInterface
         'description',
         'current_price',
         'ASIN',
-        'image_url',
+        'image_path',
         'video_url',
         'referral_link',
         'is_featured'
@@ -78,6 +78,15 @@ class Product extends Model implements SluggableInterface
     public function setImagePath($path)
     {
         return $this->update(['image_path' => $path]);
+    }
+
+    public function setIsFeaturedAttribute($value)
+    {
+        if(is_null($value)){
+            $this->attributes['is_featured'] = false;
+        } else {
+            $this->attributes['is_featured'] = $value;
+        }
     }
 
     /*
