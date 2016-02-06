@@ -55,10 +55,10 @@ $(document).ready(function () {
     $('#Header').visibility({
         once: false,
         onBottomPassed: function onBottomPassed() {
-            $('.fixed.menu').transition('fade in');
+            $('#MobileMenu').show();
         },
         onBottomPassedReverse: function onBottomPassedReverse() {
-            $('.fixed.menu').transition('fade out');
+            $('#MobileMenu').hide();
         }
     });
 

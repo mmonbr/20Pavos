@@ -59,11 +59,11 @@ $(document).ready(function () {
     $('#Header')
         .visibility({
             once: false,
-            onBottomPassed: function() {
-                $('.fixed.menu').transition('fade in');
+            onBottomPassed: function () {
+                $('#MobileMenu').show();
             },
-            onBottomPassedReverse: function() {
-                $('.fixed.menu').transition('fade out');
+            onBottomPassedReverse: function () {
+                $('#MobileMenu').hide();
             }
         })
     ;

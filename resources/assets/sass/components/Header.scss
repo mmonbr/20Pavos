@@ -1,11 +1,9 @@
-@media only screen and (max-width: 700px) {
-  .ui.fixed.menu {
-    display: none !important;
-  }
-}
-
 #Header {
   margin: 0 0 1.5em 0;
+}
+
+#MobileMenu {
+  display: none;
 }
 
 .logo_medium {
@@ -20,8 +18,4 @@
   height: auto !important;
   margin-left: -14px !important;
   margin-right: 0 !important;
-}
-
-.hidden.menu {
-  display: none;
 }
