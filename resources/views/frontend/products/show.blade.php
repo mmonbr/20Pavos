@@ -13,7 +13,7 @@
             @endforeach
             <div class="ProductDetails__media__item">
                 @if($product->hasVideo())
-                    <iframe width="635" height="360" src="https://www.youtube.com/embed/8xe6nLVXEC0" frameborder="0"
+                    <iframe width="635" height="360" src="{{ $product->video_url }}" frameborder="0"
                             allowfullscreen></iframe>
                 @endif
             </div>
