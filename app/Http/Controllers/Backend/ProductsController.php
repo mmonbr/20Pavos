@@ -52,6 +52,7 @@ class ProductsController extends Controller
             'current_price' => $request->current_price,
             'is_featured'   => $request->featured,
             'referral_link' => $request->referral_link,
+            'video_url'     => $request->video_url,
             'ASIN'          => $request->ASIN,
             'image_path'    => $uploader->getPath(),
         ]);
@@ -105,6 +106,7 @@ class ProductsController extends Controller
             'current_price'     => $request->current_price,
             'is_featured'       => $request->featured,
             'referral_link'     => $request->referral_link,
+            'video_url'         => $request->video_url,
             'ASIN'              => $request->ASIN
         ]);
 

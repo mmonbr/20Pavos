@@ -9,7 +9,7 @@ var ias = jQuery.ias({
     container: '#Products',
     item: '.Product',
     pagination: '.pagination',
-    next: '.active.item + a'
+    next: '.pagination .active.item + a'
 });
 
 ias.extension(new IASSpinnerExtension({
