@@ -37,7 +37,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'is_featured'   => $faker->boolean(1),
         'hits'          => $faker->randomNumber(),
         'image_path'    => $images_array[array_rand($images_array)],
-        'video_url'     => 'https://www.youtube.com/watch?v=6zWuWsby8K0',
+        'video_url'     => 'https://www.youtube.com/embed/8xe6nLVXEC0',
         'referral_link' => $faker->url,
         'ASIN'          => $asin_array[array_rand($asin_array)],
     ];

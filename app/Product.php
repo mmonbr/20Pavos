@@ -53,7 +53,7 @@ class Product extends Model implements SluggableInterface
 
     public function hasVideo()
     {
-        return isset($this->video_url);
+        return !! $this->video_url;
     }
 
     public function hit()

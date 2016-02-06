@@ -11,12 +11,12 @@
                     <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}" alt="">
                 </div>
             @endforeach
-            <div class="ProductDetails__media__item">
-                @if($product->hasVideo())
+            @if($product->hasVideo())
+                <div class="ProductDetails__media__item">
                     <iframe width="635" height="360" src="{{ $product->video_url }}" frameborder="0"
                             allowfullscreen></iframe>
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
         <div class="ProductDetails__meta">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
