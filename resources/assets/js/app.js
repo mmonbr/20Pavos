@@ -56,7 +56,7 @@ $(document).ready(function () {
      */
 
     // fix menu when passed
-    $('header')
+    $('#Header')
         .visibility({
             once: false,
             onBottomPassed: function() {

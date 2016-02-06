@@ -52,7 +52,7 @@ $(document).ready(function () {
      */
 
     // fix menu when passed
-    $('header').visibility({
+    $('#Header').visibility({
         once: false,
         onBottomPassed: function onBottomPassed() {
             $('.fixed.menu').transition('fade in');
