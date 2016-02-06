@@ -20,7 +20,8 @@ $single-product-breakpoint: 680px;
   @include has(title) {
     display: block;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
+    font-weight:bold;
     margin: 0 0 0.2em 0;
 
     @include variant(small) {
