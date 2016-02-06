@@ -66,7 +66,7 @@ elixir(function (mix) {
     mix.browserify('app.js');
 
     mix.scripts([
-        'lib/jquery/jquery.min.js',
+        //'lib/jquery/jquery.min.js',
         'lib/slick/slick.min.js',
         //'lib/urijs/URI.min.js',
         //'lib/ias/jquery-ias.min.js',
