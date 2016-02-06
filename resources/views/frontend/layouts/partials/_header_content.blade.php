@@ -1,8 +1,11 @@
 <div class="ui grid container">
     <div class="computer only row">
-        <a href="{{ route('home') }}" class="item">
-            <img src="{{ asset('img/logo.png') }}" class="ui small image">
-        </a>
+        <div class="item">
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('img/drr.png') }}" class="logo_medium">
+            </a>
+        </div>
+
         <div class="ui dropdown item">
             <i class="big sidebar icon"></i>
             Explorar
@@ -39,15 +42,17 @@
             </div>
         </div>
     </div>
-    <div class="center aligned  tablet and mobile only row">
+    <div class="tablet and mobile only row">
         <a class="item toggle button">
             <i class="fitted big sidebar icon"></i>
         </a>
 
         <div class="right menu">
-            <a href="{{ route('home') }}" class="item">
-                <img src="{{ asset('img/logo.png') }}" class="ui small image">
-            </a>
+            <div class="item">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('img/drr.png') }}" class="logo_small">
+                </a>
+            </div>
         </div>
     </div>
 </div>
