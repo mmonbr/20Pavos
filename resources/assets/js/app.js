@@ -80,11 +80,11 @@ $(document).ready(function () {
     }, true);
 
     sidebar.sidebar({
-        onVisible: function(){
+        onShow: function(){
             sidebarOpened = true;
         },
 
-        onHide: function(){
+        onHidden: function(){
             sidebarOpened = false;
         }
     });

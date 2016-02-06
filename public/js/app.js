@@ -74,11 +74,11 @@ $(document).ready(function () {
     }, true);
 
     sidebar.sidebar({
-        onVisible: function onVisible() {
+        onShow: function onShow() {
             sidebarOpened = true;
         },
 
-        onHide: function onHide() {
+        onHidden: function onHidden() {
             sidebarOpened = false;
         }
     });
