@@ -72,9 +72,16 @@ $(document).ready(function () {
      * SIDEBAR
      */
 
-    $('.sidebar').first()
-        .sidebar('attach events', '.toggle.button')
-    ;
+    var sidebar = $('.sidebar').first();
+
+    sidebar.sidebar({
+        onHide: function(){
+            window.event.stopPropagation()
+        }
+    });
+
+    sidebar.sidebar('attach events', '.toggle.button');
+
 
     $('.toggle.button')
         .removeClass('disabled')
