@@ -3,17 +3,8 @@
 @import 'components/Slick';
 @import 'components/Share';
 @import 'components/Widget';
+@import 'components/Header';
 @import 'components/Utility';
 @import 'components/Product';
 @import 'components/Featured';
 @import 'components/PriceSlider';
-
-body {
-  margin: 5.5em 0 0 0;
-}
-
-@media (max-width: 768px) {
-  body {
-    margin:17em 0 1em 0;
-  }
-}

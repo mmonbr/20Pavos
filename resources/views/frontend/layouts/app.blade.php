@@ -5,15 +5,19 @@
 </head>
 <body>
 
-@include('frontend.layouts.partials._facebook')
-@include('frontend.layouts.partials._header')
+@include('frontend.layouts.partials._sidebar_menu')
 
-@if(in_array(Route::current()->getName(), ['products.latest', 'products.popular', 'products.cheap', 'home']))
-    @include('frontend.layouts.partials._block')
-@endif
+<div class="pusher">
+    @include('frontend.layouts.partials._facebook')
+    @include('frontend.layouts.partials._header')
 
-<div class="ui container">
-    @yield('content')
+    @if(in_array(Route::current()->getName(), ['products.latest', 'products.popular', 'products.cheap', 'home']))
+        @include('frontend.layouts.partials._block')
+    @endif
+
+    <div class="ui container">
+        @yield('content')
+    </div>
 </div>
 
 @include('frontend.layouts.partials._scripts')

@@ -47,7 +47,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 723px  +  2rem ) !important;
+    width: calc( 723px  +  0rem ) !important;
   }
   .ui.relaxed.grid.container {
     width: calc( 723px  +  3rem ) !important;
@@ -65,7 +65,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 984px  +  2rem ) !important;
+    width: calc( 984px  +  0rem ) !important;
   }
   .ui.relaxed.grid.container {
     width: calc( 984px  +  3rem ) !important;
@@ -83,7 +83,7 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 970px  +  2rem ) !important;
+    width: calc( 970px  +  0rem ) !important;
   }
   .ui.relaxed.grid.container {
     width: calc( 970px  +  3rem ) !important;

@@ -1,6 +1,6 @@
 //var Vue = require('vue');
 
-$(document).ready(function(){
+$(document).ready(function () {
     /*
      * Slick Caroussel
      */
@@ -52,6 +52,35 @@ $(document).ready(function(){
     ;
 
     /*
+     FIX HEADER
+     */
+
+    // fix menu when passed
+    $('header')
+        .visibility({
+            once: false,
+            onBottomPassed: function() {
+                $('.fixed.menu').transition('fade in');
+            },
+            onBottomPassedReverse: function() {
+                $('.fixed.menu').transition('fade out');
+            }
+        })
+    ;
+
+    /*
+     * SIDEBAR
+     */
+
+    $('.sidebar').first()
+        .sidebar('attach events', '.toggle.button')
+    ;
+
+    $('.toggle.button')
+        .removeClass('disabled')
+    ;
+
+    /*
      * Sticky
      */
     $(".ProductDetails__meta").stick_in_parent()
@@ -65,7 +94,7 @@ $(document).ready(function(){
 
     var slider = document.querySelector('.PriceSlider__container');
 
-    if(slider) {
+    if (slider) {
         var url = new URI();
         var start = 10;
 
@@ -99,7 +128,7 @@ $(document).ready(function(){
      * POPUPS
      */
 
-    $('.new_window').click(function(e){
+    $('.new_window').click(function (e) {
         e.preventDefault();
 
         $.popupWindow($(this).attr('href'));
