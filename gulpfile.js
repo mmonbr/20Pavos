@@ -56,9 +56,9 @@ elixir(function (mix) {
     mix.styles([
         'public/css/lib/semantic/semantic.min.css',
         'public/css/lib/slick/slick.css',
-        'public/css/lib/nouislider/nouislider.min.css',
-        'public/css/lib/sweetalert/sweetalert.css',
-        'public/css/lib/font-awesome/font-awesome.min.css',
+        //'public/css/lib/nouislider/nouislider.min.css',
+        //'public/css/lib/sweetalert/sweetalert.css',
+        //'public/css/lib/font-awesome/font-awesome.min.css',
         'app.css'
     ], './public/css/all.min.css', './public/css');
 
@@ -68,12 +68,12 @@ elixir(function (mix) {
     mix.scripts([
         'lib/jquery/jquery.min.js',
         'lib/slick/slick.min.js',
-        'lib/urijs/URI.min.js',
-        'lib/ias/jquery-ias.min.js',
-        'lib/sticky-kit/jquery.sticky-kit.min.js',
-        'lib/jquery-popupwindow/jquery.popupwindow.min.js',
-        'lib/nouislider/nouislider.min.js',
-        'lib/sweetalert/sweetalert.min.js',
+        //'lib/urijs/URI.min.js',
+        //'lib/ias/jquery-ias.min.js',
+        //'lib/sticky-kit/jquery.sticky-kit.min.js',
+        //'lib/jquery-popupwindow/jquery.popupwindow.min.js',
+        //'lib/nouislider/nouislider.min.js',
+        //'lib/sweetalert/sweetalert.min.js',
         'lib/semantic/semantic.min.js',
         'app.js'
     ], './public/js/app.min.js', './public/js');

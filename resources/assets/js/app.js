@@ -1,7 +1,6 @@
 //var Vue = require('vue');
 
 var sidebar = $('.sidebar').first();
-var sidebarOpened = false;
 
 $(document).ready(function () {
     /*
@@ -75,25 +74,9 @@ $(document).ready(function () {
      * SIDEBAR
      */
 
-    document.addEventListener('click', function(e) {
-        if(sidebarOpened) e.preventDefault();
-    }, true);
-
-    sidebar.sidebar({
-        onShow: function(){
-            sidebarOpened = true;
-        },
-
-        onHidden: function(){
-            sidebarOpened = false;
-        }
-    });
-
     sidebar.sidebar('attach events', '.toggle.button');
 
-    $('.toggle.button')
-        .removeClass('disabled')
-    ;
+    $('.toggle.button').removeClass('disabled');
 
     /*
      * Sticky
