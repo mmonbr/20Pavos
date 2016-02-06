@@ -10,6 +10,7 @@ $(document).ready(function () {
     $('.slick-container').slick({
         dots: false,
         autoplay: true,
+        mobileFirst: true,
         lazyLoad: 'ondemand'
     });
 
