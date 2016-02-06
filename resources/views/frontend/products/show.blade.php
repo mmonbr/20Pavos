@@ -8,7 +8,7 @@
                     @if($key == 0)
                         <h2 class="ProductDetails__media__item__title">{{ $product->name }}</h2>
                     @endif
-                    <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}" alt="">
+                    <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}" alt="{{ $product->slug }}">
                 </div>
             @endforeach
             @if($product->hasVideo())

@@ -1,23 +1,33 @@
-var Vue = require('vue');
-
-/*
- * INFINITE SCROLL
- */
-
-var ias = jQuery.ias({
-    //negativeMargin: 500,
-    container: '#Products',
-    item: '.Product',
-    pagination: '.pagination',
-    next: '.pagination .active.item + a'
-});
-
-ias.extension(new IASSpinnerExtension({
-    src: '/img/infinity.gif',
-    html: '<div style="position: fixed; left: 50%; margin-left: -50px; bottom: 0"><img src="{src}"/></div>'
-}));
+//var Vue = require('vue');
 
 $(document).ready(function(){
+    /*
+     * Slick Caroussel
+     */
+
+    $('.slick-container').slick({
+        dots: false,
+        autoplay: true,
+        lazyLoad: 'progressive'
+    });
+
+    /*
+     * INFINITE SCROLL
+     */
+
+    var ias = jQuery.ias({
+        //negativeMargin: 500,
+        container: '#Products',
+        item: '.Product',
+        pagination: '.pagination',
+        next: '.pagination .active.item + a'
+    });
+
+    ias.extension(new IASSpinnerExtension({
+        src: '/img/infinity.gif',
+        html: '<div style="position: fixed; left: 50%; margin-left: -50px; bottom: 0"><img src="{src}"/></div>'
+    }));
+
     /*
      * DROPDOWNS
      */
@@ -50,46 +60,40 @@ $(document).ready(function(){
         });
 
     /*
-     * Slick Caroussel
-     */
-
-    $('.slick-container').slick({
-        dots: false,
-        autoplay: true,
-        lazyLoad: 'progressive'
-    });
-
-    /*
      * Price Slider
      */
 
     var slider = document.querySelector('.PriceSlider__container');
-    var url = new URI();
-    var start = 10;
 
-    if (url.hasQuery('max_price')) start = url.query(true).max_price;
+    if(slider) {
+        var url = new URI();
+        var start = 10;
 
-    noUiSlider.create(slider, {
-        start: [start],
-        step: 5,
-        range: {
-            'min': [0],
-            '95%': [180],
-            'max': [2000]
-        }
-    });
+        if (url.hasQuery('max_price')) start = url.query(true).max_price;
 
-    var priceSliderValue = document.querySelector('.PriceSlider__current');
+        noUiSlider.create(slider, {
+            start: [start],
+            step: 5,
+            range: {
+                'min': [0],
+                '95%': [180],
+                'max': [2000]
+            }
+        });
 
-    slider.noUiSlider.on('update', function (values, handle) {
-        priceSliderValue.innerHTML = values[handle] + '€';
-    });
+        var priceSliderValue = document.querySelector('.PriceSlider__current');
 
-    slider.noUiSlider.on('change', function (value) {
-        url.setQuery('max_price', parseInt(value));
+        slider.noUiSlider.on('update', function (values, handle) {
+            priceSliderValue.innerHTML = values[handle] + '€';
+        });
 
-        window.location.href = url.href();
-    });
+        slider.noUiSlider.on('change', function (value) {
+            url.setQuery('max_price', parseInt(value));
+
+            window.location.href = url.href();
+        });
+    }
+
 
     /*
      * POPUPS

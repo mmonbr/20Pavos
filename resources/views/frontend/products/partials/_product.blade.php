@@ -3,7 +3,7 @@
 
     <div class="Product__media">
         <a href="{{ $product->referral_link }}" target="_blank">
-            <img class="Product__media__image" src="{{ cdn_file($product->image_path) }}">
+            <img class="Product__media__image" src="{{ cdn_file($product->image_path) }}" alt="{{ $product->slug }}">
         </a>
 
         @include('frontend.products.partials._share',
