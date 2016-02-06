@@ -3,6 +3,9 @@
 
 //var Vue = require('vue');
 
+var sidebar = $('.sidebar').first();
+var sidebarOpened = false;
+
 $(document).ready(function () {
     /*
      * Slick Caroussel
@@ -66,11 +69,17 @@ $(document).ready(function () {
      * SIDEBAR
      */
 
-    var sidebar = $('.sidebar').first();
+    document.addEventListener('click', function (e) {
+        if (sidebarOpened) e.preventDefault();
+    }, true);
 
     sidebar.sidebar({
+        onVisible: function onVisible() {
+            sidebarOpened = true;
+        },
+
         onHide: function onHide() {
-            window.event.stopPropagation();
+            sidebarOpened = false;
         }
     });
 
