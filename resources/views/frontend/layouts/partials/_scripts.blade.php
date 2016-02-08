@@ -12,4 +12,6 @@
     ga('send', 'pageview');
 </script>
 
+@include('frontend.layouts.partials._cookies')
+
 @include('sweet::alert')

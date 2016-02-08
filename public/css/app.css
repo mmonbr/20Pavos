@@ -433,6 +433,40 @@
   .Featured__extra {
     display: none; } }
 
+.Heading--Fancy {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #3a3a3a;
+  font-weight: 400;
+  text-align: center;
+  overflow: hidden; }
+  .Heading--Fancy span {
+    position: relative; }
+  .Heading--Fancy span:before {
+    right: 100%;
+    margin-right: 40px;
+    content: "";
+    position: absolute;
+    border-top: 2px solid #d6d6d6;
+    width: 600px;
+    height: 2px;
+    top: 50%; }
+  .Heading--Fancy span:after {
+    left: 100%;
+    margin-left: 40px;
+    content: "";
+    position: absolute;
+    border-top: 2px solid #d6d6d6;
+    width: 600px;
+    height: 2px;
+    top: 50%; }
+
+.Category__description {
+  margin-top: -0.5em;
+  font-weight: 400;
+  font-size: 1.1em;
+  text-align: center; }
+
 #PriceSlider {
   padding-top: 1em;
   padding-bottom: 1em; }

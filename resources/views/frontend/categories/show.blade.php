@@ -3,7 +3,7 @@
 @section('content')
     <div class="ui two column doubling stackable grid">
         <div class="four wide column">
-            <div class="ui large fluid vertical menu">
+            <div class="ui fluid vertical menu">
                 <div class="item">
                     @include('frontend.layouts.partials._search', ['fluid' => true, 'placeholder' => 'breaking bad, star wars...'])
                 </div>
@@ -23,10 +23,11 @@
             </div>
         </div>
         <div class="twelve wide column">
-            <div class="ui piled segment">
-                <h3 class="ui header">{{ $category->name }}</h3>
-                <p>{{ $category->description }}</p>
-            </div>
+            <h2 class="Heading--Fancy">
+                <span>{{ $category->name }}</span>
+            </h2>
+
+            <p class="Category__description">{{ $category->description }}</p>
 
             <div id="Products">
                 @foreach($products as $product)

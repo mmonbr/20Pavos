@@ -7,11 +7,11 @@ $(document).ready(function () {
      * Slick Caroussel
      */
 
-    $('.slick-container').slick({
+    $(document.querySelector('.slick-container')).slick({
         dots: false,
         autoplay: true,
         mobileFirst: true,
-        lazyLoad: 'ondemand'
+
     });
 
     /*

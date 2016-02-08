@@ -1,6 +1,6 @@
-<div class="ui piled segment">
-    <h3 class="ui header">En caso de que aún te quede dinero, echa un ojo a...</h3>
-</div>
+<h2 class="Heading--Fancy">
+    <span>También te podrían interesar...</span>
+</h2>
 
 <div id="Products">
     @foreach($related as $product)
