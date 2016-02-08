@@ -55,12 +55,15 @@ elixir(function (mix) {
     mix.sass('app.scss');
 
     mix.styles([
-        'public/css/lib/semantic/semantic.min.css',
         'public/css/lib/slick/slick.css',
         'public/css/lib/nouislider/nouislider.min.css',
         'public/css/lib/sweetalert/sweetalert.css',
+    ], './public/css/plugins.min.css', './public/css');
+
+    mix.styles([
+        'public/css/lib/semantic/semantic.min.css',
         'app.css'
-    ], './public/css/all.min.css', './public/css');
+    ], './public/css/app.min.css', './public/css');
 
     //Scripts
     mix.browserify('app.js');
