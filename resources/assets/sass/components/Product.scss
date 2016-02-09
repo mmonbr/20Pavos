@@ -204,8 +204,20 @@ $product-details-breakpoint: 1045px;
   width: 100%;
   padding: 1em;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(to top, rgba(0,0,0,0.66) 0%,rgba(0,0,0,0) 100%);
   display: none;
+
+  @include has(header) {
+    color: white;
+    font-size: 2em;
+    text-shadow: 2px 2px 2px #222;
+  }
+
+  @include has(text) {
+    color: white;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 2px #222;
+  }
 
   @include variant(shown) {
     display: block;

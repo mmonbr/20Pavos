@@ -9,11 +9,12 @@
                         <h2 class="ProductDetails__media__item__title">{{ $product->name }}</h2>
 
                         <div class="RandomProduct {{ active_class(if_route(['products.random']), 'RandomProduct--shown') }}">
-                            <h3>Modo aleatorio</h3>
-                            <p>Estás en modo aleatorio, recarga la página o pulsa en el botón de abajo para cargar un
+                            <h3 class="RandomProduct__header">Modo aleatorio</h3>
+                            <p class="RandomProduct__text">Estás en modo aleatorio, recarga la página o pulsa en el
+                                botón de abajo para cargar un
                                 nuevo producto.</p>
-                            <a href="{{ route('products.random') }}" class="ui yellow button"><i
-                                        class="random icon"></i> !Recargar!</a>
+                            <a href="{{ route('products.random') }}" class="ui huge black button"><i
+                                        class="fitted random icon"></i> !Recargar!</a>
                         </div>
                     @endif
                     <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}"
