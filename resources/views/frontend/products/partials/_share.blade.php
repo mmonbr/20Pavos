@@ -1,6 +1,7 @@
 @if($type == 'Buttons')
     <div class="ShareButtons">
-        <a class="ui button facebook new_window" href="http://facebook.com/sharer.php?u={{ $url }}" target="_blank" rel="nofollow">
+        <a class="ui button facebook new_window" href="http://facebook.com/sharer.php?u={{ $url }}" target="_blank"
+           rel="nofollow">
             <i class="fitted facebook icon"></i>
             <span class="ShareButton__network">Facebook</span>
         </a>
