@@ -10,7 +10,7 @@ class SocialAuthController extends Controller
 {
     public function redirectToFacebook()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('facebook')->asPopup()->redirect();
     }
 
     public function handleFacebookCallback()
