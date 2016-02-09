@@ -16,7 +16,7 @@
                 <a href="#" class="item">Categoría 2</a>
                 <a href="#" class="item">Categoría 3</a>
                 <a href="#" class="item">Categoría 4</a>
-                <a href="#" class="item">Contacto</a>
+                <a href="{{ route('contact.form') }}" class="item">Contacto</a>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                     {{ '@' . auth()->user()->username }}<i class="dropdown icon"></i>
 
                     <div class="menu">
-                        <a class="item"><i class="gift icon"></i> Lista de regalos</a>
+                        <!--<a class="item"><i class="gift icon"></i> Lista de regalos</a>-->
                         <a href="{{ route('users.edit') }}" class="item"><i
                                     class="wrench icon"></i> Configuración</a>
                         <a href="{{ route('auth.logout') }}" class="item"><i class="sign out icon"></i> Logout</a>

@@ -1,5 +1,5 @@
 <div class="Product">
-    <a class="Product__title" href="{{ route('products.show', $product->slug) }}" target="_blank">{{ $product->name }}</a>
+    <a class="Product__title" href="{{ route('products.show', $product->slug) }}" @if(isset($newWindow) && $newWindow == true) target="_blank" @endif>{{ $product->name }}</a>
 
     <div class="Product__media">
         <a href="{{ $product->referral_link }}" target="_blank">
