@@ -85,4 +85,16 @@ class ProductsController extends Controller
 
         return view('frontend.products.all', compact('products'));
     }
+
+    /**
+     * Gets a random product
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function random()
+    {
+        $product = Product::random();
+
+        return redirect(route('product.show', [$product->id]));
+    }
 }

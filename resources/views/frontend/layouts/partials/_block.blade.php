@@ -38,6 +38,12 @@
                     <i class="big euro icon"></i>
                     Baratos
                 </a>
+
+                <a href="{{ route('products.random') }}"
+                   class="item {{ active_class(if_route(['products.random']), 'active') }}">
+                    <i class="big random icon"></i>
+                    Aleatorio
+                </a>
             </div>
         </div>
 

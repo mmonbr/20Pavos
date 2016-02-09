@@ -65,6 +65,10 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     Route::get('/baratos', 'ProductsController@cheap')
         ->name('products.cheap');
 
+    #Producto Aleatorio
+    Route::get('/random', 'ProductsController@random')
+        ->name('products.random');
+
     #Categorías
     Route::resource('categorias', 'CategoriesController', [
         'only'  => [
@@ -122,8 +126,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
     #Search
     Route::post('search', 'BackendController@search')
         ->name('admin.search');
-});
-
-Route::get('yolo', function(\Spatie\Newsletter\MailChimp\Newsletter $mc){
-   dd($mc->getApi()->lists->members(config('laravel-newsletter.mailChimp.lists.subscribers.id')));
 });

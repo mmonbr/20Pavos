@@ -71,6 +71,11 @@ class Product extends Model implements SluggableInterface
             ->get();
     }
 
+    public static function random()
+    {
+        return static::orderBy(\DB::raw('RAND()'))->get();
+    }
+
     /*
      * Setters
      */
