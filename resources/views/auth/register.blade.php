@@ -6,12 +6,12 @@
 
     <div class="ui attached message">
         <div class="header">
-            Registro
+            ¡Eres el derrochador que nos falta! REGÍSTRATE ahora y prometeremos que...
         </div>
-        <p>Estas son algunas de las ventajas que obtendrás al registrarte en Derrochando.com</p>
         <ul class="ui list">
-            <li>Compartir listas de regalos con tus amigos</li>
-            <li>Los productos más molones cada lunes en tu email</li>
+            <li>Nunca te faltarán productos increíbles en los que gastar todo tu dinero.</li>
+            <li>Serás tú quien compre los regalos más molones las próximas Navidades.</li>
+            <li>Te enviaremos cada lunes (y solo los lunes, sin spam) las últimas cosas chulas.</li>
         </ul>
     </div>
     <form method="POST" action="{{ route('auth.register') }}" class="ui form attached fluid segment">
@@ -41,7 +41,7 @@
         <div class="field">
             <div class="ui checkbox">
                 <input type="checkbox" name="is_subscribed" value="1" checked>
-                <label>Acepto recibir los mejores productos en mi email cada Lunes.</label>
+                <label>Quiero recibir cosas chulas cada lunes en mi email.</label>
             </div>
         </div>
 
@@ -66,6 +66,6 @@
     </form>
     <div class="ui bottom attached message">
         <i class="icon help"></i>
-        ¿Ya eres miembro? <a href="{{ route('auth.form') }}">inicia sesión</a>.
+        ¿Ya eres miembro? <a href="{{ route('auth.form') }}">Inicia sesión</a>
     </div>
 @endsection
