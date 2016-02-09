@@ -66,7 +66,7 @@ class User extends Authenticatable
     public function updateCredentials($data)
     {
         $this->update([
-            'username' => $data['email'],
+            'username' => $data['username'],
             'email'    => $data['email'],
         ]);
 
