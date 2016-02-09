@@ -21,7 +21,7 @@ class SocialAuthController extends Controller
 
         auth()->login($authUser, true);
 
-        return redirect(route('home'));
+        return view('auth.close');
     }
 
     private function findOrCreateUser($socialUser, $provider)

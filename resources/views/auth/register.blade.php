@@ -51,7 +51,7 @@
                     <button type="submit" class="ui yellow fluid button">Crear cuenta</button>
                 </div>
                 <div class="field">
-                    <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button"><i
+                    <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button new_window"><i
                                 class="icon facebook"></i> Crear cuenta con Facebook</a>
                 </div>
             </div>

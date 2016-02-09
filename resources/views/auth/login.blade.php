@@ -37,7 +37,7 @@
                     <button type="submit" class="ui yellow fluid button">Login</button>
                 </div>
                 <div class="field">
-                    <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button"><i class="icon facebook"></i> Login con Facebook</a>
+                    <a href="{{ route('auth.facebook') }}" class="ui fluid facebook button new_window"><i class="icon facebook"></i> Login con Facebook</a>
                 </div>
             </div>
         </div>
