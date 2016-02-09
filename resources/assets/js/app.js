@@ -1,7 +1,5 @@
 //var Vue = require('vue');
 
-var sidebar = $('.sidebar').first();
-
 $(document).ready(function () {
     /*
      * Slick Caroussel
@@ -75,9 +73,16 @@ $(document).ready(function () {
      * SIDEBAR
      */
 
-    sidebar.sidebar('attach events', '.toggle.button');
+    /*$(document).on('click', '.toggle.button', function (event) {
+        event.preventDefault();
+        sidebar.sidebar({
+            mobileTransition: 'overlay'
+        }).sidebar('toggle');
+    });*/
 
-    $('.toggle.button').removeClass('disabled');
+    $('#MobileSidebar').sidebar('attach events', '.toggle.button');
+
+    $('#ToggleSidebar').removeClass('disabled');
 
     /*
      * Sticky

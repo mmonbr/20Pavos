@@ -1,4 +1,4 @@
-<div class="ui left vertical menu sidebar">
+<div id="MobileSidebar" class="ui left vertical menu sidebar">
     <a href="{{ route('home') }}" class="item"><i class="block home icon"></i> Inicio</a>
     <a href="{{ route('products.latest') }}" class="item"><i class="block bullhorn icon"></i> Novedades</a>
     <a href="{{ route('products.popular') }}" class="item"><i class="block heart icon"></i> Populares</a>
