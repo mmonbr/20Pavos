@@ -3,6 +3,7 @@
     <a href="{{ route('products.latest') }}" class="item"><i class="block bullhorn icon"></i> Novedades</a>
     <a href="{{ route('products.popular') }}" class="item"><i class="block heart icon"></i> Populares</a>
     <a href="{{ route('products.cheap') }}" class="item"><i class="block euro icon"></i> Baratos</a>
+    <a href="{{ route('products.random') }}" class="item"><i class="block random icon"></i> Aleatorio</a>
     @if(auth()->user())
         <a href="{{ route('users.edit') }}" class="item">
             <i class="block user icon"></i> {{ '@' . auth()->user()->username }}

@@ -73,7 +73,7 @@ class Product extends Model implements SluggableInterface
 
     public static function random()
     {
-        return static::orderBy(\DB::raw('RAND()'))->get();
+        return static::orderBy(\DB::raw('RAND()'))->first();
     }
 
     /*

@@ -20,7 +20,7 @@
                 @endforeach
             </div>
 
-            <div class="ui fluid doubling borderless three item stackable menu">
+            <div class="ui fluid doubling borderless four item stackable menu">
                 <a href="{{ route('products.latest') }}"
                    class="item {{ active_class(if_route(['products.latest', 'home']), 'active') }}">
                     <i class="big announcement icon"></i>
