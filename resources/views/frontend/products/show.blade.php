@@ -7,8 +7,17 @@
                 <div class="ProductDetails__media__item">
                     @if($key == 0)
                         <h2 class="ProductDetails__media__item__title">{{ $product->name }}</h2>
+
+                        <div class="RandomProduct {{ active_class(if_route(['products.random']), 'RandomProduct--shown') }}">
+                            <h3>Modo aleatorio</h3>
+                            <p>Estás en modo aleatorio, recarga la página o pulsa en el botón de abajo para cargar un
+                                nuevo producto.</p>
+                            <a href="{{ route('products.random') }}" class="ui yellow button"><i
+                                        class="random icon"></i> !Recargar!</a>
+                        </div>
                     @endif
-                    <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}" alt="{{ $product->slug }}">
+                    <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}"
+                         alt="{{ $product->slug }}">
                 </div>
             @endforeach
             @if($product->hasVideo())

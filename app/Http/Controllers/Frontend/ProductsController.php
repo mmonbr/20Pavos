@@ -95,6 +95,6 @@ class ProductsController extends Controller
     {
         $product = Product::random();
 
-        return redirect(route('products.show', [$product->id]));
+        return view('frontend.products.show', compact('product'));
     }
 }

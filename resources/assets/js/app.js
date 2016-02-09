@@ -73,13 +73,6 @@ $(document).ready(function () {
      * SIDEBAR
      */
 
-    /*$(document).on('click', '.toggle.button', function (event) {
-        event.preventDefault();
-        sidebar.sidebar({
-            mobileTransition: 'overlay'
-        }).sidebar('toggle');
-    });*/
-
     $('#MobileSidebar').sidebar('attach events', '.toggle.button');
 
     $('#ToggleSidebar').removeClass('disabled');

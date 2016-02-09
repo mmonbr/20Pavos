@@ -21,7 +21,7 @@ $single-product-breakpoint: 680px;
     display: block;
     text-align: center;
     font-size: 1.4em;
-    font-weight:bold;
+    font-weight: bold;
     margin: 0 0 0.2em 0;
 
     @include variant(small) {
@@ -105,9 +105,11 @@ $product-details-breakpoint: 1045px;
   flex-wrap: wrap;
 
   @include has(media) {
+    position: relative;
     width: 640px;
 
     @include has(item) {
+      position: relative;
       width: 635px;
       margin: 0 0 1em 0;
 
@@ -135,7 +137,7 @@ $product-details-breakpoint: 1045px;
 
       @media (max-width: $product-details-breakpoint) {
         width: 100%;
-        &:nth-of-type(n+2){
+        &:nth-of-type(n+2) {
           display: none;
         }
       }
@@ -193,5 +195,19 @@ $product-details-breakpoint: 1045px;
     @media (max-width: $product-details-breakpoint) {
       display: none;
     }
+  }
+}
+
+.RandomProduct {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: none;
+
+  @include variant(shown) {
+    display: block;
   }
 }
