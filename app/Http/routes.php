@@ -127,3 +127,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
     Route::post('search', 'BackendController@search')
         ->name('admin.search');
 });
+
+#Verificación Zanox
+Route::get('1fd56f06a89cc190f618e9ad862bad84.html', function(){ return 'Validation content="1fd56f06a89cc190f618e9ad862bad84"'; });
