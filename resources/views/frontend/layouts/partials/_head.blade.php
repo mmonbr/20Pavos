@@ -8,3 +8,6 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
+
+<!-- Zanox Verification -->
+<meta name="verification" content="95bcad813fcf2fbd9cc0a71304efe757" />
