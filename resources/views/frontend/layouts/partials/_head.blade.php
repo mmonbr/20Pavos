@@ -10,4 +10,4 @@
 <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
 
 <!-- Zanox Verification -->
-<meta name="verification" content="95bcad813fcf2fbd9cc0a71304efe757" />
+<meta name="verification" content="1fd56f06a89cc190f618e9ad862bad84" />
