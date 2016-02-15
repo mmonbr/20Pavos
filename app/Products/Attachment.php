@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Products;
 
-use App\Traits\DeleteFromS3;
+use App\Products\Traits\DeleteFromS3;
 use Illuminate\Database\Eloquent\Model;
 
 class Attachment extends Model

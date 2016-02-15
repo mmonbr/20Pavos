@@ -23,7 +23,7 @@
     <div class="Product__info">
         <div class="Product__info__meta">
             <div class="Product__info__meta__price">
-                {{ $product->current_price }}
+                {!! $product->price !!}
                 <i class="fitted euro icon"></i>
             </div>
 
@@ -33,7 +33,7 @@
         </div>
 
         <div class="Product__info__buy">
-            <a href="{{ $product->referral_link }}" target="_blank" class="ui yellow fluid button"><i
+            <a href="{{ $product->provider->link() }}" target="_blank" class="ui yellow fluid button"><i
                         class="shop icon"></i> !Lo quiero!</a>
         </div>
     </div>

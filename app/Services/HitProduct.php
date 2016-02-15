@@ -1,9 +1,9 @@
 <?php namespace App\Services;
 
-use App\Product;
 use Carbon\Carbon;
-use Illuminate\Cache\Repository as CacheRepository;
+use App\Products\Product;
 use Illuminate\Http\Request;
+use Illuminate\Cache\Repository as CacheRepository;
 
 class HitProduct
 {

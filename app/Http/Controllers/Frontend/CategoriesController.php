@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Category;
-use App\Product;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Products\Category;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CategoriesController extends Controller

@@ -44,11 +44,11 @@
             </div>
 
             <div class="ProductDetails__meta__price">
-                {!! $product->current_price !!}
+                {!! $product->price !!}
                 <i class="fitted euro icon"></i>
             </div>
 
-            <button class="ui button fluid yellow">¡Lo quiero!</button>
+            <a class="ui button fluid yellow" href="{{ $product->provider->link() }}">¡Lo quiero!</a>
         </div>
 
         <div class="ProductDetails__meta__responsive">
@@ -61,11 +61,11 @@
             </div>
 
             <div class="ProductDetails__meta__responsive__price">
-                {!! $product->current_price !!}
+                {!! $product->price !!}
                 <i class="fitted euro icon"></i>
             </div>
 
-            <button class="ui button fluid yellow">¡Lo quiero!</button>
+            <a class="ui button fluid yellow" href="{{ $product->provider->link() }}">¡Lo quiero!</a>
         </div>
     </div>
 

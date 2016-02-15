@@ -2,8 +2,8 @@
 
 namespace App\Events;
 
+use App\Products\Product;
 use App\Events\Event;
-use App\Product;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 

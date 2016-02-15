@@ -2,7 +2,7 @@
 
 namespace App\Http\ViewComposers\Frontend\Widgets;
 
-use App\Product;
+use App\Products\Product;
 use Illuminate\View\View;
 
 class TopProducts

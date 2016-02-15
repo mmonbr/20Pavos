@@ -31,26 +31,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Referral Link</label>
-                                    <input type="text" value="{{ old('referral_link', $product->referral_link) }}"
-                                           class="form-control"
-                                           name="referral_link">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>ASIN (Amazon only)</label>
-                                    <input type="text" value="{{ old('ASIN', $product->ASIN) }}" class="form-control"
-                                           name="ASIN">
-                                </div>
-
-                                <div class="form-group">
                                     <label>Price (in cents)</label>
-                                    <input type="text" value="{{ old('current_price', $product->current_price) }}"
+                                    <input type="text" value="{{ old('price', $product->price) }}"
                                            class="form-control"
-                                           name="current_price">
+                                           name="price">
                                 </div>
-                            </div>
-                            <div class="col-md-6">
+
                                 <div class="form-group">
                                     <label>Description</label>
                                     <textarea rows="3" class="form-control"
@@ -63,7 +49,8 @@
                                            class="form-control"
                                            name="video_url">
                                 </div>
-
+                            </div>
+                            <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -78,7 +65,7 @@
                                                 </p>
                                                 <label>
                                                     <input type="checkbox"
-                                                           @if(old('featured', $product->is_featured)) checked
+                                                           @if(old('featured', $product->featured)) checked
                                                            @endif name="featured" value="1"> Check
                                                 </label>
                                             </div>

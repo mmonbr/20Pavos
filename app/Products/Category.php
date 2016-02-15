@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Products;
 
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;

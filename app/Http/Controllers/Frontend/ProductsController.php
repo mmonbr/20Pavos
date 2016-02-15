@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Events\ProductWasHit;
-use App\Product;
 use App\Traits\SEO;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Products\Product;
+use Illuminate\Http\Request;
+use App\Events\ProductWasHit;
 use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller

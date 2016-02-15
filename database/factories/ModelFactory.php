@@ -20,9 +20,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Product::class, function (Faker\Generator $faker) {
-
-    $asin_array = ['B005WU8WQW', 'B00TX5O8WE', 'B01427MW3O'];
+$factory->define(App\Products\Product::class, function (Faker\Generator $faker) {
 
     $images_array = [
         'uploads/products/small.png'
@@ -31,19 +29,29 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $description = 'Producto de prueba. La descripción tiene que tener 6 líneas. ¡Cómprate esto, cómprate esto! Huehuehue. Amazon, ETSY, eBay. Un poquitín más. Faltan dos líneas. Hola hola hola, :roto2:. Mesa pato cuádriceps césped azúcar caracola con patas. E ya.';
 
     return [
-        'name'          => 'Producto de Prueba - ' . $faker->randomNumber(3),
-        'description'   => $description,
-        'current_price' => $faker->randomNumber(2),
-        'is_featured'   => $faker->boolean(1),
-        'hits'          => $faker->randomNumber(),
-        'image_path'    => $images_array[array_rand($images_array)],
-        'video_url'     => 'https://www.youtube.com/embed/8xe6nLVXEC0',
-        'referral_link' => $faker->url,
-        'ASIN'          => $asin_array[array_rand($asin_array)],
+        'name'        => 'Producto de Prueba - ' . $faker->randomNumber(3),
+        'description' => $description,
+        'featured'    => $faker->boolean(1),
+        'price'       => $faker->numberBetween(1, 200),
+        'image_path'  => $images_array[array_rand($images_array)],
+        'video_url'   => 'https://www.youtube.com/embed/8xe6nLVXEC0',
     ];
 });
 
-$factory->define(App\Category::class, function (Faker\Generator $faker) {
+
+$factory->define(App\Products\Providers\Standard::class, function (Faker\Generator $faker) {
+    return [
+        'affiliate_link' => $faker->url,
+    ];
+});
+
+$factory->define(App\Products\Providers\Amazon::class, function (Faker\Generator $faker) {
+    return [
+        'ASIN' => $faker->randomNumber(),
+    ];
+});
+
+$factory->define(App\Products\Category::class, function (Faker\Generator $faker) {
     return [
         'name'        => $faker->name,
         'description' => $faker->sentence,

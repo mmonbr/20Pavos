@@ -2,7 +2,7 @@
 
 namespace App\Http\ViewComposers\Backend;
 
-use App\Category;
+use App\Products\Category;
 use Illuminate\View\View;
 
 class CategoriesList

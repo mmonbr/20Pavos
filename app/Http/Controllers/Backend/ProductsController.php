@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Category;
-use App\Http\Requests\Backend\AttachmentRequest;
-use App\Http\Requests\Backend\ProductRequest;
-use App\Product;
-use App\Utilities\S3FileUpload;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Products\Product;
+use Illuminate\Http\Request;
+use App\Utilities\S3FileUpload;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\ProductRequest;
+use App\Http\Requests\Backend\AttachmentRequest;
+
 
 class ProductsController extends Controller
 {
@@ -49,8 +48,8 @@ class ProductsController extends Controller
         $product = Product::create([
             'name'          => $request->name,
             'description'   => $request->description,
-            'current_price' => $request->current_price,
-            'is_featured'   => $request->featured,
+            'price'         => $request->price,
+            'featured'      => $request->featured,
             'referral_link' => $request->referral_link,
             'video_url'     => $request->video_url,
             'ASIN'          => $request->ASIN,
@@ -103,8 +102,8 @@ class ProductsController extends Controller
             'name'              => $request->name,
             'short_description' => $request->short_description,
             'long_description'  => $request->long_description,
-            'current_price'     => $request->current_price,
-            'is_featured'       => $request->featured,
+            'price'             => $request->price,
+            'featured'          => $request->featured,
             'referral_link'     => $request->referral_link,
             'video_url'         => $request->video_url,
             'ASIN'              => $request->ASIN

@@ -1,4 +1,4 @@
-<?php namespace App\Traits;
+<?php namespace App\Products\Traits;
 
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\FileNotFoundException;

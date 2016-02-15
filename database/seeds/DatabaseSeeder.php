@@ -18,30 +18,21 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:refresh');
 
-        //Users
-        //$this->command->info('Users > Truncating');
-        //DB::table('users')->delete();
         $this->command->info('Users > Creating sample users');
         $users = factory(User::class, 10)->create();
 
-        //Products
-        //$this->command->info('Products > Truncating');
-        //DB::table('products')->delete();
-
-        //Categories
-        //$this->command->info('Categories > Truncating');
-        //DB::table('categories')->delete();
-        //DB::table('category_product')->delete();
         $this->command->info('Category > Creating sample categories');
-        $categories = factory(Category::class, 10)->create()->each(function($category)
-        {
-            $this->command->info('Category > Filling category {' . $category->name . '} with products');
-            $category->addProducts(factory(Product::class, 50)->create()->each(function($product){
+
+        $categories = factory(App\Products\Category::class, 10)->create()->each(function($category){
+            $category->addProducts(factory(App\Products\Product::class, 10)->create()->each(function($product){
+                $product->addProvider(factory(App\Products\Providers\Amazon::class)->create());
                 $product->addAttachment('uploads/products/big.png');
             }));
-            $category->children()->create(['name' => str_random(10)]);
-            $category->children()->create(['name' => str_random(10)]);
-            $category->children()->create(['name' => str_random(10)]);
+
+            $category->addProducts(factory(App\Products\Product::class, 10)->create()->each(function($product){
+                $product->addProvider(factory(App\Products\Providers\Standard::class)->create());
+                $product->addAttachment('uploads/products/big.png');
+            }));
         });
     }
 }

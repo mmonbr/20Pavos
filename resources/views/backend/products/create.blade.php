@@ -29,35 +29,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Referral Link</label>
-                                    <input type="text" value="{{ old('referral_link') }}" class="form-control"
-                                           name="referral_link">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>ASIN (Amazon only)</label>
-                                    <input type="text" value="{{ old('ASIN') }}" class="form-control"
-                                           name="ASIN">
-                                </div>
-
-                                <div class="form-group">
                                     <label>Price (in cents)</label>
-                                    <input type="text" value="{{ old('current_price') }}" class="form-control"
-                                           name="current_price">
+                                    <input type="text" value="{{ old('price') }}" class="form-control"
+                                           name="price">
                                 </div>
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <p>
-                                            <strong>Feature this product</strong>
-                                        </p>
-                                        <label>
-                                            <input type="checkbox" @if(old('featured')) checked
-                                                   @endif name="featured"> Check
-                                        </label>
-                                    </div>
-                                </div>
-
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -73,9 +48,26 @@
                                            name="video_url">
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" class="form-control" name="file">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <p>
+                                                    <strong>Feature this product</strong>
+                                                </p>
+                                                <label>
+                                                    <input type="checkbox" @if(old('featured')) checked
+                                                           @endif name="featured"> Check
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                            <input type="file" class="form-control" name="file">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

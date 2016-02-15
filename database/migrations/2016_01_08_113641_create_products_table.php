@@ -16,14 +16,14 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->integer('price');
             $table->text('description');
-            $table->integer('current_price');
-            $table->integer('hits')->unsigned()->default(0);
-            $table->boolean('is_featured')->unsigned()->default(false);
             $table->string('image_path');
+            $table->integer('providable_id');
+            $table->string('providable_type');
             $table->string('video_url')->nullable();
-            $table->string('referral_link');
-            $table->string('ASIN')->nullable();
+            $table->integer('hits')->unsigned()->default(0);
+            $table->boolean('featured')->unsigned()->default(false);
             $table->timestamps();
         });
     }
