@@ -12,7 +12,7 @@ class Attachment extends Model
     protected $fillable = [
         'path',
         'order',
-        'product_id'
+        'product_id',
     ];
 
     public static function boot()

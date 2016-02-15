@@ -27,7 +27,7 @@ class User extends Authenticatable
         'email',
         'is_subscribed',
         'provider',
-        'provider_id'
+        'provider_id',
     ];
 
     /**
@@ -44,7 +44,7 @@ class User extends Authenticatable
      */
     public function isSubscribed()
     {
-        return !!$this->is_subscribed;
+        return ! ! $this->is_subscribed;
     }
 
     public function subscribe()
@@ -70,13 +70,15 @@ class User extends Authenticatable
             'email'    => $data['email'],
         ]);
 
-        if (isset($data['is_subscribed']))
+        if (isset($data['is_subscribed'])) {
             $this->subscribe();
-        else
+        } else {
             $this->unsubscribe();
+        }
 
-        if (isset($data['password']) && !empty($data['password']))
+        if (isset($data['password']) && ! empty($data['password'])) {
             $this->updatePassword($data['password']);
+        }
 
         return $this;
     }

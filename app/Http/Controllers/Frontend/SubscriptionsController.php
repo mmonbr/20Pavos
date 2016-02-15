@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Spatie\Newsletter\MailChimp\Newsletter;
 use App\Http\Requests\Frontend\SubscribeRequest;
 use Spatie\Newsletter\Exceptions\AlreadySubscribed;
-
 
 class SubscriptionsController extends Controller
 {

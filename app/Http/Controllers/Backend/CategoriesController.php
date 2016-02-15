@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests;
 use App\Products\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,11 +40,11 @@ class CategoriesController extends Controller
     public function store(CategoryRequest $request)
     {
         $category = Category::create([
-            'name' => $request->name
+            'name' => $request->name,
         ]);
 
         $category->update([
-            'parent_id' => $request->parent_id
+            'parent_id' => $request->parent_id,
         ]);
 
         alert()->success('The category has been created successfully.', 'Tasty!');
@@ -78,7 +77,7 @@ class CategoriesController extends Controller
         Category::findOrFail($id)->update([
             'name'      => $request->name,
             'slug'      => $request->slug,
-            'parent_id' => $request->parent_id
+            'parent_id' => $request->parent_id,
         ]);
 
         alert()->success('The category has been updated successfully.', '#feelsgood');
@@ -122,7 +121,7 @@ class CategoriesController extends Controller
     public function makeChildrenOf(Request $request, $id)
     {
         Category::findOrFail($id)->update([
-            'parent_id' => $request->parent_id
+            'parent_id' => $request->parent_id,
         ]);
 
         alert()->success('The category has been successfully moved.', 'Luke, I am your father');

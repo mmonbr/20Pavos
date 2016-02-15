@@ -1,6 +1,9 @@
-<?php namespace App\Products\Contracts;
+<?php
 
-interface AffiliateProvider {
+namespace App\Products\Contracts;
+
+interface AffiliateProvider
+{
     public function product();
     public function link();
 }

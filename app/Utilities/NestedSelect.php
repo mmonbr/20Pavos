@@ -1,9 +1,11 @@
-<?php namespace App\Utilities;
+<?php
+
+namespace App\Utilities;
 
 class NestedSelect
 {
     protected $attributes = [
-        'multiple' => ''
+        'multiple' => '',
     ];
 
     protected $depth = 0;
@@ -41,8 +43,9 @@ class NestedSelect
 
     public function render($firstEmptyNode = false)
     {
-        if($firstEmptyNode)
+        if ($firstEmptyNode) {
             $this->output .= $this->addEmptyNode();
+        }
 
         while ($category = $this->categories->shift()) {
             $this->addNode($category);
@@ -52,7 +55,7 @@ class NestedSelect
             }
         }
 
-        return '<select ' . $this->attributes['multiple'] . ' name="' . $this->attributes['name'] . '" class="form-control">' . $this->output . '</select>';
+        return '<select '.$this->attributes['multiple'].' name="'.$this->attributes['name'].'" class="form-control">'.$this->output.'</select>';
     }
 
     public function addChildren($children)
@@ -78,7 +81,7 @@ class NestedSelect
             return;
         }
 
-        $this->output .= '<option value="' . $node->id . '"' . $this->isSelected($node) . '>' . $this->depthSymbol() . $node->name . '</option>';
+        $this->output .= '<option value="'.$node->id.'"'.$this->isSelected($node).'>'.$this->depthSymbol().$node->name.'</option>';
 
         return $this;
     }

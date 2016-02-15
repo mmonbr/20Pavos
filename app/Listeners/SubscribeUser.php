@@ -3,8 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\UserSubscribed;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Spatie\Newsletter\Exceptions\AlreadySubscribed;
 use Spatie\Newsletter\MailChimp\Newsletter;
 

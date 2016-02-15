@@ -1,8 +1,11 @@
-<?php namespace App\Products\Traits;
+<?php
+
+namespace App\Products\Traits;
 
 use App\Products\Product;
 
-trait AffiliateProvider {
+trait AffiliateProvider
+{
     public function product()
     {
         return $this->morphOne(Product::class, 'providable');

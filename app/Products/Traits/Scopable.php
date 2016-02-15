@@ -1,9 +1,11 @@
-<?php namespace App\Products\Traits;
+<?php
+
+namespace App\Products\Traits;
 
 trait Scopable
 {
     /**
-     * Gets products between given price range
+     * Gets products between given price range.
      *
      * @param $query
      * @param $params
@@ -24,7 +26,7 @@ trait Scopable
     }
 
     /**
-     * Gets products below given price
+     * Gets products below given price.
      *
      * @param $query
      * @param $price
@@ -35,7 +37,7 @@ trait Scopable
     }
 
     /**
-     * Gets products under given price
+     * Gets products under given price.
      *
      * @param $query
      * @param $price
@@ -46,7 +48,7 @@ trait Scopable
     }
 
     /**
-     * Gets newest products
+     * Gets newest products.
      *
      * @param $query
      * @return mixed
@@ -57,7 +59,7 @@ trait Scopable
     }
 
     /**
-     * Gets popular products
+     * Gets popular products.
      *
      * @param $query
      * @return mixed
@@ -67,9 +69,8 @@ trait Scopable
         return $query->orderBy('hits', 'desc');
     }
 
-
     /**
-     * Gets featured products
+     * Gets featured products.
      *
      * @param $query
      * @return mixed
@@ -99,7 +100,7 @@ trait Scopable
     }
 
     /**
-     * Gets cheapest products in ascending order
+     * Gets cheapest products in ascending order.
      *
      * @param $query
      * @return mixed
@@ -110,7 +111,7 @@ trait Scopable
     }
 
     /**
-     * Gets a random product
+     * Gets a random product.
      *
      * @param $query
      * @return mixed

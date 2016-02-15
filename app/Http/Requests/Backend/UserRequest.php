@@ -40,8 +40,8 @@ class UserRequest extends Request
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'username' => 'required|unique:users,username,' . $id,
-                    'email'    => 'required|email|unique:users,email,' . $id,
+                    'username' => 'required|unique:users,username,'.$id,
+                    'email'    => 'required|email|unique:users,email,'.$id,
                 ];
             }
             default:

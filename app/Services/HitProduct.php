@@ -1,4 +1,6 @@
-<?php namespace App\Services;
+<?php
+
+namespace App\Services;
 
 use Carbon\Carbon;
 use App\Products\Product;
@@ -20,7 +22,7 @@ class HitProduct
     {
         $expiresAt = Carbon::now()->addHours(24);
 
-        $this->cache->remember($this->getCacheKey($product), $expiresAt, function() use ($product) {
+        $this->cache->remember($this->getCacheKey($product), $expiresAt, function () use ($product) {
             $product->hit();
 
             return $this->getCacheKey($product);
@@ -29,6 +31,6 @@ class HitProduct
 
     private function getCacheKey($product)
     {
-        return md5($product->id . ':' . $this->request->ip());
+        return md5($product->id.':'.$this->request->ip());
     }
 }

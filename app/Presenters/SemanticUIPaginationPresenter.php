@@ -1,12 +1,14 @@
-<?php namespace App\Presenters;
+<?php
+
+namespace App\Presenters;
 
 use Illuminate\Pagination\BootstrapThreeNextPreviousButtonRendererTrait;
 use Illuminate\Pagination\BootstrapThreePresenter as BasePresenter;
 use Illuminate\Pagination\UrlWindowPresenterTrait;
 use Illuminate\Support\HtmlString;
 
-class SemanticUIPaginationPresenter extends BasePresenter {
-
+class SemanticUIPaginationPresenter extends BasePresenter
+{
     use BootstrapThreeNextPreviousButtonRendererTrait, UrlWindowPresenterTrait;
 
     /**
@@ -78,5 +80,4 @@ class SemanticUIPaginationPresenter extends BasePresenter {
     {
         return '<a class="active item">'.$text.'</a>';
     }
-
 }

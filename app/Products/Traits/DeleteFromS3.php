@@ -1,14 +1,17 @@
-<?php namespace App\Products\Traits;
+<?php
+
+namespace App\Products\Traits;
 
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\FileNotFoundException;
 
-trait DeleteFromS3 {
+trait DeleteFromS3
+{
     public static function deleteS3File($path)
     {
         try {
             Storage::delete($path);
-        } catch(FileNotFoundException $e) {
+        } catch (FileNotFoundException $e) {
             //Do nothing
         }
     }

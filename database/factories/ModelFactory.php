@@ -23,13 +23,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Products\Product::class, function (Faker\Generator $faker) {
 
     $images_array = [
-        'uploads/products/small.png'
+        'uploads/products/small.png',
     ];
 
     $description = 'Producto de prueba. La descripción tiene que tener 6 líneas. ¡Cómprate esto, cómprate esto! Huehuehue. Amazon, ETSY, eBay. Un poquitín más. Faltan dos líneas. Hola hola hola, :roto2:. Mesa pato cuádriceps césped azúcar caracola con patas. E ya.';
 
     return [
-        'name'        => 'Producto de Prueba - ' . $faker->randomNumber(3),
+        'name'        => 'Producto de Prueba - '.$faker->randomNumber(3),
         'description' => $description,
         'featured'    => $faker->boolean(1),
         'price'       => $faker->numberBetween(1, 200),
@@ -37,7 +37,6 @@ $factory->define(App\Products\Product::class, function (Faker\Generator $faker) 
         'video_url'   => 'https://www.youtube.com/embed/8xe6nLVXEC0',
     ];
 });
-
 
 $factory->define(App\Products\Providers\Standard::class, function (Faker\Generator $faker) {
     return [

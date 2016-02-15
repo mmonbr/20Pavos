@@ -3,9 +3,7 @@
 namespace App\Events;
 
 use App\Products\Product;
-use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class ProductWasHit extends Event
 {

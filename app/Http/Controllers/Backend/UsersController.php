@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\UserRequest;
 use App\User;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
@@ -43,9 +41,9 @@ class UsersController extends Controller
         $user = new User;
 
         $user->username = $request->username;
-        $user->email    = $request->email;
+        $user->email = $request->email;
         $user->password = $request->password;
-        $user->type     = $request->type;
+        $user->type = $request->type;
 
         $user->save();
 
@@ -88,11 +86,12 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
 
         $user->username = $request->username;
-        $user->email    = $request->email;
-        $user->type     = $request->type;
+        $user->email = $request->email;
+        $user->type = $request->type;
 
-        if($request->has('password'))
+        if ($request->has('password')) {
             $user->password = $request->password;
+        }
 
         $user->save();
 

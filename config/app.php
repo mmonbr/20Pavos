@@ -170,7 +170,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
-        Dawson\AmazonECS\AmazonECSServiceProvider::class
+        Dawson\AmazonECS\AmazonECSServiceProvider::class,
     ],
 
     /*

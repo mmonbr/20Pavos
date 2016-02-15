@@ -1,4 +1,6 @@
-<?php namespace App\Products\Traits;
+<?php
+
+namespace App\Products\Traits;
 
 use App\Products\Attachment;
 
@@ -12,11 +14,12 @@ trait Attachable
     public function addAttachment($url)
     {
         $attachment = $this->attachments()->create([
-            'path' => $url
+            'path' => $url,
         ]);
         $lastAttachment = $this->attachments->last();
         $attachment->order = $lastAttachment->order + 1;
         $attachment->save();
+
         return $attachment;
     }
 
@@ -28,6 +31,7 @@ trait Attachable
     public function moveAttachment($id, $direction)
     {
         $method = ($direction == 'up') ? 'decrement' : 'increment';
+
         return $this->attachments()->find($id)->{$method}('order');
     }
 }

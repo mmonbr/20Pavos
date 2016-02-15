@@ -13,7 +13,7 @@ class Standard extends Model implements AffiliateInterface
     protected $table = 'provider_standard';
 
     protected $fillable = [
-        'affiliate_link'
+        'affiliate_link',
     ];
 
     public function link()

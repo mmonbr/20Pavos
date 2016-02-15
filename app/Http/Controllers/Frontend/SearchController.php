@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests;
 use App\Products\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\SearchRequest;

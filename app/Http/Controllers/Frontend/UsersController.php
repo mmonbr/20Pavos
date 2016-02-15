@@ -3,22 +3,19 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests\Frontend\UserRequest;
-use App\Newsletter\NewsletterList;
 use App\User;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
     /**
      * Create a new authentication controller instance.
-     *
      */
     public function __construct()
     {
         $this->middleware('auth',
             [
-                'except' => ['show', 'showByUsername']
+                'except' => ['show', 'showByUsername'],
             ]);
     }
 
@@ -31,6 +28,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
+
         return view('users.show', compact('user'));
     }
 
@@ -43,6 +41,7 @@ class UsersController extends Controller
     public function showByUsername($username)
     {
         $user = User::whereUsername($username)->first();
+
         return view('frontend.users.show', compact('user'));
     }
 

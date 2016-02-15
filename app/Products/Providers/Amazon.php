@@ -13,7 +13,7 @@ class Amazon extends Model implements AffiliateInterface
     protected $table = 'provider_amazon';
 
     protected $fillable = [
-        'ASIN'
+        'ASIN',
     ];
 
     public function link()

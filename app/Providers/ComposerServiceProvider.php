@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Http\Requests\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
 

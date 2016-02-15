@@ -5,7 +5,6 @@ namespace App\Products;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Kalnoy\Nestedset\Node;
-use Sofa\Eloquence\Eloquence;
 
 class Category extends Node implements SluggableInterface
 {
@@ -45,9 +44,13 @@ class Category extends Node implements SluggableInterface
 
     public function getProductsCountAttribute()
     {
-        if (!array_key_exists('productsCount', $this->relations)) $this->load('productsCount');
+        if (! array_key_exists('productsCount', $this->relations)) {
+            $this->load('productsCount');
+        }
 
-        if (is_null($this->getRelation('productsCount')->first())) return 0;
+        if (is_null($this->getRelation('productsCount')->first())) {
+            return 0;
+        }
 
         return $this->getRelation('productsCount')->first()->aggregate;
     }

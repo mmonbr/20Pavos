@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests;
 use App\Products\Product;
 use Illuminate\Http\Request;
 use App\Utilities\S3FileUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\ProductRequest;
 use App\Http\Requests\Backend\AttachmentRequest;
-
 
 class ProductsController extends Controller
 {
@@ -106,7 +104,7 @@ class ProductsController extends Controller
             'featured'          => $request->featured,
             'referral_link'     => $request->referral_link,
             'video_url'         => $request->video_url,
-            'ASIN'              => $request->ASIN
+            'ASIN'              => $request->ASIN,
         ]);
 
         if ($request->hasFile('file')) {
@@ -146,7 +144,7 @@ class ProductsController extends Controller
 
             return response([
                 'path'  => cdn_file($uploader->getPath()),
-                'order' => $attachment->order
+                'order' => $attachment->order,
             ], 200);
         }
     }

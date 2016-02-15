@@ -1,4 +1,6 @@
-<?php namespace App\Utilities;
+<?php
+
+namespace App\Utilities;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +32,7 @@ class S3FileUpload
         $this->storage->disk('s3')->getDriver()->put($this->getPath(), fopen($this->file, 'r+'),
             [
                 'visibility' => 'public',
-                'Expires'    => Carbon::now()->addYears(1)
+                'Expires'    => Carbon::now()->addYears(1),
             ]
         );
 
@@ -51,6 +53,6 @@ class S3FileUpload
 
     private function composeFileName()
     {
-        $this->uploadedFileName = str_random(16) . '.' . $this->file->getClientOriginalExtension();
+        $this->uploadedFileName = str_random(16).'.'.$this->file->getClientOriginalExtension();
     }
 }

@@ -11,8 +11,7 @@ class SearchRequest extends Request
      *
      * @return bool
      */
-    public
-    function authorize()
+    public function authorize()
     {
         return true;
     }
@@ -22,11 +21,10 @@ class SearchRequest extends Request
      *
      * @return array
      */
-    public
-    function rules()
+    public function rules()
     {
         return [
-            'query' => 'required'
+            'query' => 'required',
         ];
     }
 }

@@ -69,8 +69,9 @@ class AuthController extends Controller
             'password'      => $data['password'],
         ]);
 
-        if(isset($data['is_subscribed']))
+        if (isset($data['is_subscribed'])) {
             $user->subscribe();
+        }
 
         return $user;
     }

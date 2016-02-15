@@ -45,12 +45,12 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     Route::resource('productos', 'ProductsController', [
         'only'  => [
             'index',
-            'show'
+            'show',
         ],
         'names' => [
             'all'  => 'products.all',
-            'show' => 'products.show'
-        ]
+            'show' => 'products.show',
+        ],
     ]);
 
     #Nuevos Productos
@@ -73,12 +73,12 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
     Route::resource('categorias', 'CategoriesController', [
         'only'  => [
             'index',
-            'show'
+            'show',
         ],
         'names' => [
             'all'  => 'categories.all',
-            'show' => 'categories.show'
-        ]
+            'show' => 'categories.show',
+        ],
     ]);
 
     #Buscador
@@ -91,7 +91,7 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
 
     #User Routes
     Route::resource('users', 'UsersController', [
-        'except' => ['edit']
+        'except' => ['edit'],
     ]);
 
     Route::get('@{username}', 'UsersController@showByUsername')->name('users.show_username');
@@ -129,4 +129,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
 });
 
 #Verificación Zanox
-Route::get('1fd56f06a89cc190f618e9ad862bad84.html', function(){ return 'Validation content="1fd56f06a89cc190f618e9ad862bad84"'; });
+Route::get('1fd56f06a89cc190f618e9ad862bad84.html', function () { return 'Validation content="1fd56f06a89cc190f618e9ad862bad84"'; });

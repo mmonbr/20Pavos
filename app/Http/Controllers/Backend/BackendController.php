@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class BackendController extends Controller

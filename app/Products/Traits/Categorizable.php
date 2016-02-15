@@ -1,11 +1,12 @@
-<?php namespace App\Products\Traits;
+<?php
+
+namespace App\Products\Traits;
 
 use App\Products\Category;
 
 trait Categorizable
 {
     /**
-     *
      * @return mixed
      */
     public function categories()
@@ -14,19 +15,19 @@ trait Categorizable
     }
 
     /**
-     * Attaches product to any given category
+     * Attaches product to any given category.
      *
      * @param $category
      */
     public function categorize($category)
     {
-        if (!$this->categories->contains($category)) {
+        if (! $this->categories->contains($category)) {
             $this->categories()->attach($category);
         }
     }
 
     /**
-     * Attaches product to many categories at once
+     * Attaches product to many categories at once.
      *
      * @param $categories
      */
@@ -39,7 +40,7 @@ trait Categorizable
 
     /**
      * Removes product from all categories and add
-     * new ones
+     * new ones.
      *
      * @param $categories
      */
@@ -50,7 +51,7 @@ trait Categorizable
     }
 
     /**
-     * Returns an array of product categories
+     * Returns an array of product categories.
      *
      * @return mixed
      */

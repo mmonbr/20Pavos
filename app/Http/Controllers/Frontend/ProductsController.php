@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Traits\SEO;
-use App\Http\Requests;
 use App\Products\Product;
 use Illuminate\Http\Request;
 use App\Events\ProductWasHit;
@@ -44,7 +43,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Displays latest products
+     * Displays latest products.
      *
      * @return \Illuminate\Http\Response
      */
@@ -58,7 +57,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Displays popular products
+     * Displays popular products.
      *
      * @return \Illuminate\Http\Response
      */
@@ -72,7 +71,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Displays cheap products
+     * Displays cheap products.
      *
      * @return \Illuminate\Http\Response
      */
@@ -86,7 +85,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Gets a random product
+     * Gets a random product.
      *
      * @return \Illuminate\Http\Response
      */

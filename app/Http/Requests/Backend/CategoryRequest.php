@@ -36,8 +36,8 @@ class CategoryRequest extends Request
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'name' => 'required|unique:categories,name,' . $this->id,
-                    'slug' => 'required|unique:categories,slug,'  . $this->id
+                    'name' => 'required|unique:categories,name,'.$this->id,
+                    'slug' => 'required|unique:categories,slug,'.$this->id,
                 ];
             }
             default:

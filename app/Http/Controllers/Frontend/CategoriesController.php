@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests;
 use App\Products\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

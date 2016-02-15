@@ -25,7 +25,7 @@ class Product extends Model implements SluggableInterface
 
     protected $providers = [
         'Standard' => Standard::class,
-        'Amazon'   => Amazon::class
+        'Amazon'   => Amazon::class,
     ];
 
     protected $fillable = [
@@ -43,7 +43,7 @@ class Product extends Model implements SluggableInterface
     ];
 
     protected $sluggable = [
-        'build_from' => 'name'
+        'build_from' => 'name',
     ];
 
     protected $searchableColumns = ['name', 'description'];
@@ -59,7 +59,7 @@ class Product extends Model implements SluggableInterface
 
     public function hasVideo()
     {
-        return !!$this->video_url;
+        return ! ! $this->video_url;
     }
 
     public function hit()
@@ -72,7 +72,7 @@ class Product extends Model implements SluggableInterface
         return $this->whereHas('categories', function ($query) {
             $query->whereIn('id', $this->categories()->pluck('id'));
         })
-            ->orderByRaw("RAND()")
+            ->orderByRaw('RAND()')
             ->take($items)
             ->get();
     }

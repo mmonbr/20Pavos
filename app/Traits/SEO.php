@@ -1,7 +1,9 @@
-<?php namespace App\Traits;
+<?php
 
+namespace App\Traits;
 
-trait SEO {
+trait SEO
+{
     public function addSEOTagsForProduct($product)
     {
         \SEOMeta::setTitle($product->name);

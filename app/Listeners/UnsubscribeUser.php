@@ -3,8 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\UserUnsubscribed;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Mailchimp_List_NotSubscribed;
 use Spatie\Newsletter\MailChimp\Newsletter;
 
@@ -31,7 +29,7 @@ class UnsubscribeUser
     {
         try {
             $this->newsletter->unsubscribe($event->user->email);
-        } catch(Mailchimp_List_NotSubscribed $exception){
+        } catch (Mailchimp_List_NotSubscribed $exception) {
             //
         }
     }
