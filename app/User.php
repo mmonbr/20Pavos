@@ -36,7 +36,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -44,7 +45,7 @@ class User extends Authenticatable
      */
     public function isSubscribed()
     {
-        return ! ! $this->is_subscribed;
+        return !!$this->is_subscribed;
     }
 
     public function subscribe()
@@ -76,7 +77,7 @@ class User extends Authenticatable
             $this->unsubscribe();
         }
 
-        if (isset($data['password']) && ! empty($data['password'])) {
+        if (isset($data['password']) && !empty($data['password'])) {
             $this->updatePassword($data['password']);
         }
 

@@ -109,7 +109,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
         ->name('categories.up');
     Route::patch('categories/{id}/down', 'CategoriesController@moveDown')
         ->name('categories.down');
-    Route::patch('categories/{id}/makeChildrenOf', 'CategoriesController@makeChildrenOf')->name('categories.makeChildrenOf');
+    Route::patch('categories/{id}/makeChildrenOf',
+        'CategoriesController@makeChildrenOf')->name('categories.makeChildrenOf');
 
     #Productos
     Route::resource('products', 'ProductsController');
@@ -129,4 +130,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
 });
 
 #Verificación Zanox
-Route::get('1fd56f06a89cc190f618e9ad862bad84.html', function () { return 'Validation content="1fd56f06a89cc190f618e9ad862bad84"'; });
+Route::get('1fd56f06a89cc190f618e9ad862bad84.html', function () {
+    return 'Validation content="1fd56f06a89cc190f618e9ad862bad84"';
+});

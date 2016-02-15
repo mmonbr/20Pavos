@@ -4,6 +4,7 @@
 /bower_components
 Homestead.yaml
 Homestead.json
+.php_cs.cache
 .DS_store
 .env
 .idea
