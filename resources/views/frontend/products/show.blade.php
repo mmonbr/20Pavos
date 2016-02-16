@@ -9,8 +9,8 @@
                         <h2 class="ProductDetails__media__item__title">{{ $product->name }}</h2>
 
                         <div class="RandomProduct {{ active_class(if_route(['products.random']), 'RandomProduct--shown') }}">
-                            <h3 class="RandomProduct__header">Modo aleatorio</h3>
-                            <p class="RandomProduct__text">Estás en modo aleatorio, recarga la página o pulsa en el
+                            <h3 class="RandomProduct__header">Modo sorpresa</h3>
+                            <p class="RandomProduct__text">Estás en modo sorpresa, recarga la página o pulsa en el
                                 botón de abajo para cargar un
                                 nuevo producto.</p>
                             <a href="{{ route('products.random') }}" class="ui huge black button"><i

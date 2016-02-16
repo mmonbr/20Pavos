@@ -93,6 +93,8 @@ class ProductsController extends Controller
     {
         $product = Product::random();
 
+        $this->addSEOTagsForProduct($product);
+
         return view('frontend.products.show', compact('product'));
     }
 }

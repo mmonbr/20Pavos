@@ -41,8 +41,8 @@
 
                 <a href="{{ route('products.random') }}"
                    class="item {{ active_class(if_route(['products.random']), 'active') }}" target="_blank">
-                    <i class="big random icon"></i>
-                    Aleatorio
+                    <i class="big gift icon"></i>
+                    Sorpresa
                 </a>
             </div>
         </div>
