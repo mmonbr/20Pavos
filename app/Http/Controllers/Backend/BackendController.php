@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Product;
 use App\User;
+use App\Products\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

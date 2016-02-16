@@ -8,16 +8,6 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Products</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
@@ -26,6 +16,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Provider</th>
                             <th>Categories</th>
                             <th>Hits</th>
                             <th>Price</th>
@@ -35,13 +26,14 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
+                                <td>{{ $product->provider->name() }}</td>
                                 <td>
                                     @foreach($product->categories as $category)
                                         <span class="label label-default">{{ $category->name }}</span>
                                     @endforeach
                                 </td>
                                 <td>{{ $product->hits }}</td>
-                                <td>{{ $product->current_price }}</td>
+                                <td>{{ $product->price }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('products.show', $product->slug) }}" class="btn btn-success"><i
                                                 class="fa fa-link"></i></a>
