@@ -86,6 +86,7 @@
                 </form>
             </div>
 
+            @include('backend.products.partials._provider', ['provider' => $product->provider, 'product' => $product])
             @include('backend.products.partials._attachments', ['attachments' => $product->attachments])
         </div>
     </div>

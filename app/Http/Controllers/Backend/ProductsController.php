@@ -47,29 +47,20 @@ class ProductsController extends Controller
             'name'          => $request->name,
             'description'   => $request->description,
             'price'         => $request->price,
-            'featured'      => $request->featured,
-            'referral_link' => $request->referral_link,
             'video_url'     => $request->video_url,
-            'ASIN'          => $request->ASIN,
             'image_path'    => $uploader->getPath(),
         ]);
+
+        if($request->get('featured'))
+            $product->feature();
+
+        $product->addNullProvider();
 
         $product->categorizeMany($request->categories);
 
         alert()->success('The product has been created successfully.', 'Awww yeah!');
 
-        return redirect(route('admin.products.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return view('backend.products.show');
+        return redirect(route('admin.products.edit', [$product->id]));
     }
 
     /**
@@ -102,9 +93,7 @@ class ProductsController extends Controller
             'long_description'  => $request->long_description,
             'price'             => $request->price,
             'featured'          => $request->featured,
-            'referral_link'     => $request->referral_link,
             'video_url'         => $request->video_url,
-            'ASIN'              => $request->ASIN,
         ]);
 
         if ($request->hasFile('file')) {
@@ -116,7 +105,18 @@ class ProductsController extends Controller
 
         alert()->success('The product has been updated successfully.', 'Oh yesh!');
 
-        return redirect()->back();
+        return redirect(route('admin.products.edit', [$product->id]));
+    }
+
+    public function setProvider($product, Request $request)
+    {
+        $product = Product::find($product);
+
+        $product->addProviderFromForm($request->all());
+
+        alert()->success('The provider has been updated successfully.', 'Oh yesh!');
+
+        return redirect(route('admin.products.edit', [$product->id]));
     }
 
     /**

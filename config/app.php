@@ -171,6 +171,8 @@ return [
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Dawson\AmazonECS\AmazonECSServiceProvider::class,
+        GrahamCampbell\Flysystem\FlysystemServiceProvider::class
+
     ],
 
     /*
@@ -227,7 +229,8 @@ return [
         'Active'     => HieuLe\Active\Facades\Active::class,
         'Socialite'  => Laravel\Socialite\Facades\Socialite::class,
         'Gravatar'   => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
-        'Amazon' => Dawson\AmazonECS\AmazonECSFacade::class,
+        'Amazon'     => Dawson\AmazonECS\AmazonECSFacade::class,
+        'Flysystem'  => GrahamCampbell\Flysystem\Facades\Flysystem::class,
 
         // SEO Stuff
         'SEOMeta'    => Artesaos\SEOTools\Facades\SEOMeta::class,

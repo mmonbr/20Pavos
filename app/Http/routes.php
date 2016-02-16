@@ -120,6 +120,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
         ->name('admin.products.attachments.delete');
     Route::post('products/{id}/attachments/{attachment_id}/up', 'ProductsController@moveAttachment')
         ->name('admin.products.attachments.move');
+    Route::post('products/{id}/provider', 'ProductsController@setProvider')
+        ->name('admin.products.provider.store');
 
     #Usuarios
     Route::resource('users', 'UsersController');
@@ -127,9 +129,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
     #Search
     Route::post('search', 'BackendController@search')
         ->name('admin.search');
-});
-
-#Verificación Zanox
-Route::get('1fd56f06a89cc190f618e9ad862bad84.html', function () {
-    return 'Validation content="1fd56f06a89cc190f618e9ad862bad84"';
 });

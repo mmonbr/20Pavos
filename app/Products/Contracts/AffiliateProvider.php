@@ -6,4 +6,5 @@ interface AffiliateProvider
 {
     public function product();
     public function link();
+    public function name();
 }

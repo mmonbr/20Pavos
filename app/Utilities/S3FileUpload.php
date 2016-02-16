@@ -3,19 +3,19 @@
 namespace App\Utilities;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
+use GrahamCampbell\Flysystem\FlysystemManager;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class S3FileUpload
 {
     protected $file;
     protected $uploadedFileName;
-    protected $fileSystemManager;
+    protected $flysystem;
     protected $uploadsPath = 'uploads/products';
 
-    public function __construct(Storage $storage)
+    public function __construct(FlysystemManager $flysystem)
     {
-        $this->storage = $storage;
+        $this->flysystem = $flysystem;
     }
 
     public function file(UploadedFile $file)
@@ -29,7 +29,7 @@ class S3FileUpload
     {
         $this->composeFileName();
 
-        $this->storage->disk('s3')->getDriver()->put($this->getPath(), fopen($this->file, 'r+'),
+        $this->flysystem->write($this->getPath(), fopen($this->file, 'r+'),
             [
                 'visibility' => 'public',
                 'Expires'    => Carbon::now()->addYears(1),

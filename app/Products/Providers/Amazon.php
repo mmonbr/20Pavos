@@ -10,6 +10,7 @@ class Amazon extends Model implements AffiliateInterface
 {
     use AffiliateProvider;
 
+    protected static $providerName = 'amazon';
     protected $table = 'provider_amazon';
 
     protected $fillable = [
@@ -19,5 +20,10 @@ class Amazon extends Model implements AffiliateInterface
     public function link()
     {
         return "http://www.amazon.com/dp/{$this->ASIN}/?tag=derrochand0cc-21";
+    }
+
+    public function name()
+    {
+        return static::$providerName;
     }
 }

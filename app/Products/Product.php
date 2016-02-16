@@ -10,6 +10,7 @@ use App\Products\Providers\Standard;
 use App\Products\Traits\DeleteFromS3;
 use App\Products\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
+use App\Products\Providers\NullProvider;
 use App\Products\Contracts\AffiliateProvider;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Cviebrock\EloquentSluggable\SluggableInterface;
@@ -24,8 +25,9 @@ class Product extends Model implements SluggableInterface
         Eloquence;
 
     protected $providers = [
-        'Standard' => Standard::class,
-        'Amazon'   => Amazon::class,
+        'NullProvider' => NullProvider::class,
+        'Standard'     => Standard::class,
+        'Amazon'       => Amazon::class
     ];
 
     protected $fillable = [
@@ -59,12 +61,17 @@ class Product extends Model implements SluggableInterface
 
     public function hasVideo()
     {
-        return ! ! $this->video_url;
+        return !!$this->video_url;
     }
 
     public function hit()
     {
         return $this->increment('hits');
+    }
+
+    public function feature()
+    {
+        return $this->update(['featured', true]);
     }
 
     public function relatedProducts($items = 3)
@@ -82,8 +89,34 @@ class Product extends Model implements SluggableInterface
         return $this->morphTo('provider', 'providable_type', 'providable_id');
     }
 
+    public function getProviderClass($provider)
+    {
+        return $this->providers[$provider];
+    }
+
     public function addProvider(AffiliateProvider $provider)
     {
+        if ($this->provider) {
+            $this->provider()->delete();
+        }
+
         return $provider->product()->save($this);
+    }
+
+    public function addProviderFromForm($data)
+    {
+        $providerClass = $this->getProviderClass($data['provider']);
+        $provider = new $providerClass($data);
+        $provider->save();
+
+        $this->addProvider($provider);
+    }
+
+    public function addNullProvider()
+    {
+        $nullProvider = new NullProvider;
+        $nullProvider->save();
+
+        $this->addProvider($nullProvider);
     }
 }
