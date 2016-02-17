@@ -12,7 +12,7 @@
                                     {{ $featured->name }}
                                 </h3>
                                 <p>
-                                    {{ $featured->current_price }} <i class="fitted euro icon"></i>
+                                    {{ $featured->price }} <i class="fitted euro icon"></i>
                                 </p>
                             </div>
                         </a>
