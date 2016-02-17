@@ -44,14 +44,14 @@ class ProductsController extends Controller
         $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
 
         $product = Product::create([
-            'name'          => $request->name,
-            'description'   => $request->description,
-            'price'         => $request->price,
-            'video_url'     => $request->video_url,
-            'image_path'    => $uploader->getPath(),
+            'name'        => $request->name,
+            'description' => $request->description,
+            'price'       => $request->price,
+            'video_url'   => $request->video_url,
+            'image_path'  => $uploader->getPath(),
         ]);
 
-        if($request->get('featured'))
+        if ($request->get('featured'))
             $product->feature();
 
         $product->addNullProvider();
@@ -88,12 +88,11 @@ class ProductsController extends Controller
         $product = Product::findOrFail($id);
 
         $product->update([
-            'name'              => $request->name,
-            'short_description' => $request->short_description,
-            'long_description'  => $request->long_description,
-            'price'             => $request->price,
-            'featured'          => $request->featured,
-            'video_url'         => $request->video_url,
+            'name'        => $request->name,
+            'description' => $request->description,
+            'price'       => $request->price,
+            'featured'    => $request->featured,
+            'video_url'   => $request->video_url,
         ]);
 
         if ($request->hasFile('file')) {
