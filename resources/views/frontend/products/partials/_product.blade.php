@@ -12,7 +12,7 @@
             'url'  => route('products.show', $product->slug),
             'name'  => $product->name,
             'description'  => $product->description,
-            'media' => cdn_file($product->image_path)
+            'media' => http_file($product->image_path)
         ])
     </div>
 
@@ -45,7 +45,7 @@
             'url'  => route('products.show', $product->slug),
             'name'  => $product->name,
             'description'  => $product->description,
-            'media' => cdn_file($product->image_path)
+            'media' => http_file($product->image_path)
         ])
     </div>
 </div>
