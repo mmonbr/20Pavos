@@ -20,6 +20,6 @@ return [
     /*
      * Preferred locale
      */
-    'locale' => 'co.uk',
+    'locale' => 'es',
 
 ];
