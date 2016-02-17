@@ -65,7 +65,7 @@
                 <i class="fitted euro icon"></i>
             </div>
 
-            <a class="ui button fluid yellow" href="{{ $product->provider->link() }}">¡Lo quiero!</a>
+            <a class="ui button fluid yellow" href="{{ $product->provider->link() }}" target="_blank">¡Lo quiero!</a>
         </div>
     </div>
 

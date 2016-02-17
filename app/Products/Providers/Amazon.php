@@ -19,7 +19,7 @@ class Amazon extends Model implements AffiliateInterface
 
     public function link()
     {
-        return "http://www.amazon.com/dp/{$this->ASIN}/?tag=derrochand0cc-21";
+        return "http://www.amazon.es/dp/{$this->ASIN}/?tag=derrochand0cc-21";
     }
 
     public function name()
