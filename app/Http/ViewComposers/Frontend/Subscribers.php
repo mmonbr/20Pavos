@@ -26,7 +26,7 @@ class Subscribers
      */
     public function compose(View $view)
     {
-        $expiresAt = Carbon::now()->addHours(1);
+        $expiresAt = Carbon::now()->addMinutes(config('settings.cache.subscribers_time'));
 
         $subscribers = $this->cache->remember(config('settings.cache.subscribers_count'), $expiresAt, function () {
             return $this->newsletter->getApi()->lists->members(config('laravel-newsletter.mailChimp.lists.subscribers.id'));

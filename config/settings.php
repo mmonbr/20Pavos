@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'emails'   => [
+    'emails' => [
         'contact' => 'derrochandoweb@gmail.com',
     ],
 
@@ -9,15 +9,16 @@ return [
         'results' => 14,
     ],
 
-    'cache'    => [
+    'cache' => [
+        'subscribers_time'  => '5',
         'subscribers_count' => 'subscribers_count',
     ],
 
-    'files'    => [
+    'files' => [
         'use_cdn' => false,
     ],
 
-    'twitter'  => [
-        'via' => 'mmonbr',
+    'twitter' => [
+        'via' => 'derrochando_com',
     ],
 ];
