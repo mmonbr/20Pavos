@@ -118,6 +118,6 @@ trait Scopable
      */
     public static function scopeRandom($query)
     {
-        return $query->orderBy(\DB::raw('RAND()'))->first();
+        return $query->orderBy(\DB::raw('RAND()'))->firstOrFail();
     }
 }
