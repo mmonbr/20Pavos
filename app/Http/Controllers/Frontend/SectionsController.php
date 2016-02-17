@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests\Frontend\ContactRequest;
-use App\Http\Controllers\Controller;
+use App\Traits\SEO;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Frontend\ContactRequest;
 
 class SectionsController extends Controller
 {
+    use SEO;
+
     public function contact()
     {
+        $this->addSEOTagsForContact();
+
         return view('frontend.contact.index');
     }
 

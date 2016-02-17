@@ -28,6 +28,16 @@ trait SEO
         \OpenGraph::setUrl(route('categories.show', [$category->slug]));
     }
 
+    public function addSEOTagsForContact()
+    {
+        \SEOMeta::setTitle('Contacto');
+        \SEOMeta::setDescription('Contacta con Derrochando.com');
+
+        \OpenGraph::setTitle('Contacto');
+        \OpenGraph::setDescription('Contacta con Derrochando.com');
+        \OpenGraph::setUrl(route('contact.form'));
+    }
+
     public function setCanonicalURL($url)
     {
         \SEOMeta::setCanonical($url);
