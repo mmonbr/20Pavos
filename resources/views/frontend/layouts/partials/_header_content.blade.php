@@ -2,7 +2,7 @@
     <div class="computer only row">
         <div class="item">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('img/drr.png') }}" class="logo_medium">
+                <img src="{{ asset('img/logo.png') }}" class="logo_medium">
             </a>
         </div>
 
@@ -50,7 +50,7 @@
         <div class="right menu">
             <div class="item">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('img/drr.png') }}" class="logo_small">
+                    <img src="{{ asset('img/logo.png') }}" class="logo_small">
                 </a>
             </div>
         </div>
