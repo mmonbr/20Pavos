@@ -156,6 +156,7 @@ $product-details-breakpoint: 1045px;
       text-align: justify;
       line-height: 1.6em;
       font-size: 1em;
+      height: 132px;
     }
 
     @include has(price) {
