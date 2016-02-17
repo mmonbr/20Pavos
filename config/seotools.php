@@ -30,7 +30,7 @@ return [
         'defaults' => [
             'title'       => 'Derrochando.com',
             'description' => 'En derrochando.com encontrarás los mejores productos de Internet. Se acabaron los regalos aburridos.',
-            'url'         => 'http://www.derrochando.com',
+            'url'         => 'https://derrochando.com',
             'type'        => false,
             'site_name'   => 'Derrochando.com',
             'images'      => [],
