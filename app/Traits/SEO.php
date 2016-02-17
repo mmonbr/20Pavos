@@ -17,6 +17,17 @@ trait SEO
         \OpenGraph::addProperty('image:height', '250');
     }
 
+
+    public function addSEOTagsForCategory ($category)
+    {
+        \SEOMeta::setTitle($category->name);
+        \SEOMeta::setDescription($category->description);
+
+        \OpenGraph::setTitle($category->name);
+        \OpenGraph::setDescription($category->description);
+        \OpenGraph::setUrl(route('categories.show', [$category->slug]));
+    }
+
     public function setCanonicalURL($url)
     {
         \SEOMeta::setCanonical($url);
