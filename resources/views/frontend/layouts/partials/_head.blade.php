@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {!! SEOMeta::generate() !!}
-<meta property="og:app_id" content="497359490420525" />
+<meta property="fb:app_id" content="497359490420525" />
 {!! OpenGraph::generate() !!}
 {!! Twitter::generate() !!}
 
