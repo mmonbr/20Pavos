@@ -22,7 +22,7 @@ class HitProduct
     {
         $expiresAt = Carbon::now()->addHours(24);
 
-        $this->cache->remember($this->getCacheKey($product), $expiresAt, function () use ($product) {
+        $this->cache->tags('product_hits')->remember($this->getCacheKey($product), $expiresAt, function () use ($product) {
             $product->hit();
 
             return $this->getCacheKey($product);
