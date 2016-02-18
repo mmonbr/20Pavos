@@ -2,15 +2,15 @@
 
 namespace App\Products\Traits;
 
-use Illuminate\Support\Facades\Storage;
 use League\Flysystem\FileNotFoundException;
+use GrahamCampbell\Flysystem\Facades\Flysystem;
 
 trait DeleteFromS3
 {
     public static function deleteS3File($path)
     {
         try {
-            Storage::delete($path);
+            Flysystem::connection('awss3')->delete($path);
         } catch (FileNotFoundException $e) {
             //Do nothing
         }
