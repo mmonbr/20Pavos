@@ -2,44 +2,144 @@
 
 namespace App\Traits;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+
 trait SEO
 {
-    public function addSEOTagsForProduct($product)
+    public function addSEOTagsForHome()
     {
-        \SEOMeta::setTitle($product->name);
-        \SEOMeta::setDescription($product->description);
+        $title = 'Los regalos más originales de Internet';
 
-        \OpenGraph::setTitle($product->name);
-        \OpenGraph::setDescription($product->description);
-        \OpenGraph::setUrl(route('products.show', [$product->slug]));
-        \OpenGraph::addImage(http_file($product->image_path));
-        \OpenGraph::addProperty('image:width', '300');
-        \OpenGraph::addProperty('image:height', '250');
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
     }
 
-
-    public function addSEOTagsForCategory ($category)
+    public function addSEOTagsForLatest()
     {
-        \SEOMeta::setTitle($category->name);
-        \SEOMeta::setDescription($category->description);
+        $title = 'Los más nuevos';
 
-        \OpenGraph::setTitle($category->name);
-        \OpenGraph::setDescription($category->description);
-        \OpenGraph::setUrl(route('categories.show', [$category->slug]));
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
+    }
+
+    public function addSEOTagsForPopular()
+    {
+        $title = 'Los más populares';
+
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
+    }
+
+    public function addSEOTagsFoCheap()
+    {
+        $title = 'Los más baratos';
+
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
+    }
+
+    public function addSEOTagsForRegister()
+    {
+        $title = 'Registro';
+
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
+    }
+
+    public function addSEOTagsForAuth()
+    {
+        $title = 'Login';
+
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
+    }
+
+    public function addSEOTagsForProduct($product)
+    {
+        $title = $product->name;
+        $description = $product->description;
+        $url = route('categories.show', [$product->slug]);
+        $image = http_file($product->image_path);
+
+        SEOMeta::setTitle($title);
+        SEOMeta::setDescription($description);
+
+        OpenGraph::setTitle($title);
+        OpenGraph::setDescription($description);
+        OpenGraph::setUrl($url);
+
+        OpenGraph::addImage($image);
+        OpenGraph::addProperty('image:width', '300');
+        OpenGraph::addProperty('image:height', '250');
+
+        TwitterCard::setTitle($title);
+        TwitterCard::setUrl($url);
+        TwitterCard::setUrl($url);
+        TwitterCard::addImage($image);
+    }
+
+    public function addSEOTagsForCategory($category)
+    {
+        $title = $category->name;
+        $description = $category->description;
+        $url = route('categories.show', [$category->slug]);
+
+        SEOMeta::setTitle($title);
+        SEOMeta::setDescription($description);
+
+        OpenGraph::setTitle($title);
+        OpenGraph::setDescription($description);
+        OpenGraph::setUrl($url);
+
+        TwitterCard::setTitle($title);
+        TwitterCard::setUrl($url);
     }
 
     public function addSEOTagsForContact()
     {
-        \SEOMeta::setTitle('Contacto');
-        \SEOMeta::setDescription('Contacta con Derrochando.com');
+        $title = 'Contacto';
+        $description = 'Contacta con Derrochando.com';
+        $url = route('contact.form');
 
-        \OpenGraph::setTitle('Contacto');
-        \OpenGraph::setDescription('Contacta con Derrochando.com');
-        \OpenGraph::setUrl(route('contact.form'));
+        SEOMeta::setTitle($title);
+        SEOMeta::setDescription($description);
+
+        OpenGraph::setTitle($title);
+        OpenGraph::setDescription($description);
+        OpenGraph::setUrl($url);
+
+        TwitterCard::setTitle($title);
+        TwitterCard::setUrl($url);
+    }
+
+    public function addSEOTagsForRandom()
+    {
+        $title = 'Producto sorpresa';
+        $description = '¿No te decides?';
+        $url = route('products.random');
+
+        SEOMeta::setTitle($title);
+        SEOMeta::setDescription($description);
+
+        OpenGraph::setTitle($title);
+        OpenGraph::setDescription($description);
+        OpenGraph::setUrl($url);
+
+        TwitterCard::setTitle($title);
+        TwitterCard::setDescription($description);
+        TwitterCard::setUrl($url);
     }
 
     public function setCanonicalURL($url)
     {
-        \SEOMeta::setCanonical($url);
+        SEOMeta::setCanonical($url);
     }
 }

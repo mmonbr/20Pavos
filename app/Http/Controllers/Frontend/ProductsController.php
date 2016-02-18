@@ -22,6 +22,8 @@ class ProductsController extends Controller
     {
         $products = Product::filter($request->all())->with('provider')->paginate(config('settings.products.results'));
 
+        $this->addSEOTagsForHome();
+
         return view('frontend.products.all', compact('products'));
     }
 
@@ -51,6 +53,7 @@ class ProductsController extends Controller
     {
         $products = Product::recent()->paginate(config('settings.products.results'));
 
+        $this->addSEOTagsForLatest();
         $this->setCanonicalURL(route('home'));
 
         return view('frontend.products.all', compact('products'));
@@ -65,6 +68,7 @@ class ProductsController extends Controller
     {
         $products = Product::popular()->paginate(config('settings.products.results'));
 
+        $this->addSEOTagsForPopular();
         $this->setCanonicalURL(route('home'));
 
         return view('frontend.products.all', compact('products'));
@@ -79,6 +83,7 @@ class ProductsController extends Controller
     {
         $products = Product::cheap()->paginate(config('settings.products.results'));
 
+        $this->addSEOTagsForCheap();
         $this->setCanonicalURL(route('home'));
 
         return view('frontend.products.all', compact('products'));
@@ -93,7 +98,7 @@ class ProductsController extends Controller
     {
         $product = Product::random();
 
-        $this->addSEOTagsForProduct($product);
+        $this->addSEOTagsForRandom($product);
 
         return view('frontend.products.show', compact('product'));
     }

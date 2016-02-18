@@ -7,7 +7,7 @@ return [
          */
         'defaults'       => [
             'title'       => 'Derrochando.com',
-            'description' => 'En derrochando.com encontrarás los mejores productos de Internet. Se acabaron los regalos aburridos.',
+            'description' => 'Los artículos más raros, curiosos y originales de Internet. ¿Estás buscando el regalo perfecto? Basta de compras aburridas, tenemos lo que necesitas.',
             'separator'   => ' - ',
             'keywords'    => [],
         ],
@@ -29,7 +29,7 @@ return [
          */
         'defaults' => [
             'title'       => 'Derrochando.com',
-            'description' => 'En derrochando.com encontrarás los mejores productos de Internet. Se acabaron los regalos aburridos.',
+            'description' => 'Los artículos más raros, curiosos y originales de Internet. ¿Estás buscando el regalo perfecto? Basta de compras aburridas, tenemos lo que necesitas.',
             'url'         => 'https://derrochando.com',
             'type'        => false,
             'site_name'   => 'Derrochando.com',
