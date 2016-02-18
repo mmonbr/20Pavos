@@ -13,7 +13,7 @@
                 <a href="#" class="item">Novedades</a>
                 <a href="{{ route('home') }}?max_price=10" class="item">Menos de 10€</a>
                 <a href="/categorias/friki" class="item">Friki</a>
-                <a href="/catgorias/gadgets" class="item">Gadgets</a>
+                <a href="/categorias/gadgets" class="item">Gadgets</a>
                 <a href="/categorias/cine-y-series" class="item">Cine y Series</a>
                 <a href="/categorias/moda-y-complementos" class="item">Moda y Complementos</a>
                 <a href="{{ route('contact.form') }}" class="item">Contacto</a>
