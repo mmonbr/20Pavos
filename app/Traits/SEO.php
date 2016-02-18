@@ -123,7 +123,7 @@ trait SEO
     public function addSEOTagsForRandom()
     {
         $title = 'Producto sorpresa';
-        $description = '¿No te decides?';
+        $description = '¿No te decides? Prueba nuestro buscador de regalos sorpresa tantas veces como quieras, tiene muy buen gusto.';
         $url = route('products.random');
 
         SEOMeta::setTitle($title);
