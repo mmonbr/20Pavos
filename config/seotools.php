@@ -33,7 +33,7 @@ return [
             'url'         => 'https://derrochando.com',
             'type'        => false,
             'site_name'   => 'Derrochando.com',
-            'images'      => [],
+            'images'      => [asset('img/derrochando.png')],
         ],
     ],
     'twitter'   => [
@@ -41,8 +41,9 @@ return [
          * The default values to be used by the twitter cards generator.
          */
         'defaults' => [
-            'card' => 'summary',
-            'site' => '@Derrochandoapp',
+            'card'   => 'summary',
+            'site'   => '@Derrochandoapp',
+            'images' => [asset('img/derrochando.png')]
         ],
     ],
 ];
