@@ -83,7 +83,7 @@ class ProductsController extends Controller
     {
         $products = Product::cheap()->paginate(config('settings.products.results'));
 
-        $this->addSEOTagsForCheap();
+        $this->addSEOTagsFoCheap();
         $this->setCanonicalURL(route('home'));
 
         return view('frontend.products.all', compact('products'));
