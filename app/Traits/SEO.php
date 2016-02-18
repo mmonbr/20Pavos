@@ -66,7 +66,7 @@ trait SEO
     {
         $title = $product->name;
         $description = $product->description;
-        $url = route('categories.show', [$product->slug]);
+        $url = route('products.show', [$product->slug]);
         $image = http_file($product->image_path);
 
         SEOMeta::setTitle($title);
