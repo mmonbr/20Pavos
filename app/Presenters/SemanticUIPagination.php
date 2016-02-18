@@ -7,7 +7,7 @@ use Illuminate\Pagination\BootstrapThreePresenter as BasePresenter;
 use Illuminate\Pagination\UrlWindowPresenterTrait;
 use Illuminate\Support\HtmlString;
 
-class SemanticUIPaginationPresenter extends BasePresenter
+class SemanticUIPagination extends BasePresenter
 {
     use BootstrapThreeNextPreviousButtonRendererTrait, UrlWindowPresenterTrait;
 

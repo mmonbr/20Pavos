@@ -8,5 +8,5 @@
 </div>
 
 <div class="ui center aligned basic segment">
-    {!! $products->appends(Request::only(['query', 'max_price', 'min_price', 'filtro']))->render(new App\Presenters\SemanticUIPaginationPresenter($products)) !!}
+    {!! $products->appends(Request::only(['query', 'max_price', 'min_price', 'filtro']))->render(new App\Presenters\SemanticUIPagination($products)) !!}
 </div>
