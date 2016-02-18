@@ -25,10 +25,9 @@
 
         <div class="field">
             <div class="ui checkbox">
-                <input type="checkbox" name="remember" tabindex="0" class="hidden">
-                <label>Recuérdame</label>
+                <input id="remember" name="remember" type="checkbox">
+                <label for="remember">Recuérdame</label>
             </div>
-
         </div>
 
         <div class="field">
