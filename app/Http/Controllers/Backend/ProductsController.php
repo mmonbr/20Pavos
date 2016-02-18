@@ -54,8 +54,6 @@ class ProductsController extends Controller
         if ($request->get('featured'))
             $product->feature();
 
-        $product->addNullProvider();
-
         $product->categorizeMany($request->categories);
 
         alert()->success('The product has been created successfully.', 'Awww yeah!');
