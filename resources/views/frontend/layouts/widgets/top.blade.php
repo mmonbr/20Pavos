@@ -9,7 +9,7 @@
                 <img src="{{ cdn_file($product->image_path) }}">
             </div>
             <div class="middle aligned content">
-                <a class="header">{{ $product->name }}</a>
+                <a class="header" href="{{ route('products.show', [$product->slug]) }}">{{ $product->name }}</a>
             </div>
         </div>
     @endforeach
