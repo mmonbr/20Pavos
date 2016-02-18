@@ -72,8 +72,8 @@ trait SEO
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
 
-        OpenGraph::setTitle($title);
-        OpenGraph::setDescription($description);
+        OpenGraph::setTitle($this->escapeQuotes($title));
+        OpenGraph::setDescription($this->escapeQuotes($description));
         OpenGraph::setUrl($url);
 
         OpenGraph::addImage($image);
@@ -95,8 +95,8 @@ trait SEO
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
 
-        OpenGraph::setTitle($title);
-        OpenGraph::setDescription($description);
+        OpenGraph::setTitle($this->escapeQuotes($title));
+        OpenGraph::setDescription($this->escapeQuotes($description));
         OpenGraph::setUrl($url);
 
         TwitterCard::setTitle($title);
@@ -141,5 +141,10 @@ trait SEO
     public function setCanonicalURL($url)
     {
         SEOMeta::setCanonical($url);
+    }
+
+    private function escapeQuotes($string)
+    {
+        return htmlspecialchars($string, ENT_QUOTES);
     }
 }
