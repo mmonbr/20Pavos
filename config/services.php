@@ -46,4 +46,8 @@ return [
         'cdn' => env('AWS_CLOUDFRONT_CDN'),
     ],
 
+    'recaptcha' => [
+        'secret' => env('RECAPTCHA_SECRET'),
+    ],
+
 ];

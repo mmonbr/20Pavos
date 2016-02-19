@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -41,6 +41,25 @@ class AuthController extends Controller
     }
 
     /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postRegister(Request $request)
+    {
+        $spam = app('App\Utilities\CheckForSpam')->reCAPTCHA($request);
+
+        if (!$spam->success) {
+            alert()->error('No hemos podido comprobar que seas humano.', 'Ha ocurrido un error');
+
+            return redirect()->refresh();
+        }
+
+        return $this->register($request);
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array $data
@@ -48,7 +67,7 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        return \Validator::make($data, [
             'username' => 'required|max:255',
             'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
@@ -64,9 +83,9 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'username'      => $data['username'],
-            'email'         => $data['email'],
-            'password'      => $data['password'],
+            'username' => $data['username'],
+            'email'    => $data['email'],
+            'password' => $data['password'],
         ]);
 
         if (isset($data['is_subscribed'])) {

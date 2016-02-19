@@ -18,7 +18,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'web', 'namespace' => 'Auth'],
     #Registro
     Route::get('register', 'AuthController@showRegistrationForm')
         ->name('auth.registration');
-    Route::post('register', 'AuthController@register')
+    Route::post('register', 'AuthController@postRegister')
         ->name('auth.register');
 
     #Recuperación Contraseña

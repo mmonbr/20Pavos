@@ -33,7 +33,7 @@ return [
             'url'         => 'https://derrochando.com',
             'type'        => false,
             'site_name'   => 'Derrochando.com',
-            'images'      => [asset('img/derrochando.png')],
+            'images'      => ['/img/derrochando.png'],
         ],
     ],
     'twitter'   => [
@@ -43,7 +43,7 @@ return [
         'defaults' => [
             'card'   => 'summary',
             'site'   => '@Derrochandoapp',
-            'images' => [asset('img/derrochando.png')]
+            'images' => ['/img/derrochando.png']
         ],
     ],
 ];

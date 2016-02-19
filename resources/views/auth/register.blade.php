@@ -46,6 +46,10 @@
         </div>
 
         <div class="field">
+            <div class="g-recaptcha" data-sitekey="6LcztxgTAAAAAG8FBjxW7Ds7zpCcbr7e94pk4y5G"></div>
+        </div>
+
+        <div class="field">
             <div class="two fields">
                 <div class="field">
                     <button type="submit" class="ui yellow fluid button">Crear cuenta</button>
@@ -69,3 +73,5 @@
         ¿Ya eres miembro? <a href="{{ route('auth.form') }}">Inicia sesión</a>
     </div>
 @endsection
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
