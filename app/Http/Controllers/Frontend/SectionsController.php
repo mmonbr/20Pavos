@@ -37,4 +37,14 @@ class SectionsController extends Controller
 
         return redirect(route('home'));
     }
+
+    public function cookies()
+    {
+        return view('frontend.static.cookies');
+    }
+
+    public function privacy()
+    {
+        return view('frontend.static.privacy');
+    }
 }

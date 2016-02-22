@@ -36,6 +36,14 @@ Route::group(['middleware' => 'web', 'namespace' => 'Frontend'], function () {
         ->name('home');
 
     #Nuevos Productos
+    Route::get('/privacy', 'SectionsController@privacy')
+        ->name('static.privacy');
+
+    #Nuevos Productos
+    Route::get('/cookies', 'SectionsController@cookies')
+        ->name('static.cookies');
+
+    #NContacto
     Route::get('/contacto', 'SectionsController@contact')
         ->name('contact.form');
     Route::post('/contacto', 'SectionsController@postContact')
