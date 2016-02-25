@@ -18,7 +18,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['categories', 'provider'])->orderBy('id', 'DESC')->paginate(50);
+        $products = Product::withTrashed()->with(['categories', 'provider'])->orderBy('id', 'DESC')->paginate(50);
 
         return view('backend.products.index', compact('products'));
     }
@@ -51,8 +51,9 @@ class ProductsController extends Controller
             'image_path'  => $uploader->getPath(),
         ]);
 
-        if ($request->get('featured'))
+        if ($request->get('featured')) {
             $product->feature();
+        }
 
         $product->categorizeMany($request->categories);
 
@@ -69,7 +70,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
+        $product = $this->findProduct($id);
 
         return view('backend.products.edit', compact('product'));
     }
@@ -83,13 +84,14 @@ class ProductsController extends Controller
      */
     public function update(ProductRequest $request, $id)
     {
-        $product = Product::findOrFail($id);
+        $product = $this->findProduct($id);
 
         $product->update([
             'name'        => $request->name,
             'description' => $request->description,
             'price'       => $request->price,
             'featured'    => $request->featured,
+            'published'   => $request->published,
             'video_url'   => $request->video_url,
         ]);
 
@@ -107,7 +109,7 @@ class ProductsController extends Controller
 
     public function setProvider($product, Request $request)
     {
-        $product = Product::find($product);
+        $product = $this->findProduct($product);
 
         $product->addProviderFromForm($request->all());
 
@@ -124,16 +126,34 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        Product::findOrFail($id)->delete();
+        $this->findProduct($id)->forceDelete();
 
         alert()->success('The product has been deleted successfully.', 'It ain\'t gonna be missed');
 
         return redirect()->back();
     }
 
+    public function publish($id)
+    {
+        $this->findProduct($id)->restore();
+
+        alert()->success('The product has been published successfully.', 'Cool');
+
+        return redirect()->back();
+    }
+
+    public function unpublish($id)
+    {
+        $this->findProduct($id)->delete();
+
+        alert()->success('The product has been unpublished successfully.', 'I\'ll be back');
+
+        return redirect()->back();
+    }
+
     public function addAttachment($id, AttachmentRequest $request)
     {
-        $product = Product::findOrFail($id);
+        $product = $this->findProduct($id);
 
         if ($request->hasFile('file')) {
             $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
@@ -148,7 +168,7 @@ class ProductsController extends Controller
 
     public function moveAttachment($id, $attachment_id, Request $request)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::withTrashed()->findOrFail($id);
         $product->moveAttachment($attachment_id, $request->action);
 
         return redirect(route('admin.products.edit', [$product->id]));
@@ -156,9 +176,14 @@ class ProductsController extends Controller
 
     public function removeAttachment($id, $attachment_id)
     {
-        $product = Product::findOrFail($id);
+        $product = $this->findProduct($id);
         $product->removeAttachment($attachment_id);
 
         return redirect(route('admin.products.edit', [$product->id]));
+    }
+
+    private function findProduct($id)
+    {
+        return Product::withTrashed()->findOrFail($id);
     }
 }

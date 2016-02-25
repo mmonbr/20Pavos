@@ -122,6 +122,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
 
     #Productos
     Route::resource('products', 'ProductsController');
+
+    Route::patch('products/{id}/publish', 'ProductsController@publish')
+        ->name('admin.products.publish');
+    Route::delete('products/{id}/unpublish', 'ProductsController@unpublish')
+        ->name('admin.products.unpublish');
+
     Route::post('products/{id}/attachments', 'ProductsController@addAttachment')
         ->name('admin.products.attachments.store');
     Route::delete('products/{id}/attachments/{attachment_id}', 'ProductsController@removeAttachment')

@@ -12,6 +12,7 @@ use App\Products\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use App\Products\Providers\NullProvider;
 use App\Products\Contracts\AffiliateProvider;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 
@@ -22,7 +23,8 @@ class Product extends Model implements SluggableInterface
         Scopable,
         DeleteFromS3,
         SluggableTrait,
-        Eloquence;
+        Eloquence,
+        SoftDeletes;
 
     protected $providers = [
         'NullProvider' => NullProvider::class,
@@ -48,6 +50,8 @@ class Product extends Model implements SluggableInterface
         'build_from' => 'name',
     ];
 
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
     protected $searchableColumns = ['name', 'description'];
 
     public static function boot()
@@ -60,6 +64,7 @@ class Product extends Model implements SluggableInterface
 
         self::created(function (Product $product) {
             $product->addNullProvider();
+            $product->unpublish();
         });
     }
 
@@ -76,6 +81,17 @@ class Product extends Model implements SluggableInterface
     public function feature()
     {
         return $this->update(['featured', true]);
+    }
+
+    public function publish()
+    {
+        return $this->restore();
+
+    }
+
+    public function unpublish()
+    {
+        return $this->delete();
     }
 
     public function relatedProducts($items = 3)
