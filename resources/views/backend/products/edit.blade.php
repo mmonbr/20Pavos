@@ -94,7 +94,7 @@
                     @include('backend.products.partials._attachments', ['attachments' => $product->attachments])
                 </div>
                 <div class="col-md-2">
-                    <div class="box">
+                    <div class="box box-">
                         <div class="box-header">
                             <h3 class="box-title">Product options</h3>
                         </div>

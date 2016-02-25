@@ -59,7 +59,8 @@ class Product extends Model implements SluggableInterface
         parent::boot();
 
         self::deleting(function (Product $product) {
-            self::deleteS3File($product->image_path);
+            if($product->forceDeleting)
+                self::deleteS3File($product->image_path);
         });
 
         self::created(function (Product $product) {
