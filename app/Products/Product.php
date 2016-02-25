@@ -95,6 +95,11 @@ class Product extends Model implements SluggableInterface
         return $this->delete();
     }
 
+    public function setImagePath($path)
+    {
+        return $this->update('image_path', $path);
+    }
+
     public function relatedProducts($items = 3)
     {
         return $this->whereHas('categories', function ($query) {
