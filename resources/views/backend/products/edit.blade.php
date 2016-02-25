@@ -22,7 +22,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" value="{{ old('name', $product->name) }}" class="form-control"
+                                    <input type="text" value="{{ old('name', $product->name) }}"
+                                           class="form-control"
                                            name="name">
                                 </div>
                                 <div class="form-group">
@@ -87,7 +88,50 @@
             </div>
 
             @include('backend.products.partials._provider', ['provider' => $product->provider, 'product' => $product])
-            @include('backend.products.partials._attachments', ['attachments' => $product->attachments])
+
+            <div class="row">
+                <div class="col-md-10">
+                    @include('backend.products.partials._attachments', ['attachments' => $product->attachments])
+                </div>
+                <div class="col-md-2">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Product options</h3>
+                        </div>
+                        <div class="box-body">
+                            @if($product->trashed())
+                                <form method="POST"
+                                      action="{{ route('admin.products.publish', [$product->id]) }}"
+                                      class="inline">
+                                    {{ method_field('patch') }}
+
+                                    {{ csrf_field() }}
+                                    <button class="btn btn-app"><i class="fa fa-play"></i> Publish</button>
+                                </form>
+                            @else
+                                <form method="POST"
+                                      action="{{ route('admin.products.unpublish', [$product->id]) }}"
+                                      class="inline">
+                                    {{ method_field('delete') }}
+
+                                    {{ csrf_field() }}
+                                    <button class="btn btn-app"><i class="fa fa-pause"></i> Unpublish</button>
+                                </form>
+                            @endif
+
+                            <form method="POST"
+                                  action="{{ route('admin.products.destroy', [$product->id]) }}"
+                                  class="inline">
+                                {{ method_field('delete') }}
+
+                                {{ csrf_field() }}
+                                <button class="btn btn-app"><i class="fa fa-trash"></i> Delete</button>
+                            </form>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
