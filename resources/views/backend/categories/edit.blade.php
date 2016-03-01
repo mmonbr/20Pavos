@@ -29,7 +29,7 @@
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <input name="description" value="{{ $category->description }}" type="text" class="form-control">
+                            <textarea name="description" class="form-control">"{{ $category->description }}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Children Of</label>
