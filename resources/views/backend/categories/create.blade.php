@@ -20,6 +20,10 @@
                             <input name="name" value="{{ old('name') }}" type="text" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label>Description</label>
+                            <input name="description" value="{{ old('description') }}" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label>Children Of</label>
                             {!! app('App\Utilities\NestedSelect')->name('category_id')->categories($categories_list)->selected(old('category_id', []))->render($firstEmptyNode = true) !!}
                         </div>

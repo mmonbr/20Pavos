@@ -28,6 +28,10 @@
                             <input name="slug" value="{{ $category->slug }}" type="text" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label>Description</label>
+                            <input name="description" value="{{ $category->description }}" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label>Children Of</label>
                             {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected($category)->render($firstEmptyNode = true) !!}
                         </div>

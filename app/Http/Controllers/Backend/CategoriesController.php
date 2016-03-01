@@ -40,7 +40,8 @@ class CategoriesController extends Controller
     public function store(CategoryRequest $request)
     {
         $category = Category::create([
-            'name' => $request->name,
+            'name'        => $request->name,
+            'description' => $request->description,
         ]);
 
         $category->update([
@@ -75,9 +76,10 @@ class CategoriesController extends Controller
     public function update(CategoryRequest $request, $id)
     {
         Category::findOrFail($id)->update([
-            'name'      => $request->name,
-            'slug'      => $request->slug,
-            'parent_id' => $request->parent_id,
+            'name'        => $request->name,
+            'slug'        => $request->slug,
+            'description' => $request->description,
+            'parent_id'   => $request->parent_id,
         ]);
 
         alert()->success('The category has been updated successfully.', '#feelsgood');
