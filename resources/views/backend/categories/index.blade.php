@@ -108,6 +108,7 @@
                             <textarea name="description" class="form-control">{{ old('description') }}</textarea>
                         </div>
                         <div class="form-group">
+                            <label>Children of</label>
                             {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected(old('category_id', []))->render($firstEmptyNode = true) !!}
                         </div>
                     </div>
