@@ -47,6 +47,6 @@
         </div>
     </form>
     <div class="ui bottom attached message">
-        <i class="icon help"></i> <a href="{{ route('static.privacy') }}">Política de Privacidad</a>
+        <i class="icon help"></i> <a href="{{ route('static.privacy') }}">Política de Privacidad / Información de contacto</a>
     </div>
 @endsection
