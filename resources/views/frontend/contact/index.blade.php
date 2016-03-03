@@ -8,7 +8,9 @@
         <div class="header">
             Contacta con nosotros
         </div>
-        <p class="utility-justify">¿Tienes alguna duda? ¿Has encontrado algún producto increíble y te gustaría que lo añadiéramos al catálogo? ¡Escríbenos! También te atenderemos si tienes sugerencias, la web está en llamas o, por supuesto, si quieres anunciarte en Derrochando.com ;) </p>
+        <p class="utility-justify">¿Tienes alguna duda? ¿Has encontrado algún producto increíble y te gustaría que lo
+            añadiéramos al catálogo? ¡Escríbenos! También te atenderemos si tienes sugerencias, la web está en llamas o,
+            por supuesto, si quieres anunciarte en Derrochando.com ;) </p>
     </div>
     <form method="POST" action="{{ route('contact.send') }}" class="ui form attached fluid segment">
 
@@ -44,4 +46,7 @@
             <button type="submit" class="ui yellow fluid button">Enviar</button>
         </div>
     </form>
+    <div class="ui bottom attached message">
+        <i class="icon help"></i> <a href="{{ route('static.privacy') }}">Política de Privacidad</a>
+    </div>
 @endsection
