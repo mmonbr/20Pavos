@@ -101,7 +101,7 @@
             pertenecen a sus respectivos propietarios, siendo ellos mismos responsables de cualquier posible
             controversia que pudiera suscitarse respecto a los mismos. En todo caso, el prestador cuenta con la
             autorización expresa y previa por parte de los mismos.
-            (Opcional) El prestador autoriza/no autoriza expresamente a que terceros puedan redirigir directamente a los
+            El prestador autoriza autoriza expresamente a que terceros puedan redirigir directamente a los
             contenidos concretos del sitio web, debiendo en todo caso redirigir al sitio web principal del prestador.
             El prestador reconoce a favor de sus titulares los correspondientes derechos de propiedad industrial e
             intelectual, no implicando su sola mención o aparición en el sitio web la existencia de derechos o
@@ -109,7 +109,7 @@
             parte del mismo.
             Para realizar cualquier tipo de observación respecto a posibles incumplimientos de los derechos de propiedad
             intelectual o industrial, así como sobre cualquiera de los contenidos del sitio web, puede hacerlo a través
-            del siguiente correo electrónico.
+            del siguiente correo electrónico: derrochandoweb@gmail.com.
         </p>
 
         <h3>Ley Aplicable y Jurisdicción
@@ -118,7 +118,7 @@
             Para la resolución de todas las controversias o cuestiones relacionadas con el presente sitio web o de las
             actividades en él desarrolladas, será de aplicación la legislación española, a la que se someten
             expresamente las partes, siendo competentes para la resolución de todos los conflictos derivados o
-            relacionados con su uso los Juzgados y Tribunales de (Indicar lugar).
+            relacionados con su uso los Juzgados y Tribunales de Madrid.
         </p>
     </div>
 @endsection
