@@ -9,3 +9,4 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
+<link rel="icon" href="{{ asset('favicon.ico') }}">
