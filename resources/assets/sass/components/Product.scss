@@ -61,7 +61,7 @@ $single-product-breakpoint: 680px;
 
       @include has(price) {
         font-weight: bold;
-        font-size: 3em;
+        font-size: 2.5em;
         line-height: 1em;
         color: #606060;
       }
