@@ -1,5 +1,5 @@
 <h2 class="Heading--Fancy">
-    <span>También te podrían interesar...</span>
+    <span>¿Aún con dinero? Derrocha un poco más en...</span>
 </h2>
 
 <div id="Products">
