@@ -171,7 +171,8 @@ return [
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Dawson\AmazonECS\AmazonECSServiceProvider::class,
-        GrahamCampbell\Flysystem\FlysystemServiceProvider::class
+        GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class
 
     ],
 
