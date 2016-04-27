@@ -10,49 +10,22 @@
                     <h3 class="box-title">Users</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody>
-                        <tr>
-                            <th>ID</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Provider</th>
-                            <th>Type</th>
-                            <th class="text-center">Options</th>
-                        </tr>
-                        @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->username }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->provider }}</td>
-                                <td>{{ $user->type }}</td>
-                                <td class="text-center">
-                                    <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-success"><i
-                                                class="fa fa-link"></i></a>
-                                    <a href="{{ route('admin.users.edit', $user->id) }}"
-                                       class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                    <form method="POST"
-                                          action="{{ route('admin.users.destroy', [$user->id]) }}"
-                                          class="inline">
-                                        {{ method_field('delete') }}
-
-                                        {{ csrf_field() }}
-                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                <div class="box-body">
+                    {!! $dataTable->table(['class' => 'table table-striped table-bordered', 'width' => '100%']) !!}
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer clearfix">
-                    {{ $users->render() }}
-                </div>
+                <!-- /.box -->
             </div>
-            <!-- /.box -->
         </div>
     </div>
 @endsection
+
+@push('scripts')
+<link rel="stylesheet" href="//cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">
+<script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+<script src="/vendor/datatables/buttons.server-side.js"></script>
+{!! $dataTable->scripts() !!}
+@endpush

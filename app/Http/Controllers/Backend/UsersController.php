@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Backend\UserRequest;
 use App\User;
+use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\UserRequest;
 
 class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param UsersDataTable $dataTable
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        $users = User::orderBy('id', 'DESC')->paginate(50);
-
-        return view('backend.users.index', compact('users'));
+        return $dataTable->render('backend.users.index');
     }
 
     /**
