@@ -8,6 +8,7 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Users</h3>
+                    <a href="{{ route('admin.users.create') }}" class="btn btn-primary pull-right"><i class="fa fa-user"></i> Add User</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
