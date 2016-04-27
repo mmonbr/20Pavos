@@ -31,7 +31,7 @@ class Product extends Model implements SluggableInterface
         'Standard'     => Standard::class,
         'Amazon'       => Amazon::class
     ];
-
+    
     protected $fillable = [
         'name',
         'slug',

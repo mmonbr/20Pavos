@@ -6,6 +6,7 @@ use App\Products\Product;
 use Illuminate\Http\Request;
 use App\Utilities\S3FileUpload;
 use App\Http\Controllers\Controller;
+use App\DataTables\ProductsDataTable;
 use App\Http\Requests\Backend\ProductRequest;
 use App\Http\Requests\Backend\AttachmentRequest;
 
@@ -14,13 +15,16 @@ class ProductsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param ProductsDataTable $dataTable
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ProductsDataTable $dataTable)
     {
-        $products = Product::withTrashed()->with(['categories', 'provider'])->orderBy('id', 'DESC')->paginate(50);
+        //$products = Product::withTrashed()->with(['categories', 'provider'])->orderBy('id', 'DESC')->paginate(50);
 
-        return view('backend.products.index', compact('products'));
+        //return view('backend.products.index', compact('products'));
+
+        return $dataTable->render('backend.products.index');
     }
 
     /**
