@@ -2,20 +2,16 @@
 
 namespace App\Http\ViewComposers\Frontend;
 
-use Carbon\Carbon;
 use Illuminate\View\View;
-use Spatie\Newsletter\MailChimp\Newsletter;
-use Illuminate\Cache\Repository as CacheRepository;
+use App\Utilities\SubscribersCache;
 
 class Subscribers
 {
-    protected $newsletter;
-    protected $cache;
+    protected $subscribersCache;
 
-    public function __construct(Newsletter $newsletter, CacheRepository $cache)
+    public function __construct(SubscribersCache $subscribersCache)
     {
-        $this->newsletter = $newsletter;
-        $this->cache = $cache;
+        $this->subscribersCache = $subscribersCache;
     }
 
     /**
@@ -26,12 +22,8 @@ class Subscribers
      */
     public function compose(View $view)
     {
-        $expiresAt = Carbon::now()->addMinutes(config('settings.cache.subscribers_time'));
-
-        $subscribers = $this->cache->remember(config('settings.cache.subscribers_count'), $expiresAt, function () {
-            return $this->newsletter->getApi()->lists->members(config('laravel-newsletter.mailChimp.lists.subscribers.id'));
-        });
-
+        $subscribers = $this->subscribersCache->make();
+        
         $view->with('subscribers_count', $subscribers['total']);
     }
 }
