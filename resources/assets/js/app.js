@@ -125,7 +125,7 @@ $(document).ready(function () {
      * POPUPS
      */
 
-    $('.new_window').click(function (e) {
+    $(document).on('click', '.new_window', function (e) {
         e.preventDefault();
 
         $.popupWindow($(this).attr('href'));
