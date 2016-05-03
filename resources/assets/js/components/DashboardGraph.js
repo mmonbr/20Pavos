@@ -22,10 +22,14 @@ export default Vue.extend({
             datasets: [
                 {
                     label: "Last month unique visitors",
+                    backgroundColor: "rgba(0,192,239,0.4)",
+                    borderColor: "rgba(0,192,239,1)",
                     data: this.visitors
                 },
                 {
                     label: "Last month page views",
+                    backgroundColor: "rgba(243,156,18,0.4)",
+                    borderColor: "rgba(243,156,18,1)",
                     data: this.pageviews
                 }
             ]
