@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import VisitorsGraph from './components/VisitorsGraph';
+import DashboardGraph from './components/DashboardGraph';
 
 new Vue({
     el: 'body',
 
-    components: { VisitorsGraph }
+    components: { DashboardGraph }
 });
