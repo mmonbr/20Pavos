@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Categories</h3>
@@ -27,58 +27,13 @@
                                 <td>{{ $category->slug }}</td>
                                 <td>{{ $category->productsCount }}</td>
                                 <td>
-                                    <form method="POST" action="{{ route('categories.up', [$category->id]) }}"
-                                          class="inline">
-                                        {{ method_field('patch') }}
-
-                                        {{ csrf_field() }}
-                                        <button class="btn btn-default" type="submit"><i
-                                                    class="fa fa-arrow-up"></i>
-                                        </button>
-                                    </form>
-
-                                    <form method="POST" action="{{ route('categories.down', [$category->id]) }}"
-                                          class="inline">
-                                        {{ method_field('patch') }}
-
-                                        {{ csrf_field() }}
-                                        <button class="btn btn-default" type="submit"><i
-                                                    class="fa fa-arrow-down"></i>
-                                        </button>
-                                    </form>
+                                    @include('backend.categories.partials._arrows', ['category' => $category])
                                 </td>
                                 <td>
-                                    <form method="POST"
-                                          action="{{ route('categories.makeChildrenOf', [$category->id]) }}"
-                                    >
-                                        {{ method_field('patch') }}
-
-                                        {{ csrf_field() }}
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                {!! app('App\Utilities\NestedSelect')->name('parent_id')->categories($categories_list)->selected($category)->render($firstEmptyNode = true) !!}
-                                            </div>
-                                            <div class="col-md-4">
-                                                <button class="btn btn-default" type="submit"><i
-                                                            class="fa fa-save"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    @include('backend.categories.partials._children', ['category' => $category])
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('categories.show', $category->slug) }}" class="btn btn-success"><i
-                                                class="fa fa-link"></i></a>
-                                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-primary"><i
-                                                class="fa fa-edit"></i></a>
-                                    <form method="POST"
-                                          action="{{ route('admin.categories.destroy', [$category->id]) }}"
-                                          class="inline">
-                                        {{ method_field('delete') }}
-
-                                        {{ csrf_field() }}
-                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    </form>
+                                    @include('backend.categories.partials._options', ['category' => $category])
                                 </td>
                             </tr>
                         @endforeach
@@ -88,7 +43,9 @@
                 <!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-3">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="box">
                 <form method="post" action="{{ route('admin.categories.store') }}">
 

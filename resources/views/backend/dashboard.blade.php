@@ -65,8 +65,10 @@
         </div>
         <!-- ./col -->
     </div>
+
     <visitors-graph :keys="{{ $visitorsGraph->keys() }}"
            :values="{{ $visitorsGraph->values() }}"></visitors-graph>
+
 @endsection
 
 @push('scripts')
