@@ -65,6 +65,10 @@ class ComposerServiceProvider extends ServiceProvider
                 'backend.products.create',
             ], 'App\Http\ViewComposers\Backend\CategoriesList'
         );
+
+        view()->composer(
+            'backend.dashboard', 'App\Http\ViewComposers\Backend\Dashboard'
+        );
     }
 
     /**

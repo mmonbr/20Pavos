@@ -23,7 +23,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>{{ $subscribersCount['total'] }}</h3>
+                    <h3>{{ $subscribersCount }}</h3>
 
                     <p>Subscribers</p>
                 </div>
