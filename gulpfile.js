@@ -79,6 +79,8 @@ elixir(function (mix) {
         'lib/semantic/semantic.min.js',
         'app.js'
     ], './public/js/app.min.js', './public/js');
+
+    mix.browserify('admin.js');
 });
 
 /*
