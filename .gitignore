@@ -1,6 +1,9 @@
 /vendor
 /node_modules
 /public/storage
+/public/css
+/public/js
+/public/fonts
 /bower_components
 Homestead.yaml
 Homestead.json
