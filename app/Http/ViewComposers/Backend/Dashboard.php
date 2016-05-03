@@ -22,7 +22,7 @@ class Dashboard
         $view->with('usersCount', $this->getUsersCount());
         $view->with('subscribersCount', $this->getSubscribersCount(app(SubscribersCache::class)));
         $view->with('visitors', $this->getUniqueVisitorsCount());
-        $view->with('visitorsGraph', $this->getVisitorsGraph());
+        $view->with('dashboardGraph', $this->getDashboardGraph());
     }
 
     private function getProductsCount()
@@ -45,13 +45,15 @@ class Dashboard
         return LaravelAnalytics::getVisitorsAndPageViews(0)->first()['visitors'];
     }
 
-    public function getVisitorsGraph()
+    public function getDashboardGraph()
     {
-        return LaravelAnalytics::getVisitorsAndPageViews(90)->transform(function ($item) {
+        return LaravelAnalytics::getVisitorsAndPageViews(30)->flatMap(function ($item) {
             return [
-                'date'     => $item['date']->toDateString(),
-                'visitors' => $item['visitors']
+                $item['date']->toDateString() => [
+                    'visitors'  => $item['visitors'],
+                    'pageViews' => $item['pageViews'],
+                ]
             ];
-        })->pluck('visitors', 'date');
+        });
     }
 }

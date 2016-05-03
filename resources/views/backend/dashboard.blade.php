@@ -15,7 +15,8 @@
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="{{ route('admin.products.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.products.index') }}" class="small-box-footer">More info <i
+                            class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -30,7 +31,8 @@
                 <div class="icon">
                     <i class="ion ion-email"></i>
                 </div>
-                <a href="{{ route('admin.users.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.users.index') }}" class="small-box-footer">More info <i
+                            class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -45,7 +47,8 @@
                 <div class="icon">
                     <i class="ion ion-person"></i>
                 </div>
-                <a href="{{ route('admin.users.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.users.index') }}" class="small-box-footer">More info <i
+                            class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -66,11 +69,34 @@
         <!-- ./col -->
     </div>
 
-    <visitors-graph :keys="{{ $visitorsGraph->keys() }}"
-           :values="{{ $visitorsGraph->values() }}"></visitors-graph>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-line-chart"></i>
+                Unique Users VS Page Views
+            </h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="chart">
+                <dashboard-graph
+                        :keys="{{ $dashboardGraph->keys() }}"
+                        :visitors="{{ $dashboardGraph->pluck('visitors') }}"
+                        :pageviews="{{ $dashboardGraph->pluck('pageViews') }}"
+                >
+                </dashboard-graph>
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
 
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/admin.js') }}"></script>
+<script src="{{ asset('js/admin.js') }}"></script>
 @endpush

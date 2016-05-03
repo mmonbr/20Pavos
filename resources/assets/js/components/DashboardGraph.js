@@ -8,7 +8,7 @@ export default Vue.extend({
         </div>
     `,
 
-    props: ['keys', 'values'],
+    props: ['keys', 'visitors', 'pageviews'],
 
     data() {
         return {
@@ -21,14 +21,12 @@ export default Vue.extend({
             labels: this.keys,
             datasets: [
                 {
-                    label: "Visitors last 90 days",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: this.values
+                    label: "Last month unique visitors",
+                    data: this.visitors
+                },
+                {
+                    label: "Last month page views",
+                    data: this.pageviews
                 }
             ]
         });
@@ -38,7 +36,7 @@ export default Vue.extend({
         render(data) {
             const chart = new Chart.Line(
                 this.$els.canvas.getContext('2d'),
-                { data }
+                {data}
             );
 
             this.legend = chart.generateLegend();
