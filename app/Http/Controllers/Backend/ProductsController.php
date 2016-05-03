@@ -20,10 +20,6 @@ class ProductsController extends Controller
      */
     public function index(ProductsDataTable $dataTable)
     {
-        //$products = Product::withTrashed()->with(['categories', 'provider'])->orderBy('id', 'DESC')->paginate(50);
-
-        //return view('backend.products.index', compact('products'));
-
         return $dataTable->render('backend.products.index');
     }
 
