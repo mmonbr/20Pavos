@@ -4,7 +4,7 @@
             class="fa fa-edit"></i></a>
 <form method="POST"
       action="{{ route('admin.categories.destroy', [$category->id]) }}"
-      class="inline">
+      class="inline confirm">
     {{ method_field('delete') }}
 
     {{ csrf_field() }}

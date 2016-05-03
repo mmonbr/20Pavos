@@ -14,5 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <!-- Dropzone -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+<!-- Admin Scripts -->
+<script src="{{ asset('js/admin.js') }}"></script>
 
 @stack('scripts')

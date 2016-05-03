@@ -4,7 +4,7 @@
    class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
 <form method="POST"
       action="{{ route('admin.users.destroy', [$user->id]) }}"
-      class="inline">
+      class="inline confirm">
     {{ method_field('delete') }}
 
     {{ csrf_field() }}

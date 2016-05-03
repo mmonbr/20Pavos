@@ -6,7 +6,7 @@
 @if($product->trashed())
     <form method="POST"
           action="{{ route('admin.products.publish', [$product->id]) }}"
-          class="inline">
+          class="inline confirm">
         {{ method_field('patch') }}
 
         {{ csrf_field() }}
@@ -15,7 +15,7 @@
 @else
     <form method="POST"
           action="{{ route('admin.products.unpublish', [$product->id]) }}"
-          class="inline">
+          class="inline confirm">
         {{ method_field('delete') }}
 
         {{ csrf_field() }}
@@ -25,7 +25,7 @@
 
 <form method="POST"
       action="{{ route('admin.products.destroy', [$product->id]) }}"
-      class="inline">
+      class="inline confirm">
     {{ method_field('delete') }}
 
     {{ csrf_field() }}
