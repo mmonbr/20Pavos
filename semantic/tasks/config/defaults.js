@@ -73,8 +73,8 @@ module.exports = {
     //'table',
 
     // views
-    'ad',
-    'card',
+    //'ad',
+    //'card',
     //'comment',
     //'feed',
     //'item',
