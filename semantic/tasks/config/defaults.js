@@ -77,7 +77,7 @@ module.exports = {
     'card',
     //'comment',
     //'feed',
-    'item',
+    //'item',
     //'statistic',
 
     // modules
@@ -86,7 +86,7 @@ module.exports = {
     //'dimmer',
     'dropdown',
     //'embed',
-    'modal',
+    //'modal',
     //'nag',
     //'popup',
     //'progress',
@@ -96,12 +96,12 @@ module.exports = {
     'sidebar',
     //'sticky',
     //'tab',
-    //'transition',
+    'transition',
 
     // behaviors
     //'api',
-    'form',
-    'state',
+    //'form',
+    //'state',
     'visibility'
   ],
 
