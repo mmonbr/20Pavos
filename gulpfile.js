@@ -57,7 +57,7 @@ elixir(function (mix) {
     mix.styles([
         'public/css/lib/slick/slick.css',
         'public/css/lib/nouislider/nouislider.min.css',
-        'public/css/lib/sweetalert/sweetalert.css',
+        'public/css/lib/sweetalert/sweetalert.css'
     ], './public/css/plugins.min.css', './public/css');
 
     mix.styles([
