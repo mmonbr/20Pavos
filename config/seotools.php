@@ -42,7 +42,7 @@ return [
          */
         'defaults' => [
             'card'   => 'summary',
-            'site'   => '@Derrochandoapp',
+            'site'   => '@derrochando_com',
             'images' => ['/img/derrochando.png']
         ],
     ],
