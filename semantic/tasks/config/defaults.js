@@ -50,13 +50,13 @@ module.exports = {
     // elements
     'button',
     'container',
-    'divider',
+    //'divider',
     //'flag',
     'header',
     'icon',
     'image',
     'input',
-    'label',
+    //'label',
     'list',
     //'loader',
     //'rail',
@@ -65,12 +65,12 @@ module.exports = {
     //'step',
 
     // collections
-    'breadcrumb',
+    //'breadcrumb',
     'form',
     'grid',
     'menu',
     'message',
-    'table',
+    //'table',
 
     // views
     'ad',
@@ -94,7 +94,7 @@ module.exports = {
     'search',
     //'shape',
     'sidebar',
-    'sticky',
+    //'sticky',
     //'tab',
     //'transition',
 
