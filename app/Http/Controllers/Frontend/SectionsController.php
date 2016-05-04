@@ -40,11 +40,15 @@ class SectionsController extends Controller
 
     public function cookies()
     {
+        $this->addSeoTagsForPrivacy();
+
         return view('frontend.static.cookies');
     }
 
     public function privacy()
     {
+        $this->addSeoTagsForPrivacy();
+
         return view('frontend.static.privacy');
     }
 }

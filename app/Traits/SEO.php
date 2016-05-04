@@ -53,9 +53,27 @@ trait SEO
         TwitterCard::setTitle($title);
     }
 
-    public function addSEOTagsForAuth()
+    public function addSEOTagsForLogin()
     {
         $title = 'Login';
+
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
+    }
+
+    public function addSEOTagsForPrivacy()
+    {
+        $title = 'Política de Privacidad';
+
+        SEOMeta::setTitle($title);
+        OpenGraph::setTitle($title);
+        TwitterCard::setTitle($title);
+    }
+
+    public function addSEOTagsForCookies()
+    {
+        $title = 'Política de Cookies';
 
         SEOMeta::setTitle($title);
         OpenGraph::setTitle($title);

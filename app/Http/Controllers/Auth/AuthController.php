@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Traits\SEO;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -10,6 +11,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+    use SEO;
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -38,6 +41,41 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        $this->addSEOTagsForLogin();
+
+        $view = property_exists($this, 'loginView')
+            ? $this->loginView : 'auth.authenticate';
+
+        if (view()->exists($view)) {
+            return view($view);
+        }
+
+        return view('auth.login');
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $this->addSEOTagsForRegister();
+        
+        if (property_exists($this, 'registerView')) {
+            return view($this->registerView);
+        }
+
+        return view('auth.register');
     }
 
     /**
