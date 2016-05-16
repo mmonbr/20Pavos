@@ -156,12 +156,11 @@ class ProductsController extends Controller
         $product = $this->findProduct($id);
 
         if ($request->hasFile('file')) {
-            $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
-            $attachment = $product->addAttachment($uploader->getPath());
+            $media = $product->addMedia($request->file('file'))->toMediaLibrary();
 
             return response([
-                'path'  => cdn_file($uploader->getPath()),
-                'order' => $attachment->order,
+                'path'  => $media->getUrl(),
+                'order' => $media->order_column,
             ], 200);
         }
     }

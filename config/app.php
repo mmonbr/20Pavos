@@ -173,8 +173,8 @@ return [
         Dawson\AmazonECS\AmazonECSServiceProvider::class,
         GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
-        Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class
-
+        Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class
     ],
 
     /*

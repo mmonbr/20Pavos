@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Products\Providers\NullProvider;
 use App\Products\Contracts\AffiliateProvider;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 
@@ -24,7 +25,8 @@ class Product extends Model implements SluggableInterface
         DeleteFromS3,
         SluggableTrait,
         Eloquence,
-        SoftDeletes;
+        SoftDeletes,
+        HasMediaTrait;
 
     protected $providers = [
         'NullProvider' => NullProvider::class,
