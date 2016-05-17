@@ -174,8 +174,7 @@ return [
         GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
-        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
-        Fitztrev\QueryTracer\Providers\QueryTracerServiceProvider::class
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class
 
     ],
 
