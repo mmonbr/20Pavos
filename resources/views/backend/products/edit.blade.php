@@ -91,7 +91,7 @@
 
             <div class="row">
                 <div class="col-md-10">
-                    @include('backend.products.partials._attachments', ['attachments' => $product->attachments])
+                    @include('backend.products.partials._attachments', ['attachments' => $product->getMedia('attachments')])
                 </div>
                 <div class="col-md-2">
                     <div class="box box-">

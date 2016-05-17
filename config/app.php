@@ -175,6 +175,7 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
         Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class
+
     ],
 
     /*
