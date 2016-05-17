@@ -37,7 +37,7 @@ class ProductsDataTable extends DataTable
      */
     public function query()
     {
-        $products = Product::withTrashed()->with(['categories', 'provider'])->select('products.*');
+        $products = Product::withTrashed()->with(['categories', 'provider'])->select('products.*')->latest();
 
         return $this->applyScopes($products);
     }
