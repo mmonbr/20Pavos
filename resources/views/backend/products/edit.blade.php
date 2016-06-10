@@ -99,7 +99,7 @@
                             <h3 class="box-title">Product options</h3>
                         </div>
                         <div class="box-body">
-                            @if($product->trashed())
+                            @if($product->published())
                                 <form method="POST"
                                       action="{{ route('admin.products.publish', [$product->id]) }}"
                                       class="inline">

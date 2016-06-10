@@ -3,16 +3,7 @@
 <a href="{{ route('admin.products.edit', $product->id) }}"
    class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
 
-@if($product->trashed())
-    <form method="POST"
-          action="{{ route('admin.products.publish', [$product->id]) }}"
-          class="inline confirm">
-        {{ method_field('patch') }}
-
-        {{ csrf_field() }}
-        <button class="btn btn-info btn-xs"><i class="fa fa-play"></i></button>
-    </form>
-@else
+@if($product->published())
     <form method="POST"
           action="{{ route('admin.products.unpublish', [$product->id]) }}"
           class="inline confirm">
@@ -20,6 +11,15 @@
 
         {{ csrf_field() }}
         <button class="btn btn-warning btn-xs"><i class="fa fa-pause"></i></button>
+    </form>
+@else
+    <form method="POST"
+          action="{{ route('admin.products.publish', [$product->id]) }}"
+          class="inline confirm">
+        {{ method_field('patch') }}
+
+        {{ csrf_field() }}
+        <button class="btn btn-info btn-xs"><i class="fa fa-play"></i></button>
     </form>
 @endif
 
