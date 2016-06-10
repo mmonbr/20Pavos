@@ -5,7 +5,6 @@ namespace App\Products;
 use Sofa\Eloquence\Eloquence;
 use App\Products\Traits\Scopable;
 use App\Products\Providers\Amazon;
-use App\Products\Traits\Attachable;
 use App\Products\Providers\Standard;
 use App\Products\Traits\DeleteFromS3;
 use App\Products\Traits\Categorizable;
@@ -13,18 +12,20 @@ use Illuminate\Database\Eloquent\Model;
 use App\Products\Providers\NullProvider;
 use App\Products\Contracts\AffiliateProvider;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Cviebrock\EloquentSluggable\SluggableInterface;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Product extends Model implements SluggableInterface
+class Product extends Model implements SluggableInterface, HasMedia
 {
     use Categorizable,
-        Attachable,
         Scopable,
         DeleteFromS3,
         SluggableTrait,
         Eloquence,
-        SoftDeletes;
+        SoftDeletes,
+        HasMediaTrait;
 
     protected $providers = [
         'NullProvider' => NullProvider::class,
@@ -57,11 +58,6 @@ class Product extends Model implements SluggableInterface
     public static function boot()
     {
         parent::boot();
-
-        self::deleting(function (Product $product) {
-            if($product->forceDeleting)
-                self::deleteS3File($product->image_path);
-        });
 
         self::created(function (Product $product) {
             $product->addNullProvider();

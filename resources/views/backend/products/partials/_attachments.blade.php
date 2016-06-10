@@ -16,12 +16,14 @@
                     @foreach($attachments as $attachment)
                         <tr>
                             <td>
-                                <a href="{{ cdn_file($attachment->url) }}" target="_blank"><img height="64px"
-                                                                                                width="64px"
-                                                                                                src="{{ cdn_file($attachment->path) }}"></a>
+                                <a href="{{ $attachment->getUrl() }}" target="_blank">
+                                    <img height="64px"
+                                         width="64px"
+                                         src="{{ $attachment->getUrl() }}">
+                                </a>
                             </td>
                             <td>
-                                {{ $attachment->order }}
+                                {{ $attachment->order_column }}
                             </td>
                             <td>
                                 <form method="POST"

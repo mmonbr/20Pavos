@@ -153,23 +153,25 @@ class ProductsController extends Controller
 
     public function addAttachment($id, AttachmentRequest $request)
     {
-        $product = $this->findProduct($id);
+        $media = $this->findProduct($id)->addMedia($request->file('file'))->toCollection('attachments');
 
-        if ($request->hasFile('file')) {
-            $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
-            $attachment = $product->addAttachment($uploader->getPath());
-
-            return response([
-                'path'  => cdn_file($uploader->getPath()),
-                'order' => $attachment->order,
-            ], 200);
-        }
+        return response([
+            'path'  => $media->getUrl(),
+            'order' => $media->order_column,
+        ], 200);
     }
 
     public function moveAttachment($id, $attachment_id, Request $request)
     {
         $product = Product::withTrashed()->findOrFail($id);
-        $product->moveAttachment($attachment_id, $request->action);
+
+        if ($request->action == 'up') {
+            $product->media()->find($attachment_id)->moveOrderUp();
+        }
+
+        if ($request->action == 'down') {
+            $product->media()->find($attachment_id)->moveOrderDown();
+        }
 
         return redirect(route('admin.products.edit', [$product->id]));
     }
@@ -177,7 +179,7 @@ class ProductsController extends Controller
     public function removeAttachment($id, $attachment_id)
     {
         $product = $this->findProduct($id);
-        $product->removeAttachment($attachment_id);
+        $product->media()->find($attachment_id)->delete();
 
         return redirect(route('admin.products.edit', [$product->id]));
     }

@@ -78,7 +78,7 @@ trait Scopable
     public function scopeFeatured($query)
     {
         return $query
-            ->with('attachments')
+            ->with('media')
             ->where('featured', '=', true);
     }
 
