@@ -29,7 +29,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Price (in cents)</label>
+                                    <label>URL</label>
+                                    <input type="text" value="{{ old('link') }}"
+                                           class="form-control"
+                                           name="link">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Price</label>
                                     <input type="text" value="{{ old('price') }}" class="form-control"
                                            name="price">
                                 </div>

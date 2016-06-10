@@ -24,6 +24,7 @@ class Product extends Model implements SluggableInterface, HasMedia
         'slug',
         'type',
         'hits',
+        'link',
         'price',
         'provider',
         'video_url',
@@ -75,7 +76,7 @@ class Product extends Model implements SluggableInterface, HasMedia
 
     public function getLinkAttribute($link)
     {
-        return new LinkParser($link);
+        return (new LinkParser($link))->getLink();
     }
 
     public function relatedProducts($items = 3)
