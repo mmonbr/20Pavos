@@ -137,6 +137,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
     Route::post('products/{id}/provider', 'ProductsController@setProvider')
         ->name('admin.products.provider.store');
 
+    #Productos destacados
+    Route::resource('featured_products', 'FeaturedProductsController');
+
     #Usuarios
     Route::resource('users', 'UsersController');
 

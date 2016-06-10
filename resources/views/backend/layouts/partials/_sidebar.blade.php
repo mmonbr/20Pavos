@@ -49,6 +49,15 @@
                     <li class="{{ active_class(if_route(['admin.products.create']), 'active') }}"><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
                 </ul>
             </li>
+            <li class="treeview {{ active_class(if_route_pattern(['admin.featured.*']), 'active') }}">
+                <a href="#">
+                    <i class="fa fa-star"></i> <span>Featured</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ active_class(if_route(['admin.featured_products.index']), 'active') }}"><a href="{{ route('admin.featured_products.index') }}"><i class="fa fa-circle-o"></i> Featured</a></li>
+                    <li class="{{ active_class(if_route(['admin.featured_products.create']), 'active') }}"><a href="{{ route('admin.featured_products.create') }}"><i class="fa fa-circle-o"></i> Add</a></li>
+                </ul>
+            </li>
             <li class="treeview {{ active_class(if_route_pattern(['admin.users.*']), 'active') }}">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
