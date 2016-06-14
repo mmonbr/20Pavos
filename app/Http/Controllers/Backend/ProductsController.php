@@ -41,15 +41,14 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
-
         $product = Product::create([
             'name'        => $request->name,
             'description' => $request->description,
             'price'       => $request->price,
             'video_url'   => $request->video_url,
-            'image_path'  => $uploader->getPath(),
         ]);
+
+        $product->addMedia($request->file('file'))->toCollection('product_images');
 
         if ($request->get('featured')) {
             $product->feature();
@@ -96,8 +95,8 @@ class ProductsController extends Controller
         ]);
 
         if ($request->hasFile('file')) {
-            $uploader = app(S3FileUpload::class)->file($request->file('file'))->upload();
-            $product->setImagePath($uploader->getPath());
+            $product->clearMediaCollection('product_images');
+            $product->addMedia($request->file('file'))->toCollection('product_images');
         }
 
         $product->recategorize($request->categories);
@@ -126,7 +125,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        $this->findProduct($id)->forceDelete();
+        $this->findProduct($id)->delete();
 
         alert()->success('The product has been deleted successfully.', 'It ain\'t gonna be missed');
 
@@ -135,7 +134,7 @@ class ProductsController extends Controller
 
     public function publish($id)
     {
-        $this->findProduct($id)->restore();
+        $this->findProduct($id)->publish();
 
         alert()->success('The product has been published successfully.', 'Cool');
 
@@ -144,7 +143,7 @@ class ProductsController extends Controller
 
     public function unpublish($id)
     {
-        $this->findProduct($id)->delete();
+        $this->findProduct($id)->unpublish();
 
         alert()->success('The product has been unpublished successfully.', 'I\'ll be back');
 
@@ -163,7 +162,7 @@ class ProductsController extends Controller
 
     public function moveAttachment($id, $attachment_id, Request $request)
     {
-        $product = Product::withTrashed()->findOrFail($id);
+        $product = Product::findOrFail($id);
 
         if ($request->action == 'up') {
             $product->media()->find($attachment_id)->moveOrderUp();
@@ -186,6 +185,6 @@ class ProductsController extends Controller
 
     private function findProduct($id)
     {
-        return Product::withTrashed()->findOrFail($id);
+        return Product::findOrFail($id);
     }
 }

@@ -29,14 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Category > Creating sample categories');
         $categories = factory(App\Products\Category::class, 10)->create()->each(function ($category) {
             $category->addProducts(factory(App\Products\Product::class, 10)->create()->each(function ($product) {
-                //$product->addProvider(factory(App\Products\Providers\Amazon::class)->create());
-                //$product->addAttachment('uploads/products/big.png');
-                $product->publish();
-            }));
-
-            $category->addProducts(factory(App\Products\Product::class, 10)->create()->each(function ($product) {
-                //$product->addProvider(factory(App\Products\Providers\Standard::class)->create());
-                //$product->addAttachment('uploads/products/big.png');
                 $product->publish();
             }));
         });

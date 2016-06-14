@@ -4,7 +4,7 @@
             <div class="slick-container">
                 @foreach($featuredProducts as $featured)
                     <div class="slick-slide">
-                        <a href="{{ $featured->provider->link() }}" rel="nofollow" target="_blank">
+                        <a href="{{ $featured->link }}" rel="nofollow" target="_blank">
                             <img src="{{ $featured->getFirstMediaUrl('attachments') }}"
                                  class="ui image fluid">
                             <div class="slick-meta">

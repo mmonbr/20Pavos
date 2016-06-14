@@ -21,4 +21,10 @@ return [
     'twitter' => [
         'via' => 'derrochando_com',
     ],
+
+    'parsers' => [
+        'amazon.es'    => App\Products\Parsers\AmazonEsParser::class,
+        'curiosite.es' => App\Products\Parsers\CuriositeEsParser::class,
+        'etsy.com'     => App\Products\Parsers\EtsyComParser::class,
+    ]
 ];

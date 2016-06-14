@@ -32,7 +32,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Price (in cents)</label>
+                                    <label>URL</label>
+                                    <input type="text" value="{{ old('link', $product->getOriginal('link')) }}"
+                                           class="form-control"
+                                           name="link">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Price</label>
                                     <input type="text" value="{{ old('price', $product->price) }}"
                                            class="form-control"
                                            name="price">
@@ -87,8 +94,6 @@
                 </form>
             </div>
 
-            @include('backend.products.partials._provider', ['provider' => $product->provider, 'product' => $product])
-
             <div class="row">
                 <div class="col-md-10">
                     @include('backend.products.partials._attachments', ['attachments' => $product->getMedia('attachments')])
@@ -99,7 +104,7 @@
                             <h3 class="box-title">Product options</h3>
                         </div>
                         <div class="box-body">
-                            @if($product->trashed())
+                            @if($product->published())
                                 <form method="POST"
                                       action="{{ route('admin.products.publish', [$product->id]) }}"
                                       class="inline">

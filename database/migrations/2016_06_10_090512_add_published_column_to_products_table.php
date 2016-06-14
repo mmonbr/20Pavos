@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProviderNullTable extends Migration
+class AddPublishedColumnToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class CreateProviderNullTable extends Migration
      */
     public function up()
     {
-        Schema::create('provider_null', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            $table->boolean('published')->default(false);
         });
     }
 
@@ -25,6 +24,8 @@ class CreateProviderNullTable extends Migration
      */
     public function down()
     {
-        Schema::drop('provider_null');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('published');
+        });
     }
 }

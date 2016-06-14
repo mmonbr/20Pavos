@@ -14,7 +14,7 @@ trait Scopable
     public function scopeFilter($query, $params)
     {
         $query->latest();
-
+        
         if (isset($params['min_price'])) {
             $this->scopeMinimumPrice($query, $params['min_price']);
         }
@@ -23,6 +23,16 @@ trait Scopable
         }
 
         return $query;
+    }
+
+    /**
+     * Gets published products
+     *
+     * @param $query
+     */
+    public function scopePublished($query)
+    {
+        $query->where('published', '=', 1);
     }
 
     /**
