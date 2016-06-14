@@ -22,7 +22,7 @@ class CategoriesController extends Controller
     {
         $category = Category::findBySlugOrIdOrFail($id);
         $categories = Category::defaultOrder()->get()->toTree();
-        $products = $category->products()->with('provider')->filter($request->all())->paginate(21);
+        $products = $category->products()->filter($request->all())->paginate(21);
 
         $this->addSEOTagsForCategory($category);
 

@@ -20,7 +20,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::filter($request->all())->with('provider')->paginate(config('settings.products.results'));
+        $products = Product::filter($request->all())->paginate(config('settings.products.results'));
 
         $this->addSEOTagsForHome();
 

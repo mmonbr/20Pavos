@@ -35,5 +35,4 @@ class LinkParser
     {
         return (string) $this->getLink();
     }
-
 }

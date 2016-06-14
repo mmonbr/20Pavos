@@ -2,7 +2,7 @@
     <a class="Product__title" href="{{ route('products.show', $product->slug) }}" @if(isset($newWindow) && $newWindow == true) target="_blank" @endif>{{ $product->name }}</a>
 
     <div class="Product__media">
-        <a href="{{ $product->provider->link() }}" target="_blank">
+        <a href="{{ $product->link }}" target="_blank">
             <img class="Product__media__image" src="{{ cdn_file($product->image_path) }}" alt="{{ $product->slug }}">
         </a>
 
@@ -33,7 +33,7 @@
         </div>
 
         <div class="Product__info__buy">
-            <a href="{{ $product->provider->link() }}" target="_blank" class="ui yellow fluid button"><i
+            <a href="{{ $product->link }}" target="_blank" class="ui yellow fluid button"><i
                         class="shop icon"></i> !Lo quiero!</a>
         </div>
     </div>
