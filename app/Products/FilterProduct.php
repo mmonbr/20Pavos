@@ -5,12 +5,17 @@ namespace App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
-class ProductSearch
+class FilterProduct
 {
-    public static function apply(Request $filters)
+    public static function apply(Request $filters, $paginate = false)
     {
         $query = static::applyDecoratorsFromRequest($filters, (new Product)->newQuery());
-        return static::getResults($query);
+
+        if (!$paginate) {
+            return static::getResults($query);
+        }
+
+        return static::getPaginatedResults($query);
     }
 
     private static function applyDecoratorsFromRequest(Request $request, Builder $query)
@@ -32,6 +37,11 @@ class ProductSearch
     private static function isValidDecorator($decorator)
     {
         return class_exists($decorator);
+    }
+
+    private static function getPaginatedResults(Builder $query)
+    {
+        return $query->paginate(config('settings.products.results'));
     }
 
     private static function getResults(Builder $query)
