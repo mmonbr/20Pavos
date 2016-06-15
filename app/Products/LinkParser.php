@@ -15,7 +15,7 @@ class LinkParser
     public function getParserForHost($host)
     {
         $class = $this->parsers->first(function ($parser) use ($host) {
-            return $host == $parser;
+            return $host === $parser;
         }, NullParser::class);
 
         return new $class;
