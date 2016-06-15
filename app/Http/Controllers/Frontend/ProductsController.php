@@ -6,6 +6,7 @@ use App\Traits\SEO;
 use App\Products\Product;
 use Illuminate\Http\Request;
 use App\Events\ProductWasHit;
+use App\Products\FilterProduct;
 use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller
@@ -20,7 +21,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::filter($request->all())->paginate(config('settings.products.results'));
+        $products = FilterProduct::apply($request, true);
 
         $this->addSEOTagsForHome();
 
