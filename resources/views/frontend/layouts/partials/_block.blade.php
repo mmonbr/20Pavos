@@ -63,8 +63,8 @@
                 <h3 class="Featured__extra__subscribe__header"><i class="at icon"></i> Boletín semanal</h3>
                 <p class="Featured__extra__subscribe__text">
                     <small>
-                        Los productos más hilarantes cada lunes en tu email. Ya somos <strong>{{ $subscribers_count }}</strong>
-                        derrochadores.
+                        Los productos más molones cada lunes en tu email. <!--Ya somos <strong>{{ $subscribers_count }}</strong>
+                        derrochadores.-->
                     </small>
                 </p>
                 <form method="POST" action="{{ route('newsletter.subscribe') }}" class="ui large form">
