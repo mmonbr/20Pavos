@@ -37,7 +37,7 @@ class ProductsDataTable extends DataTable
      */
     public function query()
     {
-        $products = Product::with(['categories'])->select('products.*');
+        $products = Product::withDrafts()->with(['categories'])->select('products.*');
 
         return $this->applyScopes($products);
     }

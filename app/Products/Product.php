@@ -4,6 +4,7 @@ namespace App\Products;
 
 use Sofa\Eloquence\Eloquence;
 use App\Products\Traits\Scopable;
+use App\Products\Traits\Published;
 use App\Products\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -17,7 +18,8 @@ class Product extends Model implements SluggableInterface, HasMedia
         Scopable,
         SluggableTrait,
         Eloquence,
-        HasMediaTrait;
+        HasMediaTrait,
+        Published;
 
     protected $fillable = [
         'name',
