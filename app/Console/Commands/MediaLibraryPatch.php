@@ -2,8 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Products\Attachment;
+use App\Products\Product;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class MediaLibraryPatch extends Command
 {
@@ -38,10 +39,26 @@ class MediaLibraryPatch extends Command
      */
     public function handle()
     {
-        $attachments = Attachment::orderBy('product_id')->orderBy('order')->with('product')->get();
+        $attachments = DB::table('attachments')->orderBy('order')->get();
 
-        foreach($attachments as $attachment){
-            $attachment->product->addMediaFromUrl(cdn_file($attachment->path))->toCollection('attachments');
+        foreach ($attachments as $attachment) {
+            Product::find($attachment->product_id)->addMediaFromUrl(cdn_file($attachment->path))->toCollection('attachments');;
         }
+
+        $products = DB::table('products')->get();
+
+        foreach ($products as $product) {
+            Product::find($product->id)->addMediaFromUrl(cdn_file($product->image_path))->toCollection('product_images');;
+        }
+
+        $products = \App\Products\Product::with('provider')->get();
+
+        $json = [];
+
+        foreach ($products as $product) {
+            $json[] = ['id' => $product->id, 'link' => $product->provider->link()];
+        }
+
+        var_dump(json_encode($json));
     }
 }
