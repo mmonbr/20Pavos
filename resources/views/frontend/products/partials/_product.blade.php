@@ -3,7 +3,7 @@
 
     <div class="Product__media">
         <a href="{{ $product->link }}" target="_blank">
-            <img class="Product__media__image" src="{{ cdn_file($product->image_path) }}" alt="{{ $product->slug }}">
+            <img class="Product__media__image" src="{{ $product->image() }}" alt="{{ $product->slug }}">
         </a>
 
         @include('frontend.products.partials._share',
@@ -45,7 +45,7 @@
             'url'  => route('products.show', $product->slug),
             'name'  => $product->name,
             'description'  => $product->description,
-            'media' => http_file($product->image_path)
+            'media' => $product->image()
         ])
     </div>
 </div>

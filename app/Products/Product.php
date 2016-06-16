@@ -79,6 +79,16 @@ class Product extends Model implements SluggableInterface, HasMedia
         return (new LinkParser($link))->getLink();
     }
 
+    public function image()
+    {
+        return $this->getMedia('product_images')->first()->getUrl();
+    }
+
+    public function images()
+    {
+        return $this->getMedia('attachments');
+    }
+
     public function relatedProducts($items = 3)
     {
         return $this->whereHas('categories', function ($query) {

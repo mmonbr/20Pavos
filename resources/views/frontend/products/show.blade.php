@@ -3,7 +3,7 @@
 @section('content')
     <div class="ProductDetails">
         <div class="ProductDetails__media">
-            @foreach($product->attachments as $key => $attachment)
+            @foreach($product->images() as $key => $image)
                 <div class="ProductDetails__media__item">
                     @if($key == 0)
                         <h2 class="ProductDetails__media__item__title">{{ $product->name }}</h2>
@@ -17,7 +17,7 @@
                                         class="fitted random icon"></i> !Recargar!</a>
                         </div>
                     @endif
-                    <img class="ProductDetails__media__item__image" src="{{ cdn_file($attachment->path) }}"
+                    <img class="ProductDetails__media__item__image" src="{{ $image->getUrl() }}"
                          alt="{{ $product->slug }}">
                 </div>
             @endforeach
@@ -75,7 +75,7 @@
                 'url'  => route('products.show', $product->slug),
                 'name'  => $product->name,
                 'description'  => $product->description,
-                'media' => http_file($product->image_path)
+                'media' => $product->image()
             ])
 
     <div class="comments">

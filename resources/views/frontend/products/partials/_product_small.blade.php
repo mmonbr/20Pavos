@@ -3,7 +3,7 @@
 
     <div class="Product__media">
         <a href="{{ $product->provider->link() }}" target="_blank">
-            <img class="Product__media__image" src="{{ cdn_file($product->image_path) }}" alt="{{ $product->slug }}">
+            <img class="Product__media__image" src="{{ $product->image() }}" alt="{{ $product->slug }}">
         </a>
     </div>
 </div>
