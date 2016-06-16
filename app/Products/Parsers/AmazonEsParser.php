@@ -6,6 +6,6 @@ class AmazonEsParser implements LinkParser
 {
     public function build($link)
     {
-        return "{$link}&tag=derrochand0cc-21";
+        return "{$link}?tag=derrochand0cc-21";
     }
 }
