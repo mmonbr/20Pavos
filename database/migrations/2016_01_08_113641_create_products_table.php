@@ -17,11 +17,12 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->integer('price');
-            $table->string('link', 2083);
             $table->text('description');
+            $table->string('image_path');
             $table->string('video_url')->nullable();
             $table->integer('hits')->unsigned()->default(0);
             $table->boolean('featured')->unsigned()->default(false);
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }
