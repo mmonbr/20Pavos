@@ -7,15 +7,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class FilterProduct
 {
-    public static function apply(Request $filters, $paginate = false)
+    public static function apply(Request $filters, $paginated = true)
     {
         $query = static::applyDecoratorsFromRequest($filters, (new Product)->newQuery());
 
-        if (!$paginate) {
-            return static::getResults($query);
-        }
-
-        return static::getPaginatedResults($query);
+        return ($paginated) ? static::getPaginatedResults($query) : static::getResults($query);
     }
 
     private static function applyDecoratorsFromRequest(Request $request, Builder $query)
