@@ -21,7 +21,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $products = FilterProduct::apply($request, true);
+        $products = FilterProduct::apply($request);
 
         $this->addSEOTagsForHome();
 
