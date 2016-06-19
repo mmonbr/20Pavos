@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
-use Cache;
 use App\User;
-use LaravelAnalytics;
 use App\Products\Product;
 use Illuminate\Http\Request;
-use App\Utilities\SubscribersCache;
 use App\Http\Controllers\Controller;
 
 class BackendController extends Controller
