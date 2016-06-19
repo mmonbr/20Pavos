@@ -16,12 +16,11 @@ class ProductsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $products = FilterProduct::apply($request);
+        $products = Product::recent()->paginate(config('settings.products.results'));
 
         $this->addSEOTagsForHome();
 

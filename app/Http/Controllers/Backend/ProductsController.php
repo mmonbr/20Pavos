@@ -185,6 +185,6 @@ class ProductsController extends Controller
 
     private function findProduct($id)
     {
-        return Product::findOrFail($id);
+        return Product::withDrafts()->findOrFail($id);
     }
 }
