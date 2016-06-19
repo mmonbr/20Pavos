@@ -39,6 +39,8 @@ class Product extends Model implements SluggableInterface, HasMedia
         'build_from' => 'name',
     ];
 
+    protected $with = ['media'];
+
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     protected $searchableColumns = ['name', 'description'];
