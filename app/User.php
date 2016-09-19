@@ -10,7 +10,7 @@ use Sofa\Eloquence\Eloquence;
 
 class User extends Authenticatable
 {
-use Notifiable;
+    use Notifiable;
     use Eloquence;
 
     protected $searchableColumns = [
