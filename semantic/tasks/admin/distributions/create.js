@@ -20,7 +20,7 @@ var
   runSequence     = require('run-sequence'),
   mergeStream     = require('merge-stream'),
 
-  // AdminLTE dependencies
+  // admin dependencies
   concatFileNames = require('gulp-concat-filenames'),
   debug           = require('gulp-debug'),
   flatten         = require('gulp-flatten'),
@@ -33,7 +33,7 @@ var
 
   // config
   config          = require('../../config/user'),
-  release         = require('../../config/AdminLTE/release'),
+  release         = require('../../config/admin/release'),
   project         = require('../../config/project/release'),
 
   // shorthand

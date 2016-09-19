@@ -1,6 +1,7 @@
-var elixir = require('laravel-elixir');
-
+const elixir = require('laravel-elixir');
 elixir.config.sourcemaps = false;
+
+require('laravel-elixir-vue');
 
 /*
  |--------------------------------------------------------------------------
@@ -66,7 +67,7 @@ elixir(function (mix) {
     ], './public/css/app.min.css', './public/css');
 
     //Scripts
-    mix.browserify('app.js');
+    mix.webpack('app.js');
 
     mix.scripts([
         'lib/slick/slick.min.js',
@@ -80,7 +81,7 @@ elixir(function (mix) {
         'app.js'
     ], './public/js/app.min.js', './public/js');
 
-    mix.browserify('admin.js');
+    mix.webpack('admin.js');
 });
 
 /*
