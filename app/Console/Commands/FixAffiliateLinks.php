@@ -52,17 +52,17 @@ class FixAffiliateLinks extends Command
     private function fixLink($link)
     {
         //Amazon
-        $link = str_replace('/?tag=derrochand0cc-21', '',$link);
+        $link = str_replace('/?tag=derrochand0cc-21', '', $link);
         //Etsy
-        $link = str_replace('https://ad.zanox.com/ppc/?37234259C655268832&ulp=[[', '',$link);
+        $link = str_replace('https://ad.zanox.com/ppc/?37234259C655268832&ulp=[[', '', $link);
         //Curiosite
-        $link = str_replace('http://track.webgains.com/click.html?wgcampaignid=190819&wgprogramid=2401&wgtarget=', '',$link);
+        $link = str_replace('http://track.webgains.com/click.html?wgcampaignid=190819&wgprogramid=2401&wgtarget=', '', $link);
         //Juguetrónica
-        $link = str_replace('http://track.webgains.com/click.html?wgcampaignid=190819&wgprogramid=11429&wgtarget=', '',$link);
+        $link = str_replace('http://track.webgains.com/click.html?wgcampaignid=190819&wgprogramid=11429&wgtarget=', '', $link);
         //Factoría de Regalos
-        $link = str_replace('http://track.webgains.com/click.html?wgcampaignid=190819&wgprogramid=9965&wgtarget=', '',$link);
+        $link = str_replace('http://track.webgains.com/click.html?wgcampaignid=190819&wgprogramid=9965&wgtarget=', '', $link);
         //Cierre WebGains
-        $link = str_replace(']]', '',$link);
+        $link = str_replace(']]', '', $link);
 
         return $link;
     }

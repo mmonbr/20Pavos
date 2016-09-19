@@ -117,8 +117,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Back
         ->name('categories.up');
     Route::patch('categories/{id}/down', 'CategoriesController@moveDown')
         ->name('categories.down');
-    Route::patch('categories/{id}/makeChildrenOf',
-        'CategoriesController@makeChildrenOf')->name('categories.makeChildrenOf');
+    Route::patch(
+        'categories/{id}/makeChildrenOf',
+        'CategoriesController@makeChildrenOf'
+    )->name('categories.makeChildrenOf');
 
     #Productos
     Route::resource('products', 'ProductsController');

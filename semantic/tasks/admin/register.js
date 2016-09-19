@@ -13,7 +13,7 @@ var
   process = require('child_process'),
 
   // config
-  release = require('../config/AdminLTE/release'),
+  release = require('../config/admin/release'),
 
   // register components and distributions
   repos   = release.distributions.concat(release.components),

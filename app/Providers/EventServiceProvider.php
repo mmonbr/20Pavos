@@ -2,7 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use App\Events\ProductWasHit;
+use App\Events\UserSubscribed;
+use App\Events\UserUnsubscribed;
+use App\Listeners\HitProduct;
+use App\Listeners\SubscribeUser;
+use App\Listeners\UnsubscribeUser;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -13,32 +19,20 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        /*
-         * Products
-         */
-        'App\Events\ProductWasHit' => [
-            'App\Listeners\HitProduct',
-        ],
-
-        /*
-         * Newsletter
-         */
-        'App\Events\UserSubscribed' => [
-            'App\Listeners\SubscribeUser',
-        ],
-        'App\Events\UserUnsubscribed' => [
-            'App\Listeners\UnsubscribeUser',
-        ],
+        ProductWasHit::class    => [HitProduct::class],
+        UserSubscribed::class   => [SubscribeUser::class],
+        UserUnsubscribed::class => [UnsubscribeUser::class]
     ];
 
     /**
-     * Register any other events for your application.
+     * Register any events for your application.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
-    public function boot(DispatcherContract $events)
+    public function boot()
     {
-        parent::boot($events);
+        parent::boot();
+
+        //
     }
 }

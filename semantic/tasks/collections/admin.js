@@ -17,18 +17,18 @@
 module.exports = function(gulp) {
   var
     // less/css distributions
-    initComponents      = require('../AdminLTE/components/init'),
-    createComponents    = require('../AdminLTE/components/create'),
-    updateComponents    = require('../AdminLTE/components/update'),
+    initComponents      = require('../admin/components/init'),
+    createComponents    = require('../admin/components/create'),
+    updateComponents    = require('../admin/components/update'),
 
     // single component releases
-    initDistributions   = require('../AdminLTE/distributions/init'),
-    createDistributions = require('../AdminLTE/distributions/create'),
-    updateDistributions = require('../AdminLTE/distributions/update'),
+    initDistributions   = require('../admin/distributions/init'),
+    createDistributions = require('../admin/distributions/create'),
+    updateDistributions = require('../admin/distributions/update'),
 
-    release             = require('../AdminLTE/release'),
-    publish             = require('../AdminLTE/publish'),
-    register            = require('../AdminLTE/register')
+    release             = require('../admin/release'),
+    publish             = require('../admin/publish'),
+    register            = require('../admin/register')
   ;
 
   /* Release */

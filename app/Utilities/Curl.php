@@ -1,7 +1,9 @@
 <?php namespace App\Utilities;
 
-class Curl {
-    public function post($url, $payload){
+class Curl
+{
+    public function post($url, $payload)
+    {
         $ch = curl_init($url);
 
         curl_setopt($ch, CURLOPT_POST, 1);
