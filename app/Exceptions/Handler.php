@@ -45,8 +45,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($e instanceof ModelNotFoundException)
-        {
+        if ($e instanceof ModelNotFoundException) {
             alert()->error('No hemos podido encontrar lo que estás buscando. Sentimos las molestias.', '¡Woops!')->persistent('Entendido');
 
             return redirect(route('home'));

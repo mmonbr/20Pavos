@@ -2,7 +2,8 @@
 
 use App\Products\Scopes\PublishedScope;
 
-trait Published {
+trait Published
+{
 
     /**
      * Boot the scope.

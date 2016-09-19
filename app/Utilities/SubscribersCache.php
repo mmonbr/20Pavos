@@ -4,7 +4,8 @@ use Carbon\Carbon;
 use Spatie\Newsletter\MailChimp\Newsletter;
 use Illuminate\Cache\Repository as CacheRepository;
 
-class SubscribersCache {
+class SubscribersCache
+{
 
     protected $newsletter;
     protected $cache;

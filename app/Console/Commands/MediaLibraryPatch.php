@@ -42,13 +42,15 @@ class MediaLibraryPatch extends Command
         $attachments = DB::table('attachments')->orderBy('order')->get();
 
         foreach ($attachments as $attachment) {
-            Product::find($attachment->product_id)->addMediaFromUrl(cdn_file($attachment->path))->toCollection('attachments');;
+            Product::find($attachment->product_id)->addMediaFromUrl(cdn_file($attachment->path))->toCollection('attachments');
+            ;
         }
 
         $products = DB::table('products')->get();
 
         foreach ($products as $product) {
-            Product::find($product->id)->addMediaFromUrl(cdn_file($product->image_path))->toCollection('product_images');;
+            Product::find($product->id)->addMediaFromUrl(cdn_file($product->image_path))->toCollection('product_images');
+            ;
         }
 
         $products = \App\Products\Product::with('provider')->get();

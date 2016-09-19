@@ -22,35 +22,40 @@ class ComposerServiceProvider extends ServiceProvider
          * Header Categories
          */
         view()->composer(
-            ['frontend.layouts.partials._header'], 'App\Http\ViewComposers\Frontend\HeaderCategories'
+            ['frontend.layouts.partials._header'],
+            'App\Http\ViewComposers\Frontend\HeaderCategories'
         );
 
         /*
         * Subscribers
         */
         view()->composer(
-            ['frontend.layouts.partials._block'], 'App\Http\ViewComposers\Frontend\Subscribers'
+            ['frontend.layouts.partials._block'],
+            'App\Http\ViewComposers\Frontend\Subscribers'
         );
 
         /*
          * FeaturedProducts
          */
         view()->composer(
-            ['frontend.layouts.partials._block'], 'App\Http\ViewComposers\Frontend\FeaturedProducts'
+            ['frontend.layouts.partials._block'],
+            'App\Http\ViewComposers\Frontend\FeaturedProducts'
         );
 
         /*
          * Widgets - Top Products
          */
         view()->composer(
-            'frontend.layouts.widgets.top', 'App\Http\ViewComposers\Frontend\Widgets\TopProducts'
+            'frontend.layouts.widgets.top',
+            'App\Http\ViewComposers\Frontend\Widgets\TopProducts'
         );
 
         /*
          * Widgets - Search
          */
         view()->composer(
-            'frontend.layouts.partials._search', 'App\Http\ViewComposers\Frontend\SearchForm'
+            'frontend.layouts.partials._search',
+            'App\Http\ViewComposers\Frontend\SearchForm'
         );
 
         /*
@@ -63,11 +68,13 @@ class ComposerServiceProvider extends ServiceProvider
                 'backend.categories.create',
                 'backend.products.edit',
                 'backend.products.create',
-            ], 'App\Http\ViewComposers\Backend\CategoriesList'
+            ],
+            'App\Http\ViewComposers\Backend\CategoriesList'
         );
 
         view()->composer(
-            'backend.dashboard', 'App\Http\ViewComposers\Backend\Dashboard'
+            'backend.dashboard',
+            'App\Http\ViewComposers\Backend\Dashboard'
         );
     }
 
