@@ -5,10 +5,12 @@ namespace App;
 use App\Events\UserSubscribed;
 use App\Events\UserUnsubscribed;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Sofa\Eloquence\Eloquence;
 
 class User extends Authenticatable
 {
+use Notifiable;
     use Eloquence;
 
     protected $searchableColumns = [
